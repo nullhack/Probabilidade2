@@ -1,0 +1,410 @@
+%% LICENSE: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+
+%% Este arquivo pode ser modificado e reproduzido por qualquer meio,
+%% para qualquer fim, desde que mantidos os autores e editores da
+%% lista abaixo. E o código gerado seja disponível de forma pública.
+%% conforme os critérios da licença Creative Commons, versão
+%% Attribution-ShareAlike (https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+%% Peço somente (não há obrigatoriedade) que caso faça alguma alteração,
+%% me envie as talerações para que possamos melhorar este documento.
+%% Obrigado.
+
+%% Author: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 02/09/2012
+%% Edited by: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 14/09/2015
+%% Edited by:
+
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxlist}[1]
+{\begin{list}{}
+{\settowidth{\labelwidth}{#1}
+ \setlength{\leftmargin}{\labelwidth}
+ \addtolength{\leftmargin}{\labelsep}
+ \renewcommand{\makelabel}[1]{##1\hfil}}}
+{\end{list}}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Probabilidade 2 - ME310 - Lista 4}
+
+\maketitle
+
+\subsubsection*{Lembrando:}
+\begin{enumerate}
+\item Geratriz de momentos: $M_{X}(t)=\mathbf{E}(e^{t\cdot X})=\int_{-\infty}^{+\infty}e^{t\cdot x}\cdot f(x)\cdot dx$,
+observe que $\frac{dM_{X}(t)}{dt}=\int_{-\infty}^{+\infty}x\cdot e^{t\cdot x}\cdot f(x)\cdot dx\implies\frac{dM_{X}(0)}{dt}=\int_{-\infty}^{+\infty}x\cdot e^{t\cdot0}\cdot f(x)\cdot dx=\int_{-\infty}^{+\infty}x\cdot f(x)\cdot dx=\mathbf{E}(X)$,
+da mesma maneira, generalizando temos $\frac{d^{n}M_{X}(t)}{dt^{n}}=\int_{-\infty}^{+\infty}x^{n}\cdot e^{t\cdot x}\cdot f(x)\cdot dx\implies\frac{d^{n}M_{X}(0)}{dt^{n}}=\int_{-\infty}^{+\infty}x^{n}\cdot e^{t\cdot0}\cdot f(x)\cdot dx=\int_{-\infty}^{+\infty}x^{n}\cdot f(x)\cdot dx=\mathbf{E}(X^{n})$,
+esta propriedade é muito útil, pois em geral, derivar é muito mais
+fácil que integrar, e para calcular esperança, desvio padrão, etc.
+precisamos do cálculo de vários $\mathbf{E}(X^{n})$, imagina se fossemos
+calcular vários $\mathbf{E}(X^{n})$ na unha... duas, três integrais.
+\item $X\sim Poisson(\lambda)\implies f_{X}(x)=e^{-\lambda}\cdot\frac{\lambda^{x}}{x!}\implies M_{X}(t)=\mathbf{E}(e^{t\cdot X})=e^{\lambda(e^{t}-1)}$
+\item $Y\sim Bernoulli(p)\implies f_{Y}(n)=p^{n}\cdot(1-p)^{1-n}$, para
+$n\in\{0,1\}$ logo $\mathbf{E}(Y)=\sum_{i=0}^{i=1}i\cdot f_{Y}(i)\implies M_{Y}(t)=\mathbf{E}(e^{t\cdot Y})=e^{0\cdot t}\cdot(1-p)+e^{1\cdot t}\cdot p=p.e^{t}+1-p$
+\item Geratriz de momentos conjunta (pg. 430 Ross): $M_{X,Y,Z....}(t_{X},t_{Y},t_{Z},...)=\mathbf{E}(e^{t_{X}\cdot X+t_{Y}\cdot Y+t_{Z}\cdot Z+...})$,
+observe que tem a mesma propriedade da geratriz de momentos, isto
+é, derivando parcialmente em termos de $t_{i}$ obtemos valores de
+esperança, etc.
+\item $X\sim Normal(\mu,\sigma^{2})\implies M_{X}(t)=\int_{-\infty}^{+\infty}e^{X\cdot t}\cdot\frac{1}{\sqrt{2\pi}}\cdot e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}dx=e^{\mu t+\sigma^{2}\frac{t^{2}}{2}}$,
+pag. 425 Ross
+\item Desigualdade de Markov: temos só esperança ($\mu>0$) e $X$ só assume
+valores positivos então $P(X>k)\le\frac{\mu}{k}$ para todo $k>0$
+
+\begin{itemize}
+\item Prova: $\mathbf{E}(X)=\sum_{\omega\in\Omega}X(\omega)\cdot p(\omega)=\sum_{\omega\ge a}X(\omega)\cdot p(\omega)+\sum_{\omega<a}X(\omega)\cdot p(\omega)\ge\sum_{\omega\ge a}X(\omega)\cdot p(\omega)\ge\sum_{\omega\ge a}a\cdot p(\omega)=a\cdot\sum_{\omega\ge a}p(\omega)=a\cdot P(X\ge a)\implies\frac{\mathbf{E}(X)}{a}\ge P(X\ge a)$
+\end{itemize}
+\item Desigualdade de Chebyshev: temos variância ($\sigma^{2}<+\infty$)
+e a esperança ($\mu<+\infty$) concluímos que $P(\left|X-\mu\right|>k)\le\frac{\sigma^{2}}{k^{2}}$ 
+
+\begin{itemize}
+\item Prova:\end{itemize}
+\begin{lyxlist}{00.00.0000}
+\item [{Usando}] desigualdade de Markov, temos: $P(\left|X-\mu\right|\ge k)=P(\left|X-\mu\right|^{2}\ge k^{2})\le\frac{\mathbf{E}(\left|X-\mu\right|^{2})}{k^{2}}$
+\end{lyxlist}
+\item Desigualdade de Jensen: se $g(x)$ é convexa ('boca pra cima', ou
+equivalente $\frac{d^{2}g(x)}{dx^{2}}>0$ ou $g(\lambda x_{1}+(1-\lambda)x_{2})\le\lambda g(x_{1})+(1-\lambda)g(x_{2})$
+com $\lambda\in[0,1]$), e sabemos a esperança de $X$, $\mathbf{E}(X)=\mu$,
+vale a relação $\mathbf{E}(g(X))\ge g(\mu)$, observe que na primeira
+aplicamos a função sobre uma variável aleatória e na segunda sobre
+uma constante.
+
+\begin{itemize}
+\item Prova (caso discreto, mais extensa do que acho que valha a pena colocar
+aqui): www.ma.utexas.edu/users/ecarneiro/DesJensen.pdf 
+\end{itemize}
+\end{enumerate}
+\pagebreak{}
+
+
+\subsection*{\textmd{1) As funções geratrizes de momentos das v.a. $X$ e $Y$
+são $M_{X}(t)=e^{2\cdot e^{t}-2}$ e $M_{Y}(t)=\frac{3}{4}+\frac{1}{4}\cdot e^{t}$.Se
+X e Y são independentes, calcule:}}
+
+
+\subsubsection*{\textmd{a) $\mathbf{E}(X\cdot Y)$}}
+
+Resp. a)
+\begin{itemize}
+\item $X$ e $Y$ são independentes, logo, $\mathbf{E}(X\cdot Y)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}x\cdot y\cdot f_{X,Y}(x,y)dxdy=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}x\cdot y\cdot f_{X}(x)\cdot f_{Y}(y)dxdy=\int_{-\infty}^{+\infty}x\cdot f_{X}(x)dx\cdot\int_{-\infty}^{+\infty}y\cdot f_{Y}(y)dy=\mathbf{E}(X)\cdot\mathbf{E}(Y)=\frac{dM_{X}(0)}{dt}\cdot\frac{dM_{Y}(0)}{dt}$
+\item Vamos calcular $\frac{dM_{X}(t)}{dt}=\frac{d(e^{2\cdot e^{t}-2})}{dt}=2\cdot e^{t}\cdot e^{2\cdot e^{t}-2}\implies\frac{dM_{X}(0)}{dt}=2\cdot e^{0}\cdot e^{2\cdot e^{0}-2}=2$
+\item Vamos calcular $\frac{dM_{Y}(t)}{dt}=\frac{d(\frac{3}{4}+\frac{1}{4}\cdot e^{t})}{dt}=\frac{1}{4}\cdot e^{t}\implies\frac{dM_{Y}(0)}{dt}=\frac{1}{4}\cdot e^{0}=\frac{1}{4}$
+\item Portanto a solução é: $\mathbf{E}(X\cdot Y)=\mathbf{E}(X)\cdot\mathbf{E}(Y)=\frac{dM_{X}(0)}{dt}\cdot\frac{dM_{Y}(0)}{dt}=2\cdot\frac{1}{4}=\frac{1}{2}$
+\end{itemize}
+
+\subsubsection*{\textmd{b) $P(X+Y=2)$, dica, identifique as distribuições}}
+
+Resp. b)
+\begin{itemize}
+\item de 2,3: $X~Poisson(2)$, $Y\sim Bernoulli(\frac{1}{4})$
+\item $P(X+Y=2)=\mathbf{E}(P(X+Y=2/Y=n))=P(X+Y=2/Y=0)\cdot P(Y=0)+P(X+Y=2/Y=1)\cdot P(Y=1)$
+\item sabemos que $X$ e $Y$ são independentes, logo $p(X+Y=m/Y=n)=\frac{p(X=m-Y\cap Y=n)}{P(Y=n)}\overset{ind.}{=}\frac{p(X=m-n)\cdot P(Y=n)}{P(Y=n)}=p(X=m-n)$
+\item $P(X+Y=2)=P(X=2)\cdot P(Y=0)+P(X=1)\cdot P(Y=1)=\frac{3}{4}\cdot e^{-2}\cdot\frac{2^{2}}{2!}+\frac{1}{4}\cdot e^{-2}\cdot\frac{2^{1}}{1!}=2\cdot e^{-2}$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{2) Dois dados são lançados. Seja X o resultado no primeiro
+dado e Y a soma dos resultados. Calcule a função geratriz de momentos
+conjunta das v.a. X e Y}}
+
+Resp. 2)
+\begin{itemize}
+\item $X\sim U(1,6)$ discreta; $Z\sim U(1,6)$ discreta; dado $Y=X+Z$
+queremos $M_{X,Y}(t_{X},t_{Y})=\mathbf{E}(e^{X\cdot t_{X}+Y\cdot t_{Y}})$
+\item Vamos usar um truque, sabemos que $\mathbf{E}(\mathbf{E}(f(X,Y)/X))=\mathbf{E}(f(X,Y))$,
+e $\mathbf{E}(k\cdot X)=k\cdot\mathbf{E}(X)$ para k constante
+\item $\mathbf{E}(e^{X\cdot t_{X}+Y\cdot t_{Y}}/X=x)\overset{ind.}{=}e^{x\cdot t_{X}}\cdot\mathbf{E}(e^{Y\cdot t_{Y}})=e^{x\cdot t_{X}}\cdot\sum_{y=x+1}^{y=x+6}(\frac{1}{6}\cdot e^{y\cdot t_{Y}})=\frac{1}{6}\cdot e^{x\cdot t_{X}}\cdot(e^{(1+x)\cdot t_{Y}}+e^{(2+x)\cdot t_{Y}}+e^{(3+x)\cdot t_{Y}}+e^{(4+x)\cdot t_{Y}}+e^{(5+x)\cdot t_{Y}}+e^{(6+x)\cdot t_{Y}})=\frac{1}{6}\cdot e^{x\cdot(t_{X}+t_{Y})}\cdot\sum_{i=1}^{i=6}(e^{i\cdot t_{Y}})$
+\item $\mathbf{E}(e^{X\cdot t_{X}+Y\cdot t_{Y}})=\mathbf{E}(\mathbf{E}(e^{X\cdot t_{X}+Y\cdot t_{Y}}/X=x))=\mathbf{E}(\frac{1}{6}\cdot e^{x\cdot(t_{X}+t_{Y})}\cdot\sum_{i=1}^{i=6}(e^{i\cdot t_{Y}}))=\frac{1}{6}\cdot\sum_{i=1}^{i=6}(e^{i\cdot t_{Y}})\cdot\mathbf{E}(e^{x\cdot(t_{X}+t_{Y})})=\frac{1}{6}\cdot\sum_{i=1}^{i=6}(e^{i\cdot t_{Y}})\cdot\sum_{x=1}^{x=6}(e^{x\cdot(t_{X}+t_{Y})})\cdot\frac{1}{6}=\frac{1}{36}\cdot\sum_{i=1}^{i=6}\sum_{x=1}^{x=6}(e^{i\cdot t_{Y}+x\cdot(t_{X}+t_{Y})})$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{3) A densidade conjunta das v.a. $X$ e $Y$ é dada por}}
+
+\[
+f(x,y)=\frac{1}{\sqrt{2\pi}}\cdot e^{-y}\cdot e^{-\frac{(x-y)^{2}}{2}}\ ,\ \ 0<y<\infty,\ x\in\mathbb{R}
+\]
+
+
+
+\subsection*{\textmd{calcule a função geratriz de momentos conjunta e as funções
+geratrizes de momentos individuais.}}
+
+Resp. 3)
+\begin{itemize}
+\item $f_{x,y}(x,y)=\frac{1}{\sqrt{2\pi}}\cdot e^{-y}\cdot e^{-\frac{(x-y)^{2}}{2}}\cdot\mathbf{I}_{\{0<y<\infty\}}$
+\item $M_{X,Y}(t_{X},t_{Y})=\mathbf{E}(e^{X\cdot t_{X}+Y\cdot t_{Y}})=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}e^{x\cdot t_{X}+y\cdot t_{Y}}\cdot\frac{1}{\sqrt{2\pi}}\cdot e^{-y}\cdot e^{-\frac{(x-y)^{2}}{2}}\cdot\mathbf{I}_{\{0<y<\infty\}}dydx=\int_{0}^{+\infty}e^{y\cdot t_{Y}}\cdot e^{-y}\cdot\int_{-\infty}^{+\infty}e^{x\cdot t_{X}}\cdot\frac{1}{\sqrt{2\pi}}\cdot e^{-\frac{(x-y)^{2}}{2}}dxdy$
+\item Mas, de 5, $\int_{-\infty}^{+\infty}e^{x\cdot t_{X}}\cdot\frac{1}{\sqrt{2\pi}}\cdot e^{-\frac{(x-y)^{2}}{2}}dx$
+equivale a $M_{X}(t_{X})$ em que $X\sim Normal(y,1)\implies M_{X}(t_{X})=e^{y\cdot t_{X}+\frac{t_{X}^{2}}{2}}$
+\item Assim, $M_{X,Y}(t_{X},t_{Y})=\int_{0}^{+\infty}e^{y\cdot t_{Y}}\cdot e^{-y}\cdot e^{y\cdot t_{X}+\frac{t_{X}^{2}}{2}}dy=e^{\frac{t_{X}^{2}}{2}}\int_{0}^{+\infty}e^{y\cdot(t_{Y}+t_{X}-1)}dy=\frac{e^{\frac{t_{X}^{2}}{2}}}{1-t_{Y}-t_{X}}$,
+se $t_{Y}+t_{X}<1$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{4) Sejam $X$, $Y$ v.a. independentes, sendo $M_{X}(z)$,$M_{Y}(z)$
+as funções geratrizes delas. Determine a função geratriz de momentos
+da v.a. $U=4X+7Y$}}
+
+
+\subsubsection*{\textmd{Resp. 4) }$M_{U}(z)=\mathbf{E}(e^{zU})=\mathbf{E}(e^{z(4X+7Y)})=\mathbf{E}(e^{4zX}\cdot e^{7zY})\protect\overset{ind.}{=}\mathbf{E}(e^{4zX})\cdot\mathbf{E}(e^{7zY})=M_{X}(4z)\cdot M_{Y}(7z)$}
+
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{5) Sejam $X$ e $Y$ duas v.a. independentes, cada uma com
+distribuição Normal. Prove que $X+Y$ e $X-Y$ são independentes se
+e somente se $Var(x)=Var(y)$}}
+
+
+\subsubsection*{\textmd{Resp. 5) }}
+\begin{enumerate}
+\item Prova da volta
+
+\begin{itemize}
+\item Hipótese: $Var(x)=Var(y)$, $X$ e $Y$ são independentes
+\item Tese: $X+Y$ e $X-Y$ são independentes
+\end{itemize}
+
+$M_{X+Y,X-Y}(t_{1},t_{2})=\mathbf{E}(e^{(X+Y)\cdot t_{1}+(X-Y)\cdot t_{2}})=\mathbf{E}(e^{X\cdot(t_{1}+t_{2})+Y\cdot(t_{1}-t_{2})})\overset{ind.}{=}\mathbf{E}(e^{X\cdot(t_{1}+t_{2})})\cdot\mathbf{E}(e^{Y\cdot(t_{1}-t_{2})})$
+
+
+$\mathbf{E}(e^{X\cdot(t_{1}+t_{2})})\cdot\mathbf{E}(e^{Y\cdot(t_{1}-t_{2})})=\mathbf{E}(e^{X\cdot T_{1}})\cdot\mathbf{E}(e^{Y\cdot T_{2}})=M_{X}(T_{1})\cdot M_{Y}(T_{2})$,
+com $T_{1}=t_{1}+t_{2}$ e $T_{2}=t_{1}-t_{2}$
+
+
+utilizando 5, temos:
+
+
+$\mathbf{E}(e^{X\cdot(t_{1}+t_{2})})\cdot\mathbf{E}(e^{Y\cdot(t_{1}-t_{2})})=M_{X}(T_{1})\cdot M_{Y}(T_{2})=e^{\mu_{1}T_{1}+\sigma_{1}^{2}\frac{T_{1}^{2}}{2}}\cdot e^{\mu_{2}T_{2}+\sigma_{2}^{2}\frac{T_{2}^{2}}{2}}=e^{\mu_{1}(t_{1}+t_{2})+\sigma_{1}^{2}\frac{(t_{1}+t_{2}){}^{2}}{2}}\cdot e^{\mu_{2}(t_{1}-t_{2})+\sigma_{2}^{2}\frac{(t_{1}-t_{2}){}^{2}}{2}}$
+
+
+utilizando a hipótese que $Var(x)=Var(y)$ temos $\sigma_{1}^{2}=\sigma_{2}^{2}$
+(vamos chamar de $\sigma^{2}$), substituindo isso na equação até
+agora temos
+
+
+$e^{\mu_{1}(t_{1}+t_{2})+\sigma^{2}\frac{(t_{1}+t_{2}){}^{2}}{2}}\cdot e^{\mu_{2}(t_{1}-t_{2})+\sigma^{2}\frac{(t_{1}-t_{2}){}^{2}}{2}}=e^{\mu_{1}(t_{1}+t_{2})}\cdot e^{\mu_{2}(t_{1}-t_{2})}\cdot e^{\sigma^{2}(t_{1}^{2}+t_{2}^{2})}=e^{(\mu_{1}+\mu_{2})t_{1}}\cdot e^{(\mu_{1-}\mu_{2})t_{2}}\cdot e^{\sigma^{2}(t_{1}^{2}+t_{2}^{2})}=$
+
+
+$e^{(\mu_{1}+\mu_{2})t_{1}}\cdot e^{\sigma^{2}t_{1}^{2}}\cdot e^{(\mu_{1-}\mu_{2})t_{2}}\cdot e^{\sigma^{2}t_{2}^{2}}=M_{X+Y}(t_{1})\cdot M_{X-Y}(t_{2})$
+
+
+Ou seja, mostramos que $M_{X+Y,X-Y}(t_{1},t_{2})=M_{X+Y}(t_{1})\cdot M_{X-Y}(t_{2})\implies$$X+Y$
+e $X-Y$ são independentes
+
+\item Prova da ida
+
+\begin{itemize}
+\item Hipótese: $X+Y$ e $X-Y$ são independentes, $X$ e $Y$ são independentes
+\item Tese: $Var(x)=Var(y)$
+\end{itemize}
+
+temos:
+
+
+$M_{X+Y,X-Y}(t_{1},t_{2})=\mathbf{E}(e^{(X+Y)\cdot t_{1}+(X-Y)\cdot t_{2}})=\mathbf{E}(e^{X\cdot(t_{1}+t_{2})+Y\cdot(t_{1}-t_{2})})\overset{ind.}{=}\mathbf{E}(e^{X\cdot(t_{1}+t_{2})})\cdot\mathbf{E}(e^{Y\cdot(t_{1}-t_{2})})=e^{\mu_{1}(t_{1}+t_{2})+\sigma_{1}^{2}\frac{(t_{1}+t_{2}){}^{2}}{2}}\cdot e^{\mu_{2}(t_{1}-t_{2})+\sigma_{2}^{2}\frac{(t_{1}-t_{2}){}^{2}}{2}}$
+
+
+por outro lado, também temos:
+
+
+$M_{X+Y,X-Y}(t_{1},t_{2})=\mathbf{E}(e^{(X+Y)\cdot t_{1}+(X-Y)\cdot t_{2}})\overset{hip.}{=}\mathbf{E}(e^{(X+Y)\cdot t_{1}})\cdot\mathbf{E}(e^{(X-Y)\cdot t_{2}})=e^{(\mu_{1}+\mu_{2})t_{1}}\cdot e^{(\sigma_{1}^{2}+\sigma_{2}^{2})t_{1}^{2}}\cdot e^{(\mu_{1}-\mu_{2})t_{2}}\cdot e^{(\sigma_{1}^{2}+\sigma_{2}^{2})t_{2}^{2}}$
+
+
+ambos os resultados estão certo pela nossa hipótese, ou seja:
+
+
+$e^{\mu_{1}(t_{1}+t_{2})+\sigma_{1}^{2}\frac{(t_{1}+t_{2}){}^{2}}{2}}\cdot e^{\mu_{2}(t_{1}-t_{2})+\sigma_{2}^{2}\frac{(t_{1}-t_{2}){}^{2}}{2}}=e^{(\mu_{1}+\mu_{2})t_{1}}\cdot e^{(\sigma_{1}^{2}+\sigma_{2}^{2})t_{1}^{2}}\cdot e^{(\mu_{1}-\mu_{2})t_{2}}\cdot e^{(\sigma_{1}^{2}+\sigma_{2}^{2})t_{2}^{2}}$
+
+
+isso impõe que:
+
+
+$\mu_{1}(t_{1}+t_{2})+\sigma_{1}^{2}\frac{(t_{1}+t_{2}){}^{2}}{2}+\mu_{2}(t_{1}-t_{2})+\sigma_{2}^{2}\frac{(t_{1}-t_{2}){}^{2}}{2}=(\mu_{1}+\mu_{2})t_{1}+(\sigma_{1}^{2}+\sigma_{2}^{2})t_{1}^{2}+(\mu_{1}-\mu_{2})t_{2}+(\sigma_{1}^{2}+\sigma_{2}^{2})t_{2}^{2}$
+
+
+eliminando os termos iguais em ambos os lados ficamos com:
+
+
+$\sigma_{1}^{2}t_{1}t_{2}-\sigma_{2}^{2}t_{1}t_{2}=0\implies\sigma_{1}=\sigma_{2}$
+
+\end{enumerate}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{6) O número de automóveis vendidos por semana por uma concessionária
+é uma v.a. com média 15 e variância 4. O que você pode dizer sobre
+a probabilidade de que numa semana serão vendidos de 11 a 19 (inclusive)
+automóveis? Se durante uma semana foram vendidos $X$ automóveis,
+então o lucro da concessionária (em mil reais) é igual a $0,5\cdot X^{11/10}$.
+O que você pode dizer sobre o lucro médio semanal da concessionária?}}
+
+
+\subsubsection*{\textmd{Resp. 6)}}
+
+Temos a variância $\sigma^{2}=4$ e temos a média $\mu=15$
+\begin{itemize}
+\item $P(11\le X\le19)=P(\left|X-15\right|\le4)=1-P(\left|X-15\right|>4)=1-P(\left|X-15\right|\ge5)$
+\item mas $P(\left|X-15\right|\ge5)\le\frac{4}{25}\implies-P(\left|X-15\right|\ge5)\ge-\frac{4}{25}\implies1-P(\left|X-15\right|\ge5)\ge1-\frac{4}{25}\ge\frac{21}{25}=\frac{84}{100}$
+\end{itemize}
+Para a segunda parte usamos a desigualdade de Jensen:
+\begin{itemize}
+\item $f(x)=0,5\cdot x^{11/10}$; $\frac{df(x)}{dx}=0,5\cdot\frac{11}{10}x^{1/10}$;
+$\frac{d^{2}f(x)}{dx^{2}}=0,5\cdot\frac{11}{100}x^{-9/10}>0\ \forall x$,
+ou seja, convexa.
+\item $\mathbf{E}(f(X))\ge f(\mathbf{E}(X))\ge0,5\cdot\mu^{11/10}\ge0,5\cdot15^{11/10}=9.832,65\ Reais/semana$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{7) A nota final dos alunos de ME310 é uma v.a. com média
+5,5}}
+
+
+\subsubsection*{\textmd{a) Obtenha uma cota superior para a probabilidade de tirar
+uma nota acima de 7,0}}
+
+Resp. a)
+
+Usando desigualdade de Markov, temos
+\begin{itemize}
+\item $P(X\ge7)\le\frac{5,5}{7,0}=0,7857$
+\end{itemize}
+
+\subsubsection*{\textmd{b) Além da média sabe-se que a variância da nota final é
+2,5. Quantos alunos de ter a turma para que a nota média da turma
+esteja entre 5,0 e 6,0 com probabilidade pelo menos 0,95 (sem usar
+o teorema central do limite!) ?}}
+
+Resp. b)
+\begin{itemize}
+\item $\mu=5,5$; $\sigma^{2}=2,5$; $S_{n}=\sum_{i=1}^{i=n}X_{i}$
+\item Usando a desigualdade de Chebyshev temos:
+
+
+$P(\left|\frac{S_{n}}{n}-5,5\right|<0,5)=P(\left|S_{n}-n\cdot5,5\right|<n\cdot0,5)=1-P(\left|S_{n}-n\cdot5,5\right|\ge n\cdot0,5)\ge1-\frac{Var(S_{n})}{(n\cdot0,5)^{2}}$
+
+
+Mas também queremos
+
+
+$P(\left|\frac{S_{n}}{n}-5,5\right|<0,5)\ge0,95$
+
+
+portanto, basta que:
+
+
+$1-\frac{Var(S_{n})}{(n\cdot0,5)^{2}}\ge0,95\implies Var(S_{n})\le0,05(n\cdot0,5)^{2}\implies Var(\sum_{i=1}^{i=n}X_{i})\le0,05(n\cdot0,5)^{2}$
+
+
+Assumindo que as notas são independentes (é aqui que o professor identifica
+porcentagem de colas na sala =P)
+
+
+$n\cdot Var(X)\le0,05(n\cdot0,5)^{2}\implies n\cdot2,5\le0,05(n\cdot0,5)^{2}\implies n\ge200$
+
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{8) Seja X uma v.a. não negativa com $\mathbf{E}(X)=25$.
+O que você pode dizer sobre $\mathbf{E}(\sqrt{X})$ e $\mathbf{E}(X^{3})$
+?}}
+
+Resp. 8)
+\begin{itemize}
+\item $f(x)=\sqrt{x}$ é côncava, pois $\frac{d^{2}f(x)}{dx^{2}}=-\frac{1}{4}x^{-\frac{3}{2}}\le0\ \forall x\ge0$,
+logo, aplicando a desigualdade de Jensen (caso côncavo!!!), temos
+$\mathbf{E}(f(X))\le f(\mathbf{E}(X))\implies\mathbf{E}(f(X))\le\sqrt{25}=5$
+\item $f(x)=x^{3}$ é convexa, pois $\frac{d^{2}f(x)}{dx^{2}}=6x\ge0\ \forall x\ge0$,
+logo, aplicando a desigualdade de Jensen, temos $\mathbf{E}(f(X))\ge f(\mathbf{E}(X))\implies\mathbf{E}(f(X))\ge25^{3}=15625$
+\end{itemize}
+OBS: observe a importância para a desigualdade de Jensen (nesse caso)
+que a v.a. seja não negativa ($x\ge0$), se ela pudesse assumir valores
+negativos, ambas as funções NÃO teriam convexidade para todos os valores
+do domínio (ex. $x=-1\implies6x<0$) e consequentemente não poderíamos
+usar a desigualdade!
+
+
+\subsubsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{9) Seja $X\sim U(0;2)$. Ache cotas (usando as desigualdades
+apropriadas) e compare com os valores exatos para $P(X>1,95)$ e $P(0,5<X<1,5)$}}
+
+Resp. 9)
+
+Exercício interessante para termos consciência do preço a pagar pela
+facilidade do uso
+
+do enunciado temos que $\mu=1$; $\sigma^{2}=\frac{1}{3}$
+\begin{itemize}
+\item Por Markov: $P(X>1,95)<\frac{1}{1,95}=0,5128$; $P(0,5<X<1,5)=P(X<1,5)-P(X\ge0,5)=1-P(X\ge1,5)-P(X\ge0,5)>1-\frac{1,5}{1,5}-\frac{1,5}{0,5}\implies P(X\ge1,5)+P(X\ge0,5)<+\frac{1,5}{1,5}+\frac{1,5}{0,5}=5,5$,
+o que é válido, pois $P(X_{n})$ é limitado superiormente por 1, então
+a desigualdade continua válida.
+\item Por Chebyshev: $P(X>1,95)+P(X<0,05)=P(\left|X-1\right|>0,95)<\frac{1}{3\cdot0,95^{2}}=0,0876$
+mas por simetria $P(X>1,95)=P(X<0,05)$ daí temos $P(X>1,95)+P(X<0,05)=2\cdot P(X>1,95)<\frac{1}{3\cdot0,95^{2}}=0,0876\implies P(X>1,95)<0,0438$;
+$P(0,5<X<1,5)=1-P(\left|X-1\right|>0,5)>1-\frac{1}{3\cdot0,5^{2}}=-0,3333$,
+de novo uma informação válida, porém inútil, pois sabemos que $P(A_{n})\ge0$,
+o que nos dá um chute mais plausível, porém igualmente inútil.
+\item Resolvendo na unha temos: $P(X>1,95)=\frac{1}{2}\int_{1,95}^{2}dx=0,025$;
+$P(0,5<X<1,5)=\frac{1}{2}\int_{0,5}^{1,5}dx=0,5$
+\end{itemize}
+OBS.:9)
+
+Outro exemplo: se em vez de $X\sim U(0;2)$ fosse $X\sim N(0;2)$
+temos que $\mu=0$; $\sigma^{2}=2$
+\begin{itemize}
+\item Por Markov: $P(X>1,95)<0$; $P(0,5<X<1,5)=P(X<1,5)-P(X\ge0,5)=1-P(X\ge1,5)-P(X\ge0,5)>1-0-0\implies P(X\ge1,5)+P(X\ge0,5)<0$,
+não funciona? não é isso, perceba na definição em 5 que a desigualdade
+só é definida para v.a. com $\mu>0$, o que não é o caso!
+\item Por Chebyshev: $P(\left|X-0\right|>1,95)<\frac{2}{1,95^{2}}=0,5259$;
+$P(0,5<X<1,5)=P(X<1,5)-P(X\ge0,5)=1-P(X\ge1,5)-P(X\ge0,5)\ge1-\frac{2}{1,5^{2}}-\frac{2}{0,5^{2}}$
+$P(0,5<X<1,5)>1-0,88888-16=-14,1111$; Dessa vez está tudo de acordo
+com a definição... está errado? não!... vale lembrar que a probabilidade
+de qualquer coisa está definida no intervalo $[0,1]$, ora, com certeza
+$P(0,5<X<1,5)\ge0$ portanto, a resposta, apesar de inútil está certa,
+pois $P(0,5<X<1,5)\ge0\ge-14,1111$, dessa forma não foi violada nenhuma
+restrição! Outra coisa que podíamos ter pensado era fazer $P(\left|X-0,5\right|<1)>\frac{2}{1^{2}}$,
+Note que além da resposta errada, isso não satisfaz a definição da
+desigualdade, pois $\mu=0\neq0,5$
+\item Usando a tabela de distribuição normal: temos $P(X>1,95)=0.084$;
+$P(0,5<X<1,5)=0.217$
+\end{itemize}
+
+\subsubsection*{\pagebreak{}}
+\begin{quotation}
+Este solucionário foi feito para a disciplina ME310 - 2Sem 2012. Caso
+encontre algum erro, por favor peça alteração informando o erro em
+nosso grupo de discussão: 
+
+$$https://groups.google.com/forum/?fromgroups\#!forum/me310-2s-2012$$
+
+ou diretamente no repositório do github:
+
+$$https://github.com/eric-lopes/Probabilidade2$$
+
+Bons estudos,
+
+Eric.\end{quotation}
+
+\end{document}

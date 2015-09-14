@@ -1,0 +1,318 @@
+%% LICENSE: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+
+%% Este arquivo pode ser modificado e reproduzido por qualquer meio,
+%% para qualquer fim, desde que mantidos os autores e editores da
+%% lista abaixo. E o código gerado seja disponível de forma pública.
+%% conforme os critérios da licença Creative Commons, versão
+%% Attribution-ShareAlike (https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+%% Peço somente (não há obrigatoriedade) que caso faça alguma alteração,
+%% me envie as talerações para que possamos melhorar este documento.
+%% Obrigado.
+
+%% Author: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 02/09/2012
+%% Edited by: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 14/09/2015
+%% Edited by:
+
+\documentclass[english]{article}
+\usepackage[LGR,T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{accents}
+\usepackage{esint}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\DeclareRobustCommand{\greektext}{%
+  \fontencoding{LGR}\selectfont\def\encodingdefault{LGR}}
+\DeclareRobustCommand{\textgreek}[1]{\leavevmode{\greektext #1}}
+\DeclareFontEncoding{LGR}{}{}
+\DeclareTextSymbol{\~}{LGR}{126}
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+\newcommand{\docedilla}[2]{\underaccent{#1\mathchar'30}{#2}}
+\newcommand{\cedilla}[1]{\mathpalette\docedilla{#1}}
+
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Probabilidade 2 - ME310 - Lista 3}
+
+\maketitle
+
+\subsubsection*{Lembrando:}
+\begin{enumerate}
+\item $\mathbf{E}(X)=\mathbf{E}(\mathbf{E}(X/T=t))$
+\item $f_{X/Y}(x,y)=\frac{f_{X,Y}(x,y)}{f_{Y}(y)}=\frac{f_{X}(x)}{f_{Y}(y)}\cdot f_{Y/X}(x,y)$
+\item Binomial Negativa:$X\sim BinNeg(r,p)$ então $P(X=n)=\left(\begin{array}{c}
+n-1\\
+r-1
+\end{array}\right)\cdot p^{r}\cdot(1-p)^{n-r}$, $\forall n\ge r$
+\item Variância em termos da Variância condicional (pg. 413 Ross) $Var(X)=\mathbf{E}(Var(X/Y))+Var(\mathbf{E}(X/Y))$
+\end{enumerate}
+\pagebreak{}
+
+
+\subsection*{\textmd{1) Seja X uma v.a. Exponencial com parâmetro \textgreek{l}.
+Calcule $\mathbf{E}(X^{2}/X<2)$.}}
+
+
+\subsubsection*{\textmd{Resp}. \textmd{1)}}
+\begin{itemize}
+\item $X\sim exp(\lambda)\implies f_{X}(x)=\lambda\cdot e^{-\lambda\cdot x}\cdot\mathbf{I}_{\{x\geq0\}}$
+\item Seja $Y=\mathbf{I}_{\{X<2\}}\implies f_{Y}(y=1)=P(X<2)=\int_{-\infty}^{2}f_{X}(x)dx=1-e^{-2\cdot\lambda}$
+\item Lembrando: $f_{X/Y}(x,y)=\frac{f_{X,Y}(x,y)}{f_{Y}(y)}=\frac{f_{X}(x)}{f_{Y}(y)}\cdot f_{Y/X}(x,y)$
+\item $f_{Y/X}(x,y)=\mathbf{I}_{\{x<2\}}$
+\item $\mathbf{E}(X^{2}/X\leq2)=\mathbf{E}(X^{2}/Y=1)=\int_{-\infty}^{\infty}x^{2}\cdot f_{X/Y}(x,y)dx=\int_{-\infty}^{\infty}x^{2}\cdot\frac{\lambda\cdot e^{-\lambda\cdot x}\cdot\mathbf{I}_{\{x\geq0\}}\cdot\mathbf{I}_{\{x<2\}}}{1-e^{-2\cdot\lambda}}dx=\frac{\lambda}{1-e^{-2\cdot\lambda}}\int_{-\infty}^{\infty}x^{2}\cdot e^{-\lambda\cdot x}\cdot\mathbf{I}_{\{x\geq0\}}\cdot\mathbf{I}_{\{x<2\}}dx=\frac{\lambda}{1-e^{-2\cdot\lambda}}(-x^{2}\cdot\frac{e^{-\lambda\cdot x}}{\lambda^{2}}|_{x=0}^{x=2}+2\int_{0}^{2}x\cdot e^{-\lambda\cdot x}dx)=\frac{\lambda}{1-e^{-2\cdot\lambda}}\cdot(-4\cdot\frac{e^{-4\cdot\lambda}}{\lambda}+2(-x\cdot\frac{e^{-\lambda\cdot x}}{\lambda^{2}}|_{x=0}^{x=2}+\int_{0}^{2}\frac{e^{-\lambda\cdot x}}{\lambda^{2}}dx))=\frac{\lambda}{1-e^{-2\cdot\lambda}}\cdot(-4\cdot\frac{e^{-4\cdot\lambda}}{\lambda}-4\cdot\frac{e^{-2\cdot\lambda}}{\lambda^{2}}-2\cdot\frac{e^{-2\cdot\lambda}}{\lambda^{3}}+\frac{2}{\lambda^{3}})$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{2) A densidade conjunta das v.a. X e Y é dada por $f(x,y)=\frac{2\cdot e^{-2x}}{x}\cdot\mathbf{I}_{\{0\leq y\leq x\}}$.
+Calcule $E(Y^{3}/X)$.}}
+
+
+\subsubsection*{\textmd{Resp}. \textmd{2)}}
+\begin{itemize}
+\item $f(x)=\int_{-\infty}^{\infty}f(x,y)dy=\int_{-\infty}^{\infty}\frac{2\cdot e^{\text{\textminus}2x}}{x}\cdot\mathbf{I}_{\{0\leq y\leq x\}}dy=\frac{2\cdot e^{\text{\textminus}2x}}{x}\cdot\int_{-\infty}^{\infty}\mathbf{I}_{\{0\leq y\leq x\}}dy=\frac{2\cdot e^{\text{\textminus}2x}}{x}\cdot y|_{y=0}^{y=x}=2\cdot e^{\text{\textminus}2x}$
+\item $\mathbf{E}(Y^{3}/X=x)=\int_{-\infty}^{\infty}y^{3}\cdot f_{Y/X}(x,y)dy=\int_{-\infty}^{\infty}y^{3}\cdot\frac{f(x,y)}{f_{X}(y)}dy=\int_{-\infty}^{\infty}y^{3}\cdot\frac{2\cdot e^{\text{\textminus}2x}}{x}\cdot\mathbf{I}_{\{0\leq y\leq x\}}\cdot\frac{1}{2e^{-2x}}dy=\int_{0}^{x}\frac{y^{3}}{x}dy=\frac{y^{4}}{4\cdot x}|_{y=0}^{y=x}=\frac{x^{3}}{4}$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{3) Pedro se perdeu na mata e pode escolher uma das 3 trilhas.
+Se ele escolher a primeira trilha, ele vai caminhar por 2 horas e
+voltar ao mesmo lugar, se ele escolher a segunda, ele vai caminhar
+por 6 horas e sairá da mata, se ele escolher a terceira, ele vai caminhar
+por 4 horas e voltar ao mesmo lugar. Seja X o tempo até Pedro sair
+da mata. Calcule $\mathbf{E}(X)$ se }}
+
+
+\subsubsection*{\textmd{a) Pedro sempre escolhe uma das trilhas ao acaso.}}
+
+Resp. a)
+\begin{itemize}
+\item $\mathbf{E}(x/T=1)=\mathbf{E}(x)+2$
+\item $\mathbf{E}(x/T=2)=6$
+\item $\mathbf{E}(x/T=3)=\mathbf{E}(x)+4$
+\item $p(T=1)=p(T=2)=p(T=3)=\frac{1}{3}$
+\item $\mathbf{E}(x)=\mathbf{E}(\mathbf{E}(x/T=t))=\sum_{t=1}^{t=3}\mathbf{E}(X/T=t)\cdot p(T=t)=\frac{1}{3}\cdot(\mathbf{E}(X/T=1)+\mathbf{E}(X/T=2)+\mathbf{E}(X/T=3))=\frac{1}{3}\cdot(\mathbf{E}(x)+2+6+\mathbf{E}(x)+4)\implies\mathbf{E}(x)=12$
+\end{itemize}
+
+\subsubsection*{\textmd{b) Pedro não pega o mesmo caminho errado duas vezes.}}
+
+
+\subsubsection*{\textmd{Resp}. \textmd{b)}}
+
+Vamos quebrar o problema em uma árvore de probabilidades
+\begin{itemize}
+\item $\mathbf{E}(X/T_{1}=2)=6$
+\item $\mathbf{E}(X/T_{1}=3,T_{2}=2)=10$
+\item $\mathbf{E}(X/T_{1}=1,T_{2}=2)=8$
+\item $\mathbf{E}(X/T_{1}=1,T_{2}=3,T_{3}=2)=12$
+\item $\mathbf{E}(X/T_{1}=3,T_{2}=1,T_{3}=2)=12$
+\item $\mathbf{E}(X/T_{1}=3,T_{2}=1)=\mathbf{E}(\mathbf{E}(X/T_{1}=3,T_{2}=1,T_{3}))=1\cdot\mathbf{E}(X/T_{1}=3,T_{2}=1,T_{3}=2)=12$
+\item $\mathbf{E}(X/T_{1}=1,T_{2}=3)=\mathbf{E}(\mathbf{E}(X/T_{1}=1,T_{2}=3,T_{3}))=1\cdot\mathbf{E}(X/T_{1}=1,T_{2}=3,T_{3}=2)=12$
+\item $\mathbf{E}(X/T_{1}=1)=\mathbf{E}(\mathbf{E}(X/T_{1}=1,T_{2}))=\frac{1}{2}\cdot(\mathbf{E}(X/T_{1}=1,T_{2}=2)+\mathbf{E}(X/T_{1}=1,T_{2}=3))=\frac{1}{2}\cdot(8+12)=10$
+\item $\mathbf{E}(X/T_{1}=3)=\mathbf{E}(\mathbf{E}(X/T_{1}=3,T_{2}))=\frac{1}{2}\cdot(\mathbf{E}(X/T_{1}=3,T_{2}=1)+\mathbf{E}(X/T_{1}=3,T_{2}=2))==\frac{1}{2}\cdot(12+10)=11$
+\item $\mathbf{E}(X)=\mathbf{E}(\mathbf{E}(X/T))=\frac{1}{3}\cdot(\mathbf{E}(X/T_{1}=1)+\mathbf{E}(X/T_{1}=2)+\mathbf{E}(X/T_{1}=3))=\frac{1}{3}\cdot(10+6+11)=9$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{4) Uma moeda viciada, com $P(cara)=p$ é lançada até obter
+3 caras seguidas. Calcule o número médio dos lançamentos necessários.}}
+
+
+\subsubsection*{\textmd{Resp. 4) Seja $Cara=C$, $Coroa=K$}}
+\begin{itemize}
+\item $P(C)=p$
+\item $\mathbf{E}(X/L_{1}=K)=\mathbf{E}(X)+1$
+\item $\mathbf{E}(X/L_{1}=C,L_{2}=K)=\mathbf{E}(X)+2$
+\item $\mathbf{E}(X/L_{1}=C,L_{2}=C,L_{3}=C)=3$
+\item $\mathbf{E}(X/L_{1}=C,L_{2}=C,L_{3}=K)=\mathbf{E}(X)+3$
+\item $\mathbf{E}(X/L_{1}=C,L_{2}=C)=\mathbf{E}(\mathbf{E}(X/L_{1}=C,L_{2}=C,L_{3}))=p\cdot\mathbf{E}(X/L_{1}=C,L_{2}=C,L_{3}=C)+(1-p)\cdot\mathbf{E}(X/L_{1}=C,L_{2}=C,L_{3}=K)=p\cdot3+(1-p)\cdot(\mathbf{E}(x)+3)$
+\item $\mathbf{E}(X/L_{1}=C)=\mathbf{E}(\mathbf{E}(X/L_{1}=C,L_{2}))=p\cdot\mathbf{E}(X/L_{1}=C,L_{2}=C)+(1-p)\cdot\mathbf{E}(X/L_{1}=C,L_{2}=K)=p\cdot(p\cdot3+(1-p)\cdot(\mathbf{E}(x)+3))+(1-p)\cdot(\mathbf{E}(X)+2)$
+\item $\mathbf{E}(X)=\mathbf{E}(\mathbf{E}(X/L_{1}))=p\cdot\mathbf{E}(X/L_{1}=C)+(1-p)\cdot\mathbf{E}(X/L_{1}=K)=p\cdot(p\cdot p\cdot3+(1-p)\cdot(\mathbf{E}(x)+3))+(1-p)\cdot(\mathbf{E}(X)+2))+(1-p)\cdot(\mathbf{E}(X)+1)=3\cdot p^{2}-p^{3}\cdot\mathbf{E}(X)+p-2\cdot p^{2}+\mathbf{E}(X)+1\implies p^{3}\cdot\mathbf{E}(X)=p^{2}+p+1\implies\mathbf{E}(X)=\frac{p^{2}+p+1}{p^{3}}$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{5) Suponha que $X$ tem uma distribuição de Poisson com parâmetro
+\textgreek{l}, onde \textgreek{l} é uma v.a. Exponencial com parâmetro
+1. Mostre que $P(X=n)=(\frac{1}{2})^{n+1}$.}}
+
+
+\subsubsection*{\textmd{Resp. 5) }}
+\begin{itemize}
+\item $X\sim Poisson(\lambda)$; $\lambda\sim Exp(1)$
+\item $f_{\lambda}(h)=e^{-h}$
+\item $f_{X/\lambda}(n,h)=\frac{f_{X,\lambda}(n,h)}{f_{\lambda}(h)}\implies f_{X,\lambda}(n,h)=f_{X/\lambda}(n,h)\cdot f_{\lambda}(\lambda)$
+\item $f_{X/\lambda}(n,h)=P(X=n/\lambda=h)=e^{-h}\cdot\frac{h^{n}}{n!}\cdot\mathbf{I}_{\{y\ge0\}}$
+\item $P(X=n)=\mathbf{E}(P(X=n,\lambda=h))=\int_{-\infty}^{\infty}f(n,h)dh=\int_{-\infty}^{\infty}f_{X/\lambda}(n,h)\cdot f_{\lambda}(h)dh=\int_{0}^{\infty}e^{-h}\cdot\frac{h^{n}}{n!}\cdot e^{-h}dh=\frac{1}{n!}\cdot(h^{n}\cdot\frac{e^{-2h}}{-2}|_{h=0}^{h=\infty}+\int_{0}^{\infty}n\cdot\frac{e^{-2h}}{2}\cdot h^{n-1}dh)\overset{partes,partes...nX}{=}\frac{1}{n!}\cdot\int_{0}^{\infty}n!\cdot\frac{e^{-2h}}{2^{n}}\cdot y^{0}dh=\int_{0}^{\infty}\frac{e^{-2h}}{2^{n}}dh=-\frac{e^{-2h}}{2^{n+1}}|_{h=0}^{h=\infty}=\frac{1}{2^{n+1}}$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{6) Numa gaveta tem 3 moedas. Seja $p_{i}=P(cara\: no\, lan\cedilla{c}amento\, da\, moeda\, i)$.
+Suponha que $p_{1}=0.3$, $p_{2}=0.4$ e $p_{3}=0.5$. Uma moeda destas
+3 é escolhida ao acaso e lançada 10 vezes. Seja N o número de caras
+(C). }}
+
+
+\subsubsection*{\textmd{a) Calcule P(N = k), k = 0, . . . , n. }}
+
+
+\subsubsection*{\textmd{Resp. 6)}}
+\begin{itemize}
+\item seja N='número de caras' e M='qual das moedas está sendo jogada (i=1,2,3)'
+\item $P(N=k/M=i)=\left(\begin{array}{c}
+10\\
+k
+\end{array}\right)\cdot p_{i}^{k}\cdot(1-p_{i})^{10-k}$
+\item $P(N=k)=\mathbf{E}(P(N=k/M))=\frac{1}{3}\cdot\sum_{i=1}^{i=3}\left(\begin{array}{c}
+10\\
+k
+\end{array}\right)\cdot p_{i}^{k}\cdot(1-p_{i})^{10-k}$
+\end{itemize}
+
+\subsubsection*{\textmd{b) Se depois de cada lançamento a moeda é colocada de volta
+(e para próximo lançamento escolhemos uma moeda ao acaso de novo)
+N terá distribuição binomial?}}
+\begin{itemize}
+\item Seja $X_{i}$='i-ésimo lançamento'
+\item $P(X_{i}=C)=\mathbf{E}(P(X_{i}=C/M))=\frac{1}{3}\cdot(0.3+0.4+0.5)=0.4$
+\item Dessa forma, podemos considerar que cada lançamento é uma variável
+aleatória com probabilidade $p_{i}=0.4$, dessa forma $N\sim Bin(10,0.4)$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{7) Sejam X e Y v.a. i.i.d. Geométricas com parâmetro p. Ache
+a distribuição condicional de X dado X + Y = n. }}
+
+
+\subsection*{\textmd{Dica: Seja W o número de tentativas para obter r sucessos
+no total numa sequência de experimentos independentes com probabilidade
+de sucesso p em cada experimento. Então W tem distribuição binomial
+negativa com parâmetros r, p e $P(W=n)=\left(\protect\begin{array}{c}
+n-1\protect\\
+r-1
+\protect\end{array}\right)\cdot p^{r}\cdot(1-p)^{n-r}$, $n=r,r+1,...$}}
+
+Resp. 7)
+\begin{itemize}
+\item A definição de uma binomial negativa: Tentativas independentes com
+mesma probabilidade de sucesso p. A probabilidade de acumular r acertos
+em n tentativas é: $P(X=n)=\left(\begin{array}{c}
+n-1\\
+r-1
+\end{array}\right)\cdot p^{r}\cdot(1-p)^{n-r}$
+\item $X,Y\sim Geometrica(p)$ então $P(X=n)=P(Y=n)=(1-p)^{n-1}\cdot p$
+\item $P(X+Y=n)=P(W=n)$, 'duas sequências de experimentos independentes
+para acumular 2 sucessos (Geométricas=chance de acertar exatamente
+na i-ésima jogada=1 sucesso) com exatamente n tentativas'
+\item $P(X/X+Y=n)=\frac{P(X=x,X+Y=n)}{P(X+Y=n)}=\frac{P(X=x,Y=n-x)}{P(X+Y=n)}\overset{indep}{=}\frac{P(X=x)\cdot P(Y=n-x)}{P(X+Y=n)}=\frac{(1-p)^{x-1}\cdot p\cdot(1-p)^{n-x-1}\cdot p}{P(W=n)}=\frac{(1-p)^{x-1}\cdot p\cdot(1-p)^{n-x-1}\cdot p}{\left(\begin{array}{c}
+n-1\\
+2-1
+\end{array}\right)\cdot p^{2}\cdot(1-p)^{n-2}}=\frac{1}{n-1}\cdot\mathbf{I}_{\{x\in\mathbb{N}\}}$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{8) Sejam X1, X2, . . . v.a. independentes, com $\mathbf{E}(X_{i})=\lyxmathsym{\textmu}$
+e $Var(X_{i})=\sigma^{2}$ para todo i. Seja uma v.a. independente
+dos $X_{i}$ \textquoteright s. Usando a fórmula para variância condicional,
+mostre que: $Var(\sum_{i=1}^{i=N}X_{i})=\sigma^{2}\mathbf{E}(N)+\mu^{2}Var(N)$}}
+
+Resp. 8)
+\begin{itemize}
+\item $W=\sum_{i=1}^{i=N}X_{i}$
+\item $\mathbf{E}(X_{i})=\mu$
+\item $Var(X_{i})=\sigma^{2}$
+\item $\mathbf{E}(W/N)=\mathbf{E}(\sum_{i=1}^{i=k}X_{i}/N=k)=\sum_{i=1}^{i=N}\mathbf{E}(X_{i})=N\cdot\mu$,
+pg.414 Ross
+\item $Var(W/N)=Var(\sum_{i=1}^{i=k}X_{i}/N=k)=\sum_{i=1}^{i=N}Var(X_{i})=N\cdot\sigma^{2}$,
+pg.414 Ross
+\item $Var(W)=\mathbf{E}(Var(W/N))+Var(\mathbf{E}(W/N))=\mathbf{E}(N)\cdot\sigma^{2}+Var(N)\cdot\mu^{2}$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{9) Mostre que $Cov(X,E(Y/X))=Cov(X,Y)$.}}
+
+Resp. 9)
+\begin{itemize}
+\item $Cov(X,Y)=\mathbf{E}((X-\mathbf{E}(X))\cdot(Y-\mathbf{E}(Y)))$, pg.
+385 Ross
+\item $W=\mathbf{E}(Y/X)$
+\item $Cov(X,W)=\mathbf{E}((X-\mathbf{E}(W))\cdot(W-\mathbf{E}(W)))=\mathbf{E}(XW-X\mathbf{E}(W)-\mathbf{E}(X)W+\mathbf{E}(X)\mathbf{E}(W))=\mathbf{E}(XW)-\mathbf{E}(X\mathbf{E}(W))-\mathbf{\mathbf{E}(E}(X)W)+\mathbf{E}(X)\mathbf{E}(W)=\mathbf{E}(XW)-\mathbf{E}(X\mathbf{E}(W))=\mathbf{E}(X\mathbf{E}(Y/X))-\mathbf{E}(X)\mathbf{E}(Y)=\int_{-\infty}^{\infty}x\cdot\mathbf{E}(Y/X)\cdot f_{X}(x)dx-\mathbf{E}(X)\mathbf{E}(Y)=\int_{-\infty}^{\infty}x\cdot\int_{-\infty}^{\infty}y\cdot f_{Y/X}(x,y)dy\cdot f_{X}(x)dx-\mathbf{E}(X)\mathbf{E}(Y)=\int_{-\infty}^{\infty}x\cdot\int_{-\infty}^{\infty}y\cdot\frac{f_{X,Y}(x,y)}{f_{X}(x)}dy\cdot f_{X}(x)dx-\mathbf{E}(X)\mathbf{E}(Y)=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}x\cdot y\cdot f_{X,Y}(x,y)dxdy-\mathbf{E}(X)\mathbf{E}(Y)=\mathbf{E}(XY)-\mathbf{E}(X)\mathbf{E}(Y)=Cov(X,Y)$
+\end{itemize}
+
+\subsubsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{10) Suponha que se o pai tem altura x cm, então o filho,
+quando adulto, tem altura que é uma v.a. Normal com média x + 1 e
+variância 4. Qual é a melhor estimativa para a altura do filho de
+um homem com altura 180 cm?}}
+
+Resp. 10)
+\begin{itemize}
+\item $F\sim N(181,4)$
+\item A melhor estimativa para o filho é $\mathbf{E}(F)=181$, outra forma
+de ver isso, é procurarmos pelo ponto máximo de $f_{F}(a)=\frac{1}{\sqrt{2\cdot\pi\sigma^{2}}}\cdot e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}$,
+ou seja, tal que $\frac{df_{F}(a)}{dx}=0$ e $\frac{d^{2}f_{F}(a)}{dx^{2}}<0$,
+mas $\frac{df_{F}(a)}{dx}=\frac{1}{\sqrt{2\cdot\pi\sigma^{2}}}\cdot e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}\cdot\left(-\frac{(x-\mu)}{\sigma^{2}}\right)=0\implies x=\mu=181$
+e $\frac{d^{2}f_{F}(a)}{dx^{2}}=k\cdot(e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}\cdot\left(-\frac{(x-\mu)}{\sigma^{2}}\right)\cdot\left(-\frac{(x-\mu)}{\sigma^{2}}\right)+e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}}\cdot\left(-\frac{1}{\sigma^{2}}\right))<0$
+se $x=\mu$
+\end{itemize}
+
+\subsubsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{11) Mostre que $a=\mathbf{E}(X)$ minimiza $\mathbf{E}((X-a)^{2})$ }}
+
+Resp. 11) 
+
+Basta mostrar que $\frac{d\mathbf{E}((X-a)^{2})}{dx}=0$ e $\frac{d^{2}\mathbf{E}((X\text{\textminus}a)^{2})}{dx^{2}}>0$
+se $a=\mathbf{E}(X)$
+\begin{itemize}
+\item Considere $\frac{d\mathbf{E}((X-a)^{2})}{dx}$ mas pela propriedade
+linear da esperança, ao aplicar um operador linear temos $\frac{d\mathbf{E}((X-a)^{2})}{dx}=\mathbf{E}(\frac{d(X\text{\textminus}a)^{2}}{dx})=\mathbf{E}(2(X\text{\textminus}a))=2\mathbf{E}(X)\text{\textminus}2\mathbf{E}(a)=0$
+se $a=\mathbf{E}(X)$ e além disso, $\frac{d\mathbf{^{2}E}((X-a)^{2})}{dx^{2}}=\mathbf{E}(\frac{d^{2}(X\text{\textminus}a)^{2}}{dx^{2}})=\mathbf{E}(2X)=2\mathbf{E}(X)>0$
+se $a=\mathbf{E}(X)$. Com isso mostramos que este é ponto de mínimo
+\end{itemize}
+
+\subsubsection*{\pagebreak{}}
+\begin{quotation}
+Este solucionário foi feito para a disciplina ME310 - 2Sem 2012. Caso
+encontre algum erro, por favor peça alteração informando o erro em
+nosso grupo de discussão: 
+
+$$https://groups.google.com/forum/?fromgroups\#!forum/me310-2s-2012$$
+
+ou diretamente no repositório do github:
+
+$$https://github.com/eric-lopes/Probabilidade2$$
+
+Bons estudos,
+
+Eric.\end{quotation}
+
+\end{document}

@@ -1,0 +1,339 @@
+%% LICENSE: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+
+%% Este arquivo pode ser modificado e reproduzido por qualquer meio,
+%% para qualquer fim, desde que mantidos os autores e editores da
+%% lista abaixo. E o código gerado seja disponível de forma pública.
+%% conforme os critérios da licença Creative Commons, versão
+%% Attribution-ShareAlike (https://creativecommons.org/licenses/by-sa/4.0/legalcode).
+%% Peço somente (não há obrigatoriedade) que caso faça alguma alteração,
+%% me envie as talerações para que possamos melhorar este documento.
+%% Obrigado.
+
+%% Author: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 02/09/2012
+%% Edited by: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 14/09/2015
+%% Edited by:
+
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{esint}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\DeclareRobustCommand{\greektext}{%
+  \fontencoding{LGR}\selectfont\def\encodingdefault{LGR}}
+\DeclareRobustCommand{\textgreek}[1]{\leavevmode{\greektext #1}}
+\DeclareFontEncoding{LGR}{}{}
+\DeclareTextSymbol{\~}{LGR}{126}
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Probabilidade 2 - ME310 - Lista 2}
+
+\maketitle
+
+\subsubsection*{Lembrando:}
+\begin{enumerate}
+\item Estatística de ordem, pg 328 Ross: $f_{x_{j}}(x)=\frac{n!}{(n-j)!(j-1)!}\cdot F(x)^{j-1}\cdot(1-F(x))^{n-j}\cdot f(x)$
+\item Distribuição de probabilidade conjunta de funções de variáveis aleatórias,
+pg. 330 Ross: $f_{Y_{1},Y_{1}}(y_{1},y_{2})=f_{X_{1},X_{1}}(x_{1},x_{2})\cdot\left|\mathbf{J}(x_{1},x_{2})\right|^{-1}$
+\item Covariância: $Cov(X,Y)=\mathbf{E}((X-\mathbf{E}(X))\cdot(Y-\mathbf{E}(Y)))=\mathbf{E}(X\cdot Y)-\mathbf{E}(X)\cdot\mathbf{E}(Y)$
+\item Variância: $Var(X)=\mathbf{E}((X-\mathbf{E}(X))^{2})=\mathbf{E}(X^{2})-\mathbf{E}(X)^{2}$
+\end{enumerate}
+\pagebreak{}
+
+
+\subsection*{\textmd{1. Uma máquina funciona enquanto pelo menos 3 das 5 turbinas
+funcionam. Se cada turbina funciona um tempo aleatório com densidade
+$x\cdot e^{\lyxmathsym{\textminus}x}$ , x > 0, independentemente
+das outras, calcule a distribuição de tempo de funcionamento da máquina.
+Dica: estatísticas de ordem. }}
+
+
+\subsubsection*{\textmd{Resp}. \textmd{1)}}
+
+da equação 1, sabemos que $f_{x_{j}}(x)=\frac{n!}{(n-j)!(j-1)!}\cdot F(x)^{j-1}\cdot(1-F(x))^{n-j}\cdot f(x)$,
+se três turbinas funcionam então o avião funciona, como $x_{1}<x_{2}<x_{3}<x_{4}<x_{5}$,
+basta calcularmos a probabilidade da turbina $x_{3}$ estar funcionando
+(se ela não estiver, o avião não estará).
+
+para isso, temos $n=5,j=3$
+
+$f_{X_{3}}(T)=\frac{5!}{2!2!}\cdot F_{X}(T)^{2}\cdot(1-F_{X}(T))^{2}\cdot f(T)=30\cdot(1-(1+T)e^{-T})^{2}\cdot((1+T)e^{-T})^{2}\cdot T\cdot e^{-T}$
+
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{2. Considere uma amostra de tamanho 5 da distribuição $Uniforme(0,1)$.
+Ache a probabilidade de que a mediana está no intervalo $(\frac{1}{4},\frac{3}{4})$. }}
+
+
+\subsubsection*{\textmd{Resp}. \textmd{2)}}
+
+De novo, usamos estatística de ordem.
+
+Nesse caso, temos que lembrar que a mediana amostral é o elemento
+$x+1$ em uma amostra de $2\cdot x+1$ elementos, nesse caso $x=2$,
+então temos que calcular a distribuição do terceiro elemento:
+
+Usando a equação 1 temos:
+
+$f_{x_{3}}(x)=\frac{5!}{(5-3)!(3-1)!}\cdot F(x)^{3-1}\cdot(1-F(x))^{5-3}\cdot f(x)=30\cdot x^{2}\cdot(1-x)^{2}\cdot\mathbf{I}_{x\in(0,1)}$
+
+Para calcular a probabilidade de estar no intervalo $(\frac{1}{4},\frac{3}{4})$
+fazemos:
+
+$P(\frac{1}{4}\leq X_{3}\leq\frac{3}{4})=\int_{1/4}^{3/4}30\cdot x^{2}\cdot(1-x)^{2}dx=\int_{1/4}^{3/4}30\cdot(x^{2}-2\cdot x^{3}+x^{4})dx=30\cdot(\frac{x^{3}}{3}-\frac{x^{4}}{2}+\frac{x^{5}}{5})|_{x=1/4}^{x=3/4}=0,0265$
+
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{3. A densidade conjunta das v.a. X e Y é dada por $f(x,y)=\frac{1}{x^{2}\cdot y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}$.
+Calcule a densidade conjunta das variáveis $U=XY$ e $V=X/Y.$}}
+
+
+\subsubsection*{\textmd{Resp}. \textmd{3)}}
+
+$f_{U,V}(U,V)=f_{X,Y}(x,y)\cdot\left|\mathbf{J}(x,y)\right|^{-1}$
+\begin{itemize}
+\item $\mathbf{J}(x,y)=\left|\begin{array}{cc}
+y & x\\
+1/y & -x/y^{2}
+\end{array}\right|=-\frac{x}{y}-\frac{x}{y}=-2\cdot\frac{x}{y}$
+\item $f_{U,V}(U,V)=\frac{\frac{1}{x^{2}\cdot y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\left|-2\cdot\frac{x}{y}\right|}=\frac{\frac{1}{x^{2}\cdot y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{2\cdot\frac{x}{y}}=\frac{y}{2x}\cdot\frac{1}{x^{2}y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}=\frac{1}{2VU^{2}}\cdot\mathbf{I}_{\{U\ge1,V>0\}}$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{4. Sejam X e Y v.a. i.i.d. $Uniformes(0,1)$. Calcule a densidade
+conjunta de}}
+
+
+\subsection*{\textmd{a) $U=X+Y$ , $V=X/Y$ }}
+
+
+\subsubsection*{\textmd{Resp}. \textmd{a) $f_{X}(a)=f_{Y}(a)=1\cdot\mathbf{I}_{\{a\in(0,1)\}}$}}
+\begin{itemize}
+\item $\mathbf{J}(x,y)=\left|\begin{array}{cc}
+1 & 1\\
+1/y & -x/y^{2}
+\end{array}\right|=-\frac{x}{y^{2}}-\frac{1}{y}$
+\item $f_{U,V}(u,v)=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\left|-\frac{x}{y^{2}}-\frac{1}{y}\right|}=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\frac{x}{y^{2}}+\frac{1}{y}}=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\frac{x+y}{y^{2}}}=\frac{(\frac{u}{1+v})^{2}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{u}=\frac{u\cdot\mathbf{I}_{\{2\ge u\ge0,v>0\}}}{(1+v)^{2}}$
+\end{itemize}
+
+\subsection*{\textmd{b) $U=X$, $V=X/Y$ .}}
+\begin{itemize}
+\item $\mathbf{J}(x,y)=\left|\begin{array}{cc}
+1 & 0\\
+1/y & -x/y^{2}
+\end{array}\right|=-\frac{x}{y^{2}}$
+\item $f_{U,V}(u,v)=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\left|-\frac{x}{y^{2}}\right|}=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\frac{x}{y^{2}}}=\frac{u}{v^{2}}\cdot\mathbf{I}_{\{u\ge0,v>0\}}$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{5. Sejam X e Y v.a. independentes $Uniformes(0,1)$. Mostre
+que para qualquer \textgreek{a} > 0: $\mathbf{E}(\left|X-Y\right|^{\alpha})=\frac{2}{(\alpha+1)(\alpha+2)}$}}
+
+
+\subsubsection*{\textmd{Resp}. \textmd{5)}}
+
+$\mathbf{E}(\left|X-Y\right|^{\alpha})=\int\int_{x\in(0,1),y\in(0,1)}\left|x-y\right|^{\alpha}dxdy=\int\int_{x<y}(y-x)^{\alpha}dxdy+\int\int_{x>y}(x-y)^{\alpha}dxdy=\int_{0}^{1}\int_{0}^{y}(y-x)^{\alpha}dxdy+\int_{0}^{1}\int_{0}^{x}(x-y)^{\alpha}dydx=$
+
+$=\int_{0}^{1}(-1)\cdot\frac{(y-x)^{\alpha+1}}{\alpha+1}|_{x=0}^{x=y}dy+\int_{0}^{1}(-1)\cdot\frac{(x-y)^{\alpha+1}}{\alpha+1}|_{y=0}^{y=x}dx=\int_{0}^{1}\frac{y{}^{\alpha+1}}{\alpha+1}dy+\int_{0}^{1}\frac{x{}^{\alpha+1}}{\alpha+1}dx=\frac{2}{(\alpha+1)(\alpha+2)}$
+
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{6) N bolas (numeradas de 1 até N) são distribuídas em N urnas
+(também numeradas de 1 até N) de forma que para cada i a bola i vai
+para uma das urnas 1, . . . , i com probabilidade 1/i (independentemente
+das outras bolas). Calcule}}
+
+
+\subsubsection*{\textmd{a) o número esperado das urnas vazias}}
+
+
+\subsubsection*{\textmd{Resp}. \textmd{a) }}
+
+
+\subsubsection*{\textmd{Seja $P(X_{j}=i)=\frac{1}{i}$ a probabilidade da j-ésima
+bola cair em uma urna específica i, então a probabilidade da j-ésima
+bola não cair na urna i é $P(X_{j}\neq i)=1-\frac{1}{i}$.}}
+
+Considere o evento $Y_{i}=\begin{cases}
+1 & se\, urna\, i\, est\acute{a}\, vazia\\
+0 & caso\, contr\acute{a}rio
+\end{cases}$, e considere o evento $U=\sum_{i=1}^{i=N}Y_{i}$, ``quantidade de
+urnas vazias''
+
+$\mathbf{E}(Y_{i})=P(Urna_{i}=0)=P(X_{1}\neq i,X_{2}\neq i,X_{3}\neq i,X_{3}\neq i,X_{4}\neq i,...)=\prod_{j=i}^{j=N}(1-\frac{1}{j})$
+
+$\mathbf{E}(U)=\mathbf{E}(\sum_{i=1}^{i=N}Y_{i})=\sum_{i=1}^{i=N}\mathbf{E}(Y_{i})=\sum_{i=1}^{i=N}\prod_{j=i}^{j=N}(1-\frac{1}{j})$
+
+
+\subsubsection*{\textmd{b) a probabilidade de que nenhuma urna está vázia.}}
+
+Resp. b)
+
+Observe que para que isso ocorra, cada bola deve estar em exatamente
+uma urna.
+
+Mas para que isso ocorra, a i-ésima bola deve estar na urna i, pois
+a bola 1 só pode estar na urna 1, com isso, a bola 2 que poderia estar
+na urna 1 ou na urna 2 fica restrita apenas à urna 2, assim por diante.
+Logo:
+
+$P(X_{N}=N,X_{N-1}=N-1,...,X_{1}=1)=\prod_{j=1}^{j=N}(\frac{1}{j})$
+
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{7) Se $\mathbf{E}(X)=1$ e $Var(X)=2$, calcule }$\mathbf{E}((2+X)^{2})$\textmd{
+e $Var(1+3X)$}}
+
+
+\subsubsection*{\textmd{Resp. a) }}
+\begin{itemize}
+\item $Var(X)=2=\mathbf{E}(X{}^{2})-\mathbf{E}(X)^{2}\implies\mathbf{E}(X{}^{2})=\mathbf{E}(X)^{2}+2=3$
+\item $\mathbf{E}((2+X)^{2})=\mathbf{E}(4+4X+X{}^{2})=\mathbf{E}(4)+24E(X)+\mathbf{E}(X{}^{2})$
+\end{itemize}
+Logo $\mathbf{E}((2+X)^{2})=4+4\cdot1+3=11$
+
+
+\subsubsection*{\textmd{Resp. b)}}
+
+Logo $Var(1+3X)=\mathbf{E}((1+3X){}^{2})-\mathbf{E}((1+3X))^{2}=\mathbf{E}(1+6X+9X{}^{2})-\mathbf{E}(1+3X)^{2}=\mathbf{E}(1)+6\mathbf{E}(X)+9\mathbf{E}(X{}^{2})-\mathbf{E}(1+3X)^{2}=34-(\mathbf{E}(1)+3\mathbf{E}(X))\cdot(\mathbf{E}(1)+3\mathbf{E}(X))=34-(1+3\cdot1)\cdot(1+3\cdot1)=18$
+
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{8) Dois dados são lançados. Seja X a soma dos resultados,
+e Y a diferença (mas não o valor absoluto da diferença) entre os resultados
+no primeiro e no segundo dados. Calcule Cov(X, Y ).}}
+
+
+\subsubsection*{\textmd{Resp. 8) }}
+\begin{itemize}
+\item $Cov(X,Y)=\mathbf{E}((X-\mathbf{E}(X))\cdot(Y-\mathbf{E}(Y)))$
+\item $A\sim U(1,6)$, discreta
+\item $B\sim U(1,6)$, discreta
+\item $X=A+B$
+\item $Y=A-B$
+\end{itemize}
+Com isso: $Cov(X,Y)=\mathbf{E}((A+B-\mathbf{E}(A+B))\cdot(A-B-\mathbf{E}(A-B)))=\mathbf{E}((A+B)\cdot(A-B)-(A+B)\cdot0-7\cdot(A-B)+7\cdot0)=\mathbf{E}((A^{2}-B^{2}-7\cdot(A-B))=\mathbf{E}(A^{2})-\mathbf{E}(B^{2})=0$
+
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{9) A densidade conjunta das v.a. X e Y é dada por $f(x,y)=\frac{1}{y}\cdot e^{-(y+\frac{x}{y})}\cdot\mathbf{I}_{\{x>0,y>0\}}$
+. Calcule Cov(X, Y ).}}
+
+
+\subsubsection*{\textmd{Resp. 9) }}
+\begin{itemize}
+\item $Cov(X,Y)=\mathbf{E}(X\cdot Y)-\mathbf{E}(X)\cdot\mathbf{E}(Y)$
+\item $\mathbf{E}(X\cdot Y)=\int_{0}^{\infty}\int_{0}^{\infty}\frac{xy}{y}\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}\int_{0}^{\infty}x\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}(-(\frac{x+y}{y})\cdot e^{-\frac{x+y^{2}}{y}}|_{x=0}^{x=\infty})dy=\int_{0}^{\infty}e^{-y}dy=1$
+\item $\mathbf{E}(X)=\int_{0}^{\infty}\int_{0}^{\infty}\frac{x}{y}\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}(-(x+y)\cdot e^{-\frac{x+y^{2}}{y}}|_{x=0}^{x=\infty})dy=\int_{0}^{\infty}(-y)\cdot e^{-y}dy=0$
+\item Como $\mathbf{E}(Y)<\infty$, então nem precisamos calculá-lo, pois
+$\mathbf{E}(X)\cdot\mathbf{E}(Y)=0\cdot\mathbf{E}(Y)=0$, com isso
+a solução é $Cov(X,Y)=1-0=1$
+\end{itemize}
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsection*{\textmd{10) Seja $X\sim U(\lyxmathsym{\textminus\textgreek{p}},\lyxmathsym{\textgreek{p}})$,
+e considere v.a. $Y=sen(X)$, $Z=cos(X)$. }}
+
+
+\subsubsection*{\textmd{a) As v.a. Y, Z são independentes? }}
+
+Resp. a)
+\begin{itemize}
+\item Não, observe que dado Y, podemos calcular X ($X=arcsen(Y)$) e dado
+X podemos determinar Z, logo dado Y podemos determinar Z (Z depende
+de Y).O mesmo raciocínio vale para Y em função de Z
+\end{itemize}
+
+\subsubsection*{\textmd{b) Calcule $\mathbf{E}(Y)$}}
+
+{*}) Aqui eu não estou usando a média do jeito usual com densidade
+da variável, estou fazendo a média de seno em torno do círculo trigonométrico,
+$2\cdot\pi$ é a área do círculo e a integral é a soma dos valores
+possiveis. Se fosse feito usando a definição formal de esperança e
+a densidade de y, o resultado seria o mesmo
+
+
+
+Resp. b)
+\begin{itemize}
+\item $\mathbf{E}(Y)=\int_{-\pi}^{\pi}\frac{1}{2\pi}\cdot sen(x)dx=-\frac{1}{2\pi}\cdot cos(x)|_{x=-\pi}^{x=\pi}=\frac{-(-1)-(-(-1))}{2\cdot\pi}=0$
+\end{itemize}
+
+\subsubsection*{\textmd{c) Calcule $\mathbf{E}(Z)$}}
+
+{*}) Aqui eu não estou usando a média do jeito usualcom densidade
+da variável, estou fazendo a média de cosseno em torno do círculo
+trigonométrico, $2\cdot\pi$ é a área do círculo e a integral é a
+soma dos valores possiveis. Se fosse feito usando a definição formal
+de esperança e a densidade de z, o resultado seria o mesmo
+
+Resp. c)
+\begin{itemize}
+\item $\mathbf{E}(Z)=\int_{-\pi}^{\pi}\frac{1}{2\pi}\cdot cos(x)dx=-\frac{1}{2\pi}\cdot sen(x)|_{x=-\pi}^{x=\pi}=0-0=0$
+\end{itemize}
+
+\subsubsection*{\textmd{d) Cov(Y, Z)}}
+
+{*}) Aqui eu não estou usando a média do jeito usualcom densidade
+conjunta, estou fazendo a média de $Seno(x)\cdot Cosseno(x)$ em torno
+do círculo trigonométrico, $2\cdot\pi$ é a área do círculo e a integral
+é a soma dos valores possiveis. Observe que nesse caso, não teríamos
+como calcular a esperança do jeito usual, pois não temos a densidade
+conjunta de Y,Z e elas não são independentes.
+\begin{itemize}
+\item $E(YZ)=\int_{-\pi}^{\pi}\frac{1}{2\pi\cdot}\cdot sen(x)\cdot cos(x)dx=-\frac{1}{2}\cdot cos(x)^{2}|_{x=-\pi}^{x=\pi}=0$
+\item $Cov(Y,Z)=\mathbf{E}(XY)-\mathbf{E}(X)\cdot\mathbf{E}(Z)=0-0\cdot0=0$
+\end{itemize}
+Conclusão, elas são variáveis dependentes com Covariância 0.
+
+
+\subsection*{\textcompwordmark{}}
+
+
+\subsubsection*{\pagebreak{}}
+\begin{quotation}
+Este solucionário foi feito para a disciplina ME310 - 2Sem 2012. Caso
+encontre algum erro, por favor peça alteração informando o erro em
+nosso grupo de discussão: 
+
+$$https://groups.google.com/forum/?fromgroups\#!forum/me310-2s-2012$$
+
+ou diretamente no repositório do github:
+
+$$https://github.com/eric-lopes/Probabilidade2$$
+
+Bons estudos,
+
+Eric.\end{quotation}
+
+\end{document}

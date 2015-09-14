@@ -3,11 +3,11 @@
 
 %% Este arquivo pode ser modificado e reproduzido por qualquer meio,
 %% para qualquer fim, desde que mantidos os autores e editores da
-%% lista abaixo. E o código gerado seja disponível de forma pública.
-%% conforme os critérios da licença Creative Commons, versão
+%% lista abaixo. E o cÃ³digo gerado seja disponÃ­vel de forma pÃºblica.
+%% conforme os critÃ©rios da licenÃ§a Creative Commons, versÃ£o
 %% Attribution-ShareAlike (https://creativecommons.org/licenses/by-sa/4.0/legalcode).
-%% Peço somente (não há obrigatoriedade) que caso faça alguma alteração,
-%% me envie as talerações para que possamos melhorar este documento.
+%% PeÃ§o somente (nÃ£o hÃ¡ obrigatoriedade) que caso faÃ§a alguma alteraÃ§Ã£o,
+%% me envie as alteraÃ§Ãµes para que possamos melhorar este documento.
 %% Obrigado.
 
 %% Author: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 02/09/2012
@@ -44,28 +44,28 @@
 
 \subsubsection*{Lembrando:}
 \begin{enumerate}
-\item Estatística de ordem, pg 328 Ross: $f_{x_{j}}(x)=\frac{n!}{(n-j)!(j-1)!}\cdot F(x)^{j-1}\cdot(1-F(x))^{n-j}\cdot f(x)$
-\item Distribuição de probabilidade conjunta de funções de variáveis aleatórias,
+\item EstatÃ­stica de ordem, pg 328 Ross: $f_{x_{j}}(x)=\frac{n!}{(n-j)!(j-1)!}\cdot F(x)^{j-1}\cdot(1-F(x))^{n-j}\cdot f(x)$
+\item DistribuiÃ§Ã£o de probabilidade conjunta de funÃ§Ãµes de variÃ¡veis aleatÃ³rias,
 pg. 330 Ross: $f_{Y_{1},Y_{1}}(y_{1},y_{2})=f_{X_{1},X_{1}}(x_{1},x_{2})\cdot\left|\mathbf{J}(x_{1},x_{2})\right|^{-1}$
-\item Covariância: $Cov(X,Y)=\mathbf{E}((X-\mathbf{E}(X))\cdot(Y-\mathbf{E}(Y)))=\mathbf{E}(X\cdot Y)-\mathbf{E}(X)\cdot\mathbf{E}(Y)$
-\item Variância: $Var(X)=\mathbf{E}((X-\mathbf{E}(X))^{2})=\mathbf{E}(X^{2})-\mathbf{E}(X)^{2}$
+\item CovariÃ¢ncia: $Cov(X,Y)=\mathbf{E}((X-\mathbf{E}(X))\cdot(Y-\mathbf{E}(Y)))=\mathbf{E}(X\cdot Y)-\mathbf{E}(X)\cdot\mathbf{E}(Y)$
+\item VariÃ¢ncia: $Var(X)=\mathbf{E}((X-\mathbf{E}(X))^{2})=\mathbf{E}(X^{2})-\mathbf{E}(X)^{2}$
 \end{enumerate}
 \pagebreak{}
 
 
-\subsection*{\textmd{1. Uma máquina funciona enquanto pelo menos 3 das 5 turbinas
-funcionam. Se cada turbina funciona um tempo aleatório com densidade
+\subsection*{\textmd{1. Uma mÃ¡quina funciona enquanto pelo menos 3 das 5 turbinas
+funcionam. Se cada turbina funciona um tempo aleatÃ³rio com densidade
 $x\cdot e^{\lyxmathsym{\textminus}x}$ , x > 0, independentemente
-das outras, calcule a distribuição de tempo de funcionamento da máquina.
-Dica: estatísticas de ordem. }}
+das outras, calcule a distribuiÃ§Ã£o de tempo de funcionamento da mÃ¡quina.
+Dica: estatÃ­sticas de ordem. }}
 
 
 \subsubsection*{\textmd{Resp}. \textmd{1)}}
 
-da equação 1, sabemos que $f_{x_{j}}(x)=\frac{n!}{(n-j)!(j-1)!}\cdot F(x)^{j-1}\cdot(1-F(x))^{n-j}\cdot f(x)$,
-se três turbinas funcionam então o avião funciona, como $x_{1}<x_{2}<x_{3}<x_{4}<x_{5}$,
+da equaÃ§Ã£o 1, sabemos que $f_{x_{j}}(x)=\frac{n!}{(n-j)!(j-1)!}\cdot F(x)^{j-1}\cdot(1-F(x))^{n-j}\cdot f(x)$,
+se trÃªs turbinas funcionam entÃ£o o aviÃ£o funciona, como $x_{1}<x_{2}<x_{3}<x_{4}<x_{5}$,
 basta calcularmos a probabilidade da turbina $x_{3}$ estar funcionando
-(se ela não estiver, o avião não estará).
+(se ela nÃ£o estiver, o aviÃ£o nÃ£o estarÃ¡).
 
 para isso, temos $n=5,j=3$
 
@@ -75,19 +75,19 @@ $f_{X_{3}}(T)=\frac{5!}{2!2!}\cdot F_{X}(T)^{2}\cdot(1-F_{X}(T))^{2}\cdot f(T)=3
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{2. Considere uma amostra de tamanho 5 da distribuição $Uniforme(0,1)$.
-Ache a probabilidade de que a mediana está no intervalo $(\frac{1}{4},\frac{3}{4})$. }}
+\subsection*{\textmd{2. Considere uma amostra de tamanho 5 da distribuiÃ§Ã£o $Uniforme(0,1)$.
+Ache a probabilidade de que a mediana estÃ¡ no intervalo $(\frac{1}{4},\frac{3}{4})$. }}
 
 
 \subsubsection*{\textmd{Resp}. \textmd{2)}}
 
-De novo, usamos estatística de ordem.
+De novo, usamos estatÃ­stica de ordem.
 
-Nesse caso, temos que lembrar que a mediana amostral é o elemento
+Nesse caso, temos que lembrar que a mediana amostral Ã© o elemento
 $x+1$ em uma amostra de $2\cdot x+1$ elementos, nesse caso $x=2$,
-então temos que calcular a distribuição do terceiro elemento:
+entÃ£o temos que calcular a distribuiÃ§Ã£o do terceiro elemento:
 
-Usando a equação 1 temos:
+Usando a equaÃ§Ã£o 1 temos:
 
 $f_{x_{3}}(x)=\frac{5!}{(5-3)!(3-1)!}\cdot F(x)^{3-1}\cdot(1-F(x))^{5-3}\cdot f(x)=30\cdot x^{2}\cdot(1-x)^{2}\cdot\mathbf{I}_{x\in(0,1)}$
 
@@ -100,8 +100,8 @@ $P(\frac{1}{4}\leq X_{3}\leq\frac{3}{4})=\int_{1/4}^{3/4}30\cdot x^{2}\cdot(1-x)
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{3. A densidade conjunta das v.a. X e Y é dada por $f(x,y)=\frac{1}{x^{2}\cdot y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}$.
-Calcule a densidade conjunta das variáveis $U=XY$ e $V=X/Y.$}}
+\subsection*{\textmd{3. A densidade conjunta das v.a. X e Y Ã© dada por $f(x,y)=\frac{1}{x^{2}\cdot y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}$.
+Calcule a densidade conjunta das variÃ¡veis $U=XY$ e $V=X/Y.$}}
 
 
 \subsubsection*{\textmd{Resp}. \textmd{3)}}
@@ -160,21 +160,21 @@ $=\int_{0}^{1}(-1)\cdot\frac{(y-x)^{\alpha+1}}{\alpha+1}|_{x=0}^{x=y}dy+\int_{0}
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{6) N bolas (numeradas de 1 até N) são distribuídas em N urnas
-(também numeradas de 1 até N) de forma que para cada i a bola i vai
+\subsection*{\textmd{6) N bolas (numeradas de 1 atÃ© N) sÃ£o distribuÃ­das em N urnas
+(tambÃ©m numeradas de 1 atÃ© N) de forma que para cada i a bola i vai
 para uma das urnas 1, . . . , i com probabilidade 1/i (independentemente
 das outras bolas). Calcule}}
 
 
-\subsubsection*{\textmd{a) o número esperado das urnas vazias}}
+\subsubsection*{\textmd{a) o nÃºmero esperado das urnas vazias}}
 
 
 \subsubsection*{\textmd{Resp}. \textmd{a) }}
 
 
-\subsubsection*{\textmd{Seja $P(X_{j}=i)=\frac{1}{i}$ a probabilidade da j-ésima
-bola cair em uma urna específica i, então a probabilidade da j-ésima
-bola não cair na urna i é $P(X_{j}\neq i)=1-\frac{1}{i}$.}}
+\subsubsection*{\textmd{Seja $P(X_{j}=i)=\frac{1}{i}$ a probabilidade da j-Ã©sima
+bola cair em uma urna especÃ­fica i, entÃ£o a probabilidade da j-Ã©sima
+bola nÃ£o cair na urna i Ã© $P(X_{j}\neq i)=1-\frac{1}{i}$.}}
 
 Considere o evento $Y_{i}=\begin{cases}
 1 & se\, urna\, i\, est\acute{a}\, vazia\\
@@ -187,16 +187,16 @@ $\mathbf{E}(Y_{i})=P(Urna_{i}=0)=P(X_{1}\neq i,X_{2}\neq i,X_{3}\neq i,X_{3}\neq
 $\mathbf{E}(U)=\mathbf{E}(\sum_{i=1}^{i=N}Y_{i})=\sum_{i=1}^{i=N}\mathbf{E}(Y_{i})=\sum_{i=1}^{i=N}\prod_{j=i}^{j=N}(1-\frac{1}{j})$
 
 
-\subsubsection*{\textmd{b) a probabilidade de que nenhuma urna está vázia.}}
+\subsubsection*{\textmd{b) a probabilidade de que nenhuma urna estÃ¡ vÃ¡zia.}}
 
 Resp. b)
 
 Observe que para que isso ocorra, cada bola deve estar em exatamente
 uma urna.
 
-Mas para que isso ocorra, a i-ésima bola deve estar na urna i, pois
-a bola 1 só pode estar na urna 1, com isso, a bola 2 que poderia estar
-na urna 1 ou na urna 2 fica restrita apenas à urna 2, assim por diante.
+Mas para que isso ocorra, a i-Ã©sima bola deve estar na urna i, pois
+a bola 1 sÃ³ pode estar na urna 1, com isso, a bola 2 que poderia estar
+na urna 1 ou na urna 2 fica restrita apenas Ã  urna 2, assim por diante.
 Logo:
 
 $P(X_{N}=N,X_{N-1}=N-1,...,X_{1}=1)=\prod_{j=1}^{j=N}(\frac{1}{j})$
@@ -225,8 +225,8 @@ Logo $Var(1+3X)=\mathbf{E}((1+3X){}^{2})-\mathbf{E}((1+3X))^{2}=\mathbf{E}(1+6X+
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{8) Dois dados são lançados. Seja X a soma dos resultados,
-e Y a diferença (mas não o valor absoluto da diferença) entre os resultados
+\subsection*{\textmd{8) Dois dados sÃ£o lanÃ§ados. Seja X a soma dos resultados,
+e Y a diferenÃ§a (mas nÃ£o o valor absoluto da diferenÃ§a) entre os resultados
 no primeiro e no segundo dados. Calcule Cov(X, Y ).}}
 
 
@@ -244,7 +244,7 @@ Com isso: $Cov(X,Y)=\mathbf{E}((A+B-\mathbf{E}(A+B))\cdot(A-B-\mathbf{E}(A-B)))=
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{9) A densidade conjunta das v.a. X e Y é dada por $f(x,y)=\frac{1}{y}\cdot e^{-(y+\frac{x}{y})}\cdot\mathbf{I}_{\{x>0,y>0\}}$
+\subsection*{\textmd{9) A densidade conjunta das v.a. X e Y Ã© dada por $f(x,y)=\frac{1}{y}\cdot e^{-(y+\frac{x}{y})}\cdot\mathbf{I}_{\{x>0,y>0\}}$
 . Calcule Cov(X, Y ).}}
 
 
@@ -253,9 +253,9 @@ Com isso: $Cov(X,Y)=\mathbf{E}((A+B-\mathbf{E}(A+B))\cdot(A-B-\mathbf{E}(A-B)))=
 \item $Cov(X,Y)=\mathbf{E}(X\cdot Y)-\mathbf{E}(X)\cdot\mathbf{E}(Y)$
 \item $\mathbf{E}(X\cdot Y)=\int_{0}^{\infty}\int_{0}^{\infty}\frac{xy}{y}\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}\int_{0}^{\infty}x\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}(-(\frac{x+y}{y})\cdot e^{-\frac{x+y^{2}}{y}}|_{x=0}^{x=\infty})dy=\int_{0}^{\infty}e^{-y}dy=1$
 \item $\mathbf{E}(X)=\int_{0}^{\infty}\int_{0}^{\infty}\frac{x}{y}\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}(-(x+y)\cdot e^{-\frac{x+y^{2}}{y}}|_{x=0}^{x=\infty})dy=\int_{0}^{\infty}(-y)\cdot e^{-y}dy=0$
-\item Como $\mathbf{E}(Y)<\infty$, então nem precisamos calculá-lo, pois
+\item Como $\mathbf{E}(Y)<\infty$, entÃ£o nem precisamos calculÃ¡-lo, pois
 $\mathbf{E}(X)\cdot\mathbf{E}(Y)=0\cdot\mathbf{E}(Y)=0$, com isso
-a solução é $Cov(X,Y)=1-0=1$
+a soluÃ§Ã£o Ã© $Cov(X,Y)=1-0=1$
 \end{itemize}
 
 \subsection*{\textcompwordmark{}}
@@ -265,21 +265,21 @@ a solução é $Cov(X,Y)=1-0=1$
 e considere v.a. $Y=sen(X)$, $Z=cos(X)$. }}
 
 
-\subsubsection*{\textmd{a) As v.a. Y, Z são independentes? }}
+\subsubsection*{\textmd{a) As v.a. Y, Z sÃ£o independentes? }}
 
 Resp. a)
 \begin{itemize}
-\item Não, observe que dado Y, podemos calcular X ($X=arcsen(Y)$) e dado
+\item NÃ£o, observe que dado Y, podemos calcular X ($X=arcsen(Y)$) e dado
 X podemos determinar Z, logo dado Y podemos determinar Z (Z depende
-de Y).O mesmo raciocínio vale para Y em função de Z
+de Y).O mesmo raciocÃ­nio vale para Y em funÃ§Ã£o de Z
 \end{itemize}
 
 \subsubsection*{\textmd{b) Calcule $\mathbf{E}(Y)$}}
 
-{*}) Aqui eu não estou usando a média do jeito usual com densidade
-da variável, estou fazendo a média de seno em torno do círculo trigonométrico,
-$2\cdot\pi$ é a área do círculo e a integral é a soma dos valores
-possiveis. Se fosse feito usando a definição formal de esperança e
+{*}) Aqui eu nÃ£o estou usando a mÃ©dia do jeito usual com densidade
+da variÃ¡vel, estou fazendo a mÃ©dia de seno em torno do cÃ­rculo trigonomÃ©trico,
+$2\cdot\pi$ Ã© a Ã¡rea do cÃ­rculo e a integral Ã© a soma dos valores
+possiveis. Se fosse feito usando a definiÃ§Ã£o formal de esperanÃ§a e
 a densidade de y, o resultado seria o mesmo
 
 
@@ -291,11 +291,11 @@ Resp. b)
 
 \subsubsection*{\textmd{c) Calcule $\mathbf{E}(Z)$}}
 
-{*}) Aqui eu não estou usando a média do jeito usualcom densidade
-da variável, estou fazendo a média de cosseno em torno do círculo
-trigonométrico, $2\cdot\pi$ é a área do círculo e a integral é a
-soma dos valores possiveis. Se fosse feito usando a definição formal
-de esperança e a densidade de z, o resultado seria o mesmo
+{*}) Aqui eu nÃ£o estou usando a mÃ©dia do jeito usualcom densidade
+da variÃ¡vel, estou fazendo a mÃ©dia de cosseno em torno do cÃ­rculo
+trigonomÃ©trico, $2\cdot\pi$ Ã© a Ã¡rea do cÃ­rculo e a integral Ã© a
+soma dos valores possiveis. Se fosse feito usando a definiÃ§Ã£o formal
+de esperanÃ§a e a densidade de z, o resultado seria o mesmo
 
 Resp. c)
 \begin{itemize}
@@ -304,17 +304,17 @@ Resp. c)
 
 \subsubsection*{\textmd{d) Cov(Y, Z)}}
 
-{*}) Aqui eu não estou usando a média do jeito usualcom densidade
-conjunta, estou fazendo a média de $Seno(x)\cdot Cosseno(x)$ em torno
-do círculo trigonométrico, $2\cdot\pi$ é a área do círculo e a integral
-é a soma dos valores possiveis. Observe que nesse caso, não teríamos
-como calcular a esperança do jeito usual, pois não temos a densidade
-conjunta de Y,Z e elas não são independentes.
+{*}) Aqui eu nÃ£o estou usando a mÃ©dia do jeito usualcom densidade
+conjunta, estou fazendo a mÃ©dia de $Seno(x)\cdot Cosseno(x)$ em torno
+do cÃ­rculo trigonomÃ©trico, $2\cdot\pi$ Ã© a Ã¡rea do cÃ­rculo e a integral
+Ã© a soma dos valores possiveis. Observe que nesse caso, nÃ£o terÃ­amos
+como calcular a esperanÃ§a do jeito usual, pois nÃ£o temos a densidade
+conjunta de Y,Z e elas nÃ£o sÃ£o independentes.
 \begin{itemize}
 \item $E(YZ)=\int_{-\pi}^{\pi}\frac{1}{2\pi\cdot}\cdot sen(x)\cdot cos(x)dx=-\frac{1}{2}\cdot cos(x)^{2}|_{x=-\pi}^{x=\pi}=0$
 \item $Cov(Y,Z)=\mathbf{E}(XY)-\mathbf{E}(X)\cdot\mathbf{E}(Z)=0-0\cdot0=0$
 \end{itemize}
-Conclusão, elas são variáveis dependentes com Covariância 0.
+ConclusÃ£o, elas sÃ£o variÃ¡veis dependentes com CovariÃ¢ncia 0.
 
 
 \subsection*{\textcompwordmark{}}
@@ -322,13 +322,13 @@ Conclusão, elas são variáveis dependentes com Covariância 0.
 
 \subsubsection*{\pagebreak{}}
 \begin{quotation}
-Este solucionário foi feito para a disciplina ME310 - 2Sem 2012. Caso
-encontre algum erro, por favor peça alteração informando o erro em
-nosso grupo de discussão: 
+Este solucionÃ¡rio foi feito para a disciplina ME310 - 2Sem 2012. Caso
+encontre algum erro, por favor peÃ§a alteraÃ§Ã£o informando o erro em
+nosso grupo de discussÃ£o: 
 
 $$https://groups.google.com/forum/?fromgroups\#!forum/me310-2s-2012$$
 
-ou diretamente no repositório do github:
+ou diretamente no repositÃ³rio do github:
 
 $$https://github.com/eric-lopes/Probabilidade2$$
 

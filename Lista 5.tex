@@ -3,11 +3,11 @@
 
 %% Este arquivo pode ser modificado e reproduzido por qualquer meio,
 %% para qualquer fim, desde que mantidos os autores e editores da
-%% lista abaixo. E o código gerado seja disponível de forma pública.
-%% conforme os critérios da licença Creative Commons, versão
+%% lista abaixo. E o cÃ³digo gerado seja disponÃ­vel de forma pÃºblica.
+%% conforme os critÃ©rios da licenÃ§a Creative Commons, versÃ£o
 %% Attribution-ShareAlike (https://creativecommons.org/licenses/by-sa/4.0/legalcode).
-%% Peço somente (não há obrigatoriedade) que caso faça alguma alteração,
-%% me envie as talerações para que possamos melhorar este documento.
+%% PeÃ§o somente (nÃ£o hÃ¡ obrigatoriedade) que caso faÃ§a alguma alteraÃ§Ã£o,
+%% me envie as alteraÃ§Ãµes para que possamos melhorar este documento.
 %% Obrigado.
 
 %% Author: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 02/09/2012
@@ -41,143 +41,143 @@
 
 \subsubsection*{Lembrando:}
 \begin{enumerate}
-\item Convergência de sequências em $L^{p}$ (também chamada de convergência
-em média): se $\underset{n\rightarrow\infty}{lim}\mathbf{E}(\left|X_{n}-X_{0}\right|^{p})\rightarrow0$
-quando $n\rightarrow\infty$, então a sequência definida por $X_{n}$
-é dita convergente para $X_{0}$ em $L^{p}$ ($X_{n}\overset{L^{p}}{\rightarrow}X_{0}$)
-\item Convergência em probabilidade: se $\underset{n\rightarrow\infty}{lim}P(\left|X_{n}-X_{0}\right|\ge\epsilon)\rightarrow0$
-com $0<\epsilon$ dado, quando $n\rightarrow\infty$, então a sequência
-definida por $X_{n}$ é dita convergente para $X_{0}$ em probabilidade
+\item ConvergÃªncia de sequÃªncias em $L^{p}$ (tambÃ©m chamada de convergÃªncia
+em mÃ©dia): se $\underset{n\rightarrow\infty}{lim}\mathbf{E}(\left|X_{n}-X_{0}\right|^{p})\rightarrow0$
+quando $n\rightarrow\infty$, entÃ£o a sequÃªncia definida por $X_{n}$
+Ã© dita convergente para $X_{0}$ em $L^{p}$ ($X_{n}\overset{L^{p}}{\rightarrow}X_{0}$)
+\item ConvergÃªncia em probabilidade: se $\underset{n\rightarrow\infty}{lim}P(\left|X_{n}-X_{0}\right|\ge\epsilon)\rightarrow0$
+com $0<\epsilon$ dado, quando $n\rightarrow\infty$, entÃ£o a sequÃªncia
+definida por $X_{n}$ Ã© dita convergente para $X_{0}$ em probabilidade
 ($X_{n}\overset{prob.}{\rightarrow}X_{0}$). Outra maneira equivalente
-de escrever é: $\underset{n\rightarrow\infty}{lim}P(\left|X_{n}-X_{0}\right|<\epsilon)\rightarrow1$
-\item Convergência quase certa: se $P(\left\{ \omega\in\Omega|\underset{n\rightarrow\infty}{lim}X_{n}\left(\omega\right)=X\left(\omega\right)\right\} )=1$
-então $X_{n}\overset{q.c.}{\rightarrow}X$ ($X_{n}$ é dito convergente
-quase certamente para $X$). Essa talvez seja a convergência mais
+de escrever Ã©: $\underset{n\rightarrow\infty}{lim}P(\left|X_{n}-X_{0}\right|<\epsilon)\rightarrow1$
+\item ConvergÃªncia quase certa: se $P(\left\{ \omega\in\Omega|\underset{n\rightarrow\infty}{lim}X_{n}\left(\omega\right)=X\left(\omega\right)\right\} )=1$
+entÃ£o $X_{n}\overset{q.c.}{\rightarrow}X$ ($X_{n}$ Ã© dito convergente
+quase certamente para $X$). Essa talvez seja a convergÃªncia mais
 complicada dentre as estudadas, tenha em mente que SE sabemos $X_{n}(\omega)$
-(relacionar a distribuição com os valores do espaço amostral), então
+(relacionar a distribuiÃ§Ã£o com os valores do espaÃ§o amostral), entÃ£o
 basta mostrar que o conjunto de $\omega$ para os quais $X_{n}\to X$
-tem probabilidade 1 (há um número finito de $\omega$ para os quais
-não vale $X_{n}\to X$). Caso não saibamos à priori identificar $X_{n}$
-em função de $\omega$ podemos usar (5) o lema de Borel-Cantelli da
+tem probabilidade 1 (hÃ¡ um nÃºmero finito de $\omega$ para os quais
+nÃ£o vale $X_{n}\to X$). Caso nÃ£o saibamos Ã  priori identificar $X_{n}$
+em funÃ§Ã£o de $\omega$ podemos usar (5) o lema de Borel-Cantelli da
 seguinte forma: Seja $\epsilon>0$ e $A_{n}=\left\{ |X_{n}-X|>\epsilon\right\} $,
-calculamos $P(A_{n})$, Se $\sum_{n=1}^{\infty}P(A_{n})<\infty$ então
-com probabilidade 1, um número finito dos eventos $A_{n}$ vai ocorrer,
+calculamos $P(A_{n})$, Se $\sum_{n=1}^{\infty}P(A_{n})<\infty$ entÃ£o
+com probabilidade 1, um nÃºmero finito dos eventos $A_{n}$ vai ocorrer,
 ou seja, para todo $\epsilon>0$ podemos encontrar $N$ tal que, para
-todo $n\ge N$ temos que $A_{n}$ não ocorre (ou seja, $X_{n}\overset{q.c.}{\to}X$).
+todo $n\ge N$ temos que $A_{n}$ nÃ£o ocorre (ou seja, $X_{n}\overset{q.c.}{\to}X$).
 Se caso contrario, $\sum_{n=1}^{\infty}P(A_{n})\to\infty$ e os eventos
-são independentes, então com prob. 1 existe subsequência infinita
+sÃ£o independentes, entÃ£o com prob. 1 existe subsequÃªncia infinita
 $n_{1},n_{2},...$ tal que $A_{n_{i}}$ ocorre, ou seja, $|X_{n_{i}}-X|>\epsilon\implies X_{n}$
-não converge para $X$ quase certamente.
-\item Convergência em distribuição: se $\underset{n\rightarrow\infty}{lim}F_{X_{n}}(a)=F_{X}(a)\ \forall a$,
-então $X_{n}$ é dito convergente em distribuição para $X$ para todo
-$a$ onde $F_{x}(a)$ é continua
+nÃ£o converge para $X$ quase certamente.
+\item ConvergÃªncia em distribuiÃ§Ã£o: se $\underset{n\rightarrow\infty}{lim}F_{X_{n}}(a)=F_{X}(a)\ \forall a$,
+entÃ£o $X_{n}$ Ã© dito convergente em distribuiÃ§Ã£o para $X$ para todo
+$a$ onde $F_{x}(a)$ Ã© continua
 \item Lema de Borel-Cantelli: Seja um evento $\{A_{n}\}$ com probabilidade
 de ocorre $P(A_{n})=h(n)$, se $\sum h(n)\rightarrow+\infty$ e os
-eventos são independetes o evento ocorre um número infinito de vezes;
-se $\sum h(n)\rightarrow constante$ o evento ocorre um número finito
-de vezes; (e se $\sum h(n)\rightarrow-\infty$, você errou alguma
+eventos sÃ£o independetes o evento ocorre um nÃºmero infinito de vezes;
+se $\sum h(n)\rightarrow constante$ o evento ocorre um nÃºmero finito
+de vezes; (e se $\sum h(n)\rightarrow-\infty$, vocÃª errou alguma
 coisa... $P(A_{n})=h(n)\ge0$)
 \item Limite fundamental: $\underset{n\rightarrow\infty}{lim}(1+\frac{k}{n})^{n}=e^{k}$
-\item LEI DOS GRANDES NÚMEROS: Seja uma sequência $\left\{ X_{n},n\ge1\right\} $
-de variáveis aleatórias definidas no espaço de probabilidades $(\Omega,\mathcal{F},\mathbf{P})$,
+\item LEI DOS GRANDES NÃšMEROS: Seja uma sequÃªncia $\left\{ X_{n},n\ge1\right\} $
+de variÃ¡veis aleatÃ³rias definidas no espaÃ§o de probabilidades $(\Omega,\mathcal{F},\mathbf{P})$,
 vamos definir $S_{n}=\sum_{i=1}^{i=n}X_{n}$ e $\mu_{k}=\mathbf{E}(X_{k})$,
 $A_{n}=\mathbf{E}(S_{n})=\sum_{i=1}^{i=n}\mu_{k}$
 
 \begin{itemize}
-\item Lei fraca dos grandes números: dizemos que $\left\{ X_{n},n\ge1\right\} $
-satisfaz a lei fraca dos grandes números se $\underset{n\rightarrow\infty}{lim}\frac{S_{n}}{n}-\frac{A_{n}}{n}\overset{Prob.}{\to}0$
-\item Lei forte dos grandes números: dizemos que $\left\{ X_{n},n\ge1\right\} $
-satisfaz a lei forte dos grandes números se $\underset{n\rightarrow\infty}{lim}\frac{S_{n}}{n}-\frac{A_{n}}{n}\overset{q.c.}{\to}0$
+\item Lei fraca dos grandes nÃºmeros: dizemos que $\left\{ X_{n},n\ge1\right\} $
+satisfaz a lei fraca dos grandes nÃºmeros se $\underset{n\rightarrow\infty}{lim}\frac{S_{n}}{n}-\frac{A_{n}}{n}\overset{Prob.}{\to}0$
+\item Lei forte dos grandes nÃºmeros: dizemos que $\left\{ X_{n},n\ge1\right\} $
+satisfaz a lei forte dos grandes nÃºmeros se $\underset{n\rightarrow\infty}{lim}\frac{S_{n}}{n}-\frac{A_{n}}{n}\overset{q.c.}{\to}0$
 \end{itemize}
 \item Teorema de Kolmogorov: 
 
 \begin{itemize}
-\item $\left\{ X_{n},n\ge1\right\} $ uma sequência de variáveis aleatórias
-i.i.d.. A existência de $\mathbf{E}(\left|X_{1}\right|)$ é condição
-necessária e suficiente para que a sequência $\left\{ X_{n}\right\} $
-satisfaça a lei forte dos grandes números e $\frac{S_{n}}{n}\overset{q.c.}{\to}\mu$,
+\item $\left\{ X_{n},n\ge1\right\} $ uma sequÃªncia de variÃ¡veis aleatÃ³rias
+i.i.d.. A existÃªncia de $\mathbf{E}(\left|X_{1}\right|)$ Ã© condiÃ§Ã£o
+necessÃ¡ria e suficiente para que a sequÃªncia $\left\{ X_{n}\right\} $
+satisfaÃ§a a lei forte dos grandes nÃºmeros e $\frac{S_{n}}{n}\overset{q.c.}{\to}\mu$,
 onde $\mu=\mu_{1}$
 \item (Outro teorema de Kolmogorov): Seja $\left\{ X_{n},n\ge1\right\} $
-uma sequência de variáveis aleatórias independentes com segundo momento
+uma sequÃªncia de variÃ¡veis aleatÃ³rias independentes com segundo momento
 finito e $Var(X_{n})<\infty$ se $\sum_{n=1}^{n\to\infty}\frac{Var(X_{n})}{n^{2}}<\infty$
-então $\frac{S_{n}}{n}\overset{q.c.}{\to}\frac{\mathbf{E}(S_{n})}{n}$
+entÃ£o $\frac{S_{n}}{n}\overset{q.c.}{\to}\frac{\mathbf{E}(S_{n})}{n}$
 \end{itemize}
-\item Sequências que são transformações de sequências convergentes: Sejam
-as sequências $\left\{ X_{n},n\ge1\right\} $ e $\left\{ Y_{n},n\ge1\right\} $
-que satisfazem o teorema de Kolmogorov, defina uma sequência que seja
-função delas $\left\{ f(X_{n},Y_{n})\right\} $ então $f(X_{n},Y_{n})\overset{q.c.}{\to}f(\mu_{X},\mu_{Y})$
+\item SequÃªncias que sÃ£o transformaÃ§Ãµes de sequÃªncias convergentes: Sejam
+as sequÃªncias $\left\{ X_{n},n\ge1\right\} $ e $\left\{ Y_{n},n\ge1\right\} $
+que satisfazem o teorema de Kolmogorov, defina uma sequÃªncia que seja
+funÃ§Ã£o delas $\left\{ f(X_{n},Y_{n})\right\} $ entÃ£o $f(X_{n},Y_{n})\overset{q.c.}{\to}f(\mu_{X},\mu_{Y})$
 se $f(\mu_{X},\mu_{Y})<\infty$
 \item TEOREMA DO LIMITE CENTRAL: Seja $X_{1},X_{2},...X_{n}$ um conjunto
-de n variáveis independentes cada uma com média $\mu_{i}$ e variância
-finita $\sigma_{i}^{2}$. Então:
+de n variÃ¡veis independentes cada uma com mÃ©dia $\mu_{i}$ e variÃ¢ncia
+finita $\sigma_{i}^{2}$. EntÃ£o:
 \[
 Y=\underset{n\to\infty}{lim}\frac{\sum_{i=1}^{i=n}X_{i}-\sum_{i=1}^{i=n}\mu_{i}}{\sqrt{\sum_{i=1}^{i=n}\sigma_{i}^{2}}}\sim N(0,1)
 \]
 
 
 
-Outra forma (bastante útil) de enunciar o TLC é dizer que $\frac{\sqrt{n}}{\sigma}(X-\mu)\overset{d}{\to}N(0,1)$;
+Outra forma (bastante Ãºtil) de enunciar o TLC Ã© dizer que $\frac{\sqrt{n}}{\sigma}(X-\mu)\overset{d}{\to}N(0,1)$;
 em que $X=\frac{1}{n}\sum_{i=1}^{i=n}X_{i}$
 
-\item Implicações: $L^{p}\implies prob.\implies distrib.$ e $q.c.\implies prob.\implies distrib.$
-\item Manipulações em Variáveis com distribuição normal: Sejam $X\sim N(\mu_{X};\sigma_{X}^{2})$
-; $Y\sim N(\mu_{Y};\sigma_{Y}^{2})$ e k constante então:
+\item ImplicaÃ§Ãµes: $L^{p}\implies prob.\implies distrib.$ e $q.c.\implies prob.\implies distrib.$
+\item ManipulaÃ§Ãµes em VariÃ¡veis com distribuiÃ§Ã£o normal: Sejam $X\sim N(\mu_{X};\sigma_{X}^{2})$
+; $Y\sim N(\mu_{Y};\sigma_{Y}^{2})$ e k constante entÃ£o:
 
 \begin{itemize}
 \item $V=kX\sim N(k\cdot\mu_{X};k^{2}\cdot\sigma_{X}^{2})$
 \item $V=k+X\sim N(k+\mu_{X};\sigma_{X}^{2})$
 \item $V=X\mathbf{+}Y\sim N(\mu_{X}\mathbf{+}\mu_{Y};\sigma_{X}^{2}\mathbf{+}\sigma_{Y}^{2})$
 \item $V=X\mathbf{-}Y\sim N(\mu_{X}\mathbf{-}\mu_{Y};\sigma_{X}^{2}\mathbf{+}\sigma_{Y}^{2})$
-(Observe que é \textbf{+} na variância. Essa é uma fonte grande de
+(Observe que Ã© \textbf{+} na variÃ¢ncia. Essa Ã© uma fonte grande de
 erros!)
 \end{itemize}
 \end{enumerate}
 \pagebreak{}
 
 
-\subsection*{\textmd{1) Dê um exemplo de sequência $X_{1},X_{2},...$ tal que
-$X_{n}\rightarrow0$ em $L^{1}$ , mas não em $L^{2}$}}
+\subsection*{\textmd{1) DÃª um exemplo de sequÃªncia $X_{1},X_{2},...$ tal que
+$X_{n}\rightarrow0$ em $L^{1}$ , mas nÃ£o em $L^{2}$}}
 
 Resp. a1)
 
-Basta aplicar a definição de 1, tentando um 'passo inverso' para achar
-algum exemplo em que não funcione
+Basta aplicar a definiÃ§Ã£o de 1, tentando um 'passo inverso' para achar
+algum exemplo em que nÃ£o funcione
 \begin{itemize}
-\item Seja a sequência definida por $P(X_{n}=n)=\frac{1}{n^{2}}$ e $P(X_{n}=0)=1-\frac{1}{n^{2}}$
+\item Seja a sequÃªncia definida por $P(X_{n}=n)=\frac{1}{n^{2}}$ e $P(X_{n}=0)=1-\frac{1}{n^{2}}$
 e $P(X_{n}=k)=0$ nos demais casos , dessa forma $\mathbf{E}(\left|X_{n}-0\right|^{1})=\mathbf{E}(X_{n})=\sum_{i=0}^{i=n}i\cdot P(X_{n}=i)=n\cdot\frac{1}{n^{2}}=\frac{1}{n}\rightarrow0$,
 mas $\mathbf{E}(\left|X_{n}-0\right|^{2})=\mathbf{E}(X_{n}^{2})=\sum_{i=0}^{i=n}i^{2}\cdot P(X_{n}=i)=n^{2}\cdot\frac{1}{n^{2}}=1\rightarrow1\neq0$
 \end{itemize}
 Resp. a2)
 \begin{itemize}
-\item UM EXEMPLO ERRADO! Seja a sequência definida por $X_{n}\sim Normal(0,1+\frac{1}{n})$,
+\item UM EXEMPLO ERRADO! Seja a sequÃªncia definida por $X_{n}\sim Normal(0,1+\frac{1}{n})$,
 temos $\mathbf{E}(X_{n})=0$, $\mathbf{E}(X_{n}^{2})=\sigma^{2}+\mathbf{E}(X_{n})^{2}=1+\frac{1}{n}+0\rightarrow1\neq0$...
 o que tem de errado aqui ? usamos isso $\mathbf{E}(X_{n})=0$, mas
-na definição, é pedido a esperança do MÓDULO elevado a p, ou seja,
-$\mathbf{E}(\left|X_{n}-0\right|^{1})>0$ não satisfazendo as condições
-para ser $L^{1}$ , esse é um tipo de erro muito fácil de cometer.
+na definiÃ§Ã£o, Ã© pedido a esperanÃ§a do MÃ“DULO elevado a p, ou seja,
+$\mathbf{E}(\left|X_{n}-0\right|^{1})>0$ nÃ£o satisfazendo as condiÃ§Ãµes
+para ser $L^{1}$ , esse Ã© um tipo de erro muito fÃ¡cil de cometer.
 \end{itemize}
 
 \subsection*{\textcompwordmark{}}
 
 
 \subsection*{\textmd{2) Sejam $X_{1},X_{2},...$ v.a. i.i.d. Uniformes (0,1).
-Mostre que $n^{-X_{n}}\rightarrow0$ em probabilidade, mas não quase
+Mostre que $n^{-X_{n}}\rightarrow0$ em probabilidade, mas nÃ£o quase
 certamente.}}
 
-Resp.) para mostrar isso, temos que provar que as restrições descritas
-em 2 são válidas:
+Resp.) para mostrar isso, temos que provar que as restriÃ§Ãµes descritas
+em 2 sÃ£o vÃ¡lidas:
 \begin{itemize}
 \item Queremos mostrar que $\underset{n\rightarrow\infty}{lim}P(\left|n^{\text{\textminus}X_{n}}-0\right|<\epsilon)\rightarrow1$,
 \end{itemize}
 Considere $\underset{n\rightarrow\infty}{lim}P(\left|n^{\text{\textminus}X_{n}}-0\right|<\epsilon)$,
-uma observação importante é que $X_{n}\in[0,1]$, 
+uma observaÃ§Ã£o importante Ã© que $X_{n}\in[0,1]$, 
 
-Podemos fazer transformações nos dois lados da desigualdade, considere
-a transformação logaritmica $\underset{n\rightarrow\infty}{lim}P(\left|n^{\text{\textminus}X_{n}}-0\right|<\epsilon)=\underset{n\rightarrow\infty}{lim}P(ln(\left|n^{\text{\textminus}X_{n}}\right|)<ln(\epsilon))=\underset{n\rightarrow\infty}{lim}P(-X_{n}<\frac{ln(\epsilon)}{ln(\left|n\right|)})=\underset{n\rightarrow\infty}{lim}P(X_{n}>-\frac{ln(\epsilon)}{ln(\left|n\right|)})=\underset{n\rightarrow\infty}{lim}\int_{-\frac{ln(\epsilon)}{ln(\left|n\right|)}}^{1}1dx=1+\underset{n\rightarrow\infty}{lim}\frac{ln(\epsilon)}{ln(\left|n\right|)}=1$
+Podemos fazer transformaÃ§Ãµes nos dois lados da desigualdade, considere
+a transformaÃ§Ã£o logaritmica $\underset{n\rightarrow\infty}{lim}P(\left|n^{\text{\textminus}X_{n}}-0\right|<\epsilon)=\underset{n\rightarrow\infty}{lim}P(ln(\left|n^{\text{\textminus}X_{n}}\right|)<ln(\epsilon))=\underset{n\rightarrow\infty}{lim}P(-X_{n}<\frac{ln(\epsilon)}{ln(\left|n\right|)})=\underset{n\rightarrow\infty}{lim}P(X_{n}>-\frac{ln(\epsilon)}{ln(\left|n\right|)})=\underset{n\rightarrow\infty}{lim}\int_{-\frac{ln(\epsilon)}{ln(\left|n\right|)}}^{1}1dx=1+\underset{n\rightarrow\infty}{lim}\frac{ln(\epsilon)}{ln(\left|n\right|)}=1$
 
 logo, converge em probabilidade.
 \begin{itemize}
-\item Agora vamos tentar mostrar que não converge quase certamente:
+\item Agora vamos tentar mostrar que nÃ£o converge quase certamente:
 \end{itemize}
 Considere $\epsilon>0$ e $A_{n}=\left\{ \left|n^{\text{\textminus}X_{n}}-0\right|>\epsilon\right\} $
 disso temos que $P(A_{n})=P(\left|n^{\text{\textminus}X_{n}}\right|>\epsilon)=P(ln(\left|n^{\text{\textminus}X_{n}}\right|)>ln(\epsilon))=P(X_{n}<-\frac{ln(\epsilon)}{ln(\left|n\right|)})=$
@@ -194,8 +194,8 @@ disso temos que $P(A_{n})=P(\left|n^{\text{\textminus}X_{n}}\right|>\epsilon)=P(
 Vamos calcular $\underset{k\rightarrow\infty}{lim}\sum_{n=1}^{n=k}P(A_{n})=-log_{1}(\epsilon)-log_{2}(\epsilon)-log_{3}(\epsilon)-...$,
 mas existe $n_{0}$ tal que $\epsilon\le n_{i}^{-1}$ para todo $n_{i}\ge n_{0}$,
 logo $\underset{k\rightarrow\infty}{lim}\sum_{n=1}^{n=k}log_{\left|n\right|}(\epsilon)=-log_{1}(\epsilon)-log_{2}(\epsilon)-log_{3}(\epsilon)-...\ge\underset{k\rightarrow\infty}{lim}\sum_{n=n_{0}}^{n=k}1\to\infty$,
-mostrando que a sequência denotada por $n^{\text{\textminus}X_{n}}$
-não converge quase certamente.
+mostrando que a sequÃªncia denotada por $n^{\text{\textminus}X_{n}}$
+nÃ£o converge quase certamente.
 
 
 \subsection*{\textcompwordmark{}}
@@ -205,8 +205,8 @@ não converge quase certamente.
 Mostre que}}
 
 
-\subsubsection*{\textmd{a) Se $a_{n}=n^{2}$ , então com probabilidade 1 somente
-um número finito de $X_{n}$\textquoteright s toma valores menores
+\subsubsection*{\textmd{a) Se $a_{n}=n^{2}$ , entÃ£o com probabilidade 1 somente
+um nÃºmero finito de $X_{n}$\textquoteright s toma valores menores
 que 1;}}
 
 Resp. a) 
@@ -214,10 +214,10 @@ Resp. a)
 Considere o avento $A_{n}=\{X_{n}<1\}$
 \begin{itemize}
 \item $P(A_{n})=P(X_{n}<1)=\int_{x=0}^{x=1}\frac{1}{a_{n}}dx=\frac{1}{a_{n}}=\frac{1}{n^{2}}\implies\sum_{n=1}^{n=\infty}P(A_{n})=\sum_{n=1}^{n=\infty}\frac{1}{n^{2}}=2<\infty\implies A_{n}$
-ocorre um número finito de vezes
+ocorre um nÃºmero finito de vezes
 \end{itemize}
 
-\subsubsection*{\textmd{b) Se $a_{n}=\sqrt{n}$ , então com probabilidade 1 um número
+\subsubsection*{\textmd{b) Se $a_{n}=\sqrt{n}$ , entÃ£o com probabilidade 1 um nÃºmero
 infinito de $X_{n}$\textquoteright s toma valores menores que 1;}}
 
 Resp. b)
@@ -225,7 +225,7 @@ Resp. b)
 Considere o avento $A_{n}=\{X_{n}<1\}$
 \begin{itemize}
 \item $P(A_{n})=P(X_{n}<1)=\int_{x=0}^{x=1}\frac{1}{a_{n}}dx=\frac{1}{a_{n}}=\frac{1}{\sqrt{n}}\implies\sum_{n=1}^{n=\infty}P(A_{n})=\sum_{n=1}^{n=\infty}\frac{1}{\sqrt{n}}>\sum_{n=1}^{n=\infty}\frac{1}{n}\rightarrow\infty\implies A_{n}$
-ocorre um número infinito de vezes
+ocorre um nÃºmero infinito de vezes
 \end{itemize}
 
 \subsection*{\textcompwordmark{}}
@@ -235,15 +235,15 @@ ocorre um número infinito de vezes
 que: }}
 
 
-\subsubsection*{\textmd{a) convergência em probabilidade não implica na convergência
+\subsubsection*{\textmd{a) convergÃªncia em probabilidade nÃ£o implica na convergÃªncia
 quase certa.}}
 
 
-\subsubsection*{\textmd{b) convergência em $L^{p}$ não implica na convergência quase
+\subsubsection*{\textmd{b) convergÃªncia em $L^{p}$ nÃ£o implica na convergÃªncia quase
 certa.}}
 
 
-\subsubsection*{\textmd{c) convergência quase certa não implica na convergência em
+\subsubsection*{\textmd{c) convergÃªncia quase certa nÃ£o implica na convergÃªncia em
 $L^{p}$.}}
 
 
@@ -263,7 +263,7 @@ Resp. a)
 \item $\underset{n\rightarrow\infty}{lim}P(\left|Z_{n}-1\right|\ge\epsilon)=\underset{n\rightarrow\infty}{lim}P(\left|max{X_{1},...,X_{n}}-1\right|\ge\epsilon)=\underset{n\rightarrow\infty}{lim}P(1-max{X_{1},...,X_{n}}\ge\epsilon)=\underset{n\rightarrow\infty}{lim}P(max{X_{1},...,X_{n}}\le1-\epsilon)\overset{ind.}{=}\underset{n\rightarrow\infty}{lim}P(X_{1}\le1-\epsilon)^{n}=\underset{n\rightarrow\infty}{lim}(1-\epsilon)^{n}=0$
 \end{itemize}
 
-\subsubsection*{\textmd{b) $U_{n}\rightarrow exp(1)$ em distribuição}}
+\subsubsection*{\textmd{b) $U_{n}\rightarrow exp(1)$ em distribuiÃ§Ã£o}}
 
 Resp. b)
 \begin{itemize}
@@ -275,11 +275,11 @@ $\underset{n\rightarrow\infty}{lim}F_{U_{n}}(a)=\underset{n\rightarrow\infty}{li
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{6) Ache o limite (quase certo) da sequência $Y_{1},Y_{2},...$
+\subsection*{\textmd{6) Ache o limite (quase certo) da sequÃªncia $Y_{1},Y_{2},...$
 onde $Y_{n}=\frac{1}{n}(X_{1}^{\alpha}+...+X_{n}^{\alpha})$, $X_{1},X_{2},...$
-são i.i.d. Uniformes (0, 1) e \textgreek{a} > 0.}}
+sÃ£o i.i.d. Uniformes (0, 1) e \textgreek{a} > 0.}}
 
-Resp.) Considere a variável aleatória $V_{n}=X_{n}^{\alpha}$, observe
+Resp.) Considere a variÃ¡vel aleatÃ³ria $V_{n}=X_{n}^{\alpha}$, observe
 que $\mathbf{E}(V_{n})=\int_{0}^{1}x^{\alpha}dx=\frac{1^{\alpha+1}}{\alpha+1}<\infty$,
 logo, pelo teorema de Kolmogorov (8) a soma definida como $S_{n}=\frac{1}{n}(V_{1}+V_{2}+...+V_{n})$
 satisfaz $\frac{S_{n}}{n}\overset{q.c.}{\to}\frac{1^{\alpha+1}}{\alpha+1}=\frac{1}{\alpha+1}$,
@@ -299,10 +299,10 @@ Mostre que
 Resp. ) vamos usar (9).
 
 Considere $U_{n}=\frac{\sum X_{i}}{n}$, como $\mathbf{E}(X_{i})<\infty$
-então $U_{n}\overset{q.c.}{\to}1$
+entÃ£o $U_{n}\overset{q.c.}{\to}1$
 
 Considere $W_{n}=\frac{\sum X_{i}^{2}}{n}$, como $\mathbf{E}(X_{i}^{2})=Var(X_{i})+1^{2}=2<\infty$
-então $W_{n}\overset{q.c.}{\to}2$
+entÃ£o $W_{n}\overset{q.c.}{\to}2$
 
 Considere $V_{n}=\frac{\sqrt{n\sum X_{i}^{2}}}{n}=\frac{\sqrt{n}}{\sqrt{n}}\cdot\frac{\sqrt{n\sum X_{i}^{2}}}{n}=\sqrt{\frac{\sum X_{i}^{2}}{n}}=\sqrt{W_{n}}\overset{q.c.}{\to}\sqrt{2}$
 por (9).
@@ -313,23 +313,23 @@ $\frac{\sum_{i=1}^{i=n}X_{i}}{\sqrt{n\sum_{i=1}^{i=n}X_{i}^{2}}}=\frac{1/n}{1/n}
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{8) As v.a. $X_{1},X_{2},...$ são independentes, $P(X_{n}=n)=P(X_{n}=-n)=1/2$,
+\subsection*{\textmd{8) As v.a. $X_{1},X_{2},...$ sÃ£o independentes, $P(X_{n}=n)=P(X_{n}=-n)=1/2$,
 n = 1, 2, . . .. Mostre que:
 \[
 \frac{\sum_{k=1}^{k=n}X_{k}}{n^{2}}\protect\overset{Prob.}{\to}0
 \]
 }}
 
-Resp.) Vamos apelar. Observe que é muito mais fácil mostrar que converge
-quase certamente do que em probabilidade e como convergência quase
-certa implica em convergência em probabilidade, temos o resultado
+Resp.) Vamos apelar. Observe que Ã© muito mais fÃ¡cil mostrar que converge
+quase certamente do que em probabilidade e como convergÃªncia quase
+certa implica em convergÃªncia em probabilidade, temos o resultado
 esperado:
 \begin{itemize}
 \item $\mathbf{E}(X_{i})=\frac{n}{2}-\frac{n}{2}=0$
 \item \textbf{$Var(X_{i})=\mathbf{E}(X_{i}^{2})-\mathbf{E}(X_{i})^{2}=\mathbf{E}(X_{i}^{2})=\frac{n^{2}}{2}+\frac{n^{2}}{2}=n^{2}$}
-\item Considere a Variável aleatoria $Y_{i}=\frac{X_{i}}{n}$, temos $P(Y_{i}=1)=P(X_{i}=n)=P(X_{i}=-n)=P(Y_{i}=-1)=\frac{1}{2}$
+\item Considere a VariÃ¡vel aleatoria $Y_{i}=\frac{X_{i}}{n}$, temos $P(Y_{i}=1)=P(X_{i}=n)=P(X_{i}=-n)=P(Y_{i}=-1)=\frac{1}{2}$
 \item Com isso, temos $\mathbf{E}(Y_{i})=\frac{1}{2}-\frac{1}{2}=0$ e \textbf{$Var(Y_{i})=\mathbf{E}(Y_{i}^{2})-\mathbf{E}(Y_{i})^{2}=\mathbf{E}(Y_{i}^{2})=\frac{1^{2}}{2}+\frac{1^{2}}{2}=1<\infty$},
-além disso $\sum_{k=1}^{k=n}\frac{Var(Y_{k})}{n^{2}}=\sum_{k=1}^{k=n}\frac{1}{n^{2}}\to2<\infty$.
+alÃ©m disso $\sum_{k=1}^{k=n}\frac{Var(Y_{k})}{n^{2}}=\sum_{k=1}^{k=n}\frac{1}{n^{2}}\to2<\infty$.
 Podemos usar o teorema de Kolmogorov (8) e $\frac{\sum_{k=1}^{k=n}Y_{k}}{n}\overset{q.c.}{\to}0$,
 mas $\frac{\sum_{k=1}^{k=n}Y_{k}}{n}=\frac{\sum_{k=1}^{k=n}X_{k}}{n^{2}}$
 logo $\frac{\sum_{k=1}^{k=n}X_{k}}{n^{2}}\overset{q.c.}{\to}0$ e
@@ -342,7 +342,7 @@ disso temos que $\frac{\sum_{k=1}^{k=n}X_{k}}{n^{2}}\overset{Prob.}{\to}0$
 \subsection*{\textmd{9) A cada aposta, o jogador perde 1 R\$ com probabilidade
 0.7, perde 2 R\$ com probabilidade 0.2 ou ganhe 10 R\$ com probabilidade
 0.1. Calcule (aproximadamente) a probabilidade de que este jogador
-estará perdendo depois de 100 apostas (ganho negativo).}}
+estarÃ¡ perdendo depois de 100 apostas (ganho negativo).}}
 
 Resp.)
 \begin{itemize}
@@ -356,9 +356,9 @@ Resp.)
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{10) O número dos dias que uma certa componente funciona até
-falhar é uma v.a. com densidade $f(x)=2x,\ 0<x<1$. A componente que
-falha é reposta imediatamente. Quantas componentes precisamos ter
+\subsection*{\textmd{10) O nÃºmero dos dias que uma certa componente funciona atÃ©
+falhar Ã© uma v.a. com densidade $f(x)=2x,\ 0<x<1$. A componente que
+falha Ã© reposta imediatamente. Quantas componentes precisamos ter
 no estoque para que a probabilidade de que o estoque vai durar pelo
 menos 35 dias seja 0.95?}}
 
@@ -376,9 +376,9 @@ Componentes
 
 \subsection*{\textmd{11) Os engenheiros civis acreditam que o peso (em toneladas)
 que uma certa ponte pode suportar sem sofrer danos estruturais tem
-distribuição Normal com média 200 e desvio padrão 20. Suponha que
-o peso de um carro é uma v.a. (não necessariamente Normal) com média
-1 e desvio padrão 0.2. Quantos carros podem passar simultaneamente
+distribuiÃ§Ã£o Normal com mÃ©dia 200 e desvio padrÃ£o 20. Suponha que
+o peso de um carro Ã© uma v.a. (nÃ£o necessariamente Normal) com mÃ©dia
+1 e desvio padrÃ£o 0.2. Quantos carros podem passar simultaneamente
 por esta ponte sem que a probabilidade de danos estruturais exceda
 0.01?}}
 
@@ -386,19 +386,19 @@ Resp. )
 \begin{itemize}
 \item $P\sim N(200;20^{2})$ - peso que a ponte pode suportar antes de sofrer
 danos estruturais
-\item $C_{i}$ é o peso de um carro qualquer, tal que $\mu=\mathbf{E}(C_{i})=1$;
+\item $C_{i}$ Ã© o peso de um carro qualquer, tal que $\mu=\mathbf{E}(C_{i})=1$;
 $\sigma^{2}=Var(C_{i})=0,2^{2}$
-\item Considere a variável aleatória $N_{n}=\sum_{i=1}^{i=n}C_{i}$
+\item Considere a variÃ¡vel aleatÃ³ria $N_{n}=\sum_{i=1}^{i=n}C_{i}$
 \item Pelo TLC (10) temos que $\frac{N_{n}-n\cdot\mathbf{E}(C_{i})}{\sqrt{Var(C_{i})\cdot n}}\sim N(0,1)\implies N_{n}\sim N(n\cdot\mu;n\cdot\sigma^{2})$
-\item Queremos $P(N_{n}\ge P)=P(N_{n}-P\ge0)\le0,01$, mas ambas as variáveis
-são aproximadamente normais, podemos aplicar subtração de normais:
+\item Queremos $P(N_{n}\ge P)=P(N_{n}-P\ge0)\le0,01$, mas ambas as variÃ¡veis
+sÃ£o aproximadamente normais, podemos aplicar subtraÃ§Ã£o de normais:
 Considere $V_{n}=N_{n}-P\sim N(n\cdot\mu-200;n\cdot\sigma^{2}+20^{2})$,
-para simplificar as manipulações, connsidere também $k=n\cdot\mu-200$
+para simplificar as manipulaÃ§Ãµes, connsidere tambÃ©m $k=n\cdot\mu-200$
 e $w=n\cdot\sigma^{2}+20^{2}$. Dessa forma, queremos $P(V_{n}\ge0)\le0,01$
 com $V_{n}\sim N(k;w)$.
 \item Agora vamos manipular: $P(V_{n}\ge0)=1-P(V_{n}<0)=1-P(\frac{V_{n}-k}{\sqrt{w}}<\frac{0-k}{\sqrt{w}})=1-\phi(\frac{-k}{\sqrt{w}})=1-(1-\phi(\frac{k}{\sqrt{w}}))=\phi(\frac{k}{\sqrt{w}})<0,01$.
-Observe que a transformação $\frac{V_{n}-k}{\sqrt{w}}$ é a que faríamos
-para tranformar uma variável normal na forma padrão.
+Observe que a transformaÃ§Ã£o $\frac{V_{n}-k}{\sqrt{w}}$ Ã© a que farÃ­amos
+para tranformar uma variÃ¡vel normal na forma padrÃ£o.
 \item disso temos $\phi(\frac{k}{\sqrt{w}})<0,01\implies\frac{k}{\sqrt{w}}<-2,326\implies\frac{n\cdot\mu-200}{\sqrt{n\cdot\sigma^{2}+20^{2}}}=\frac{n\cdot1-200}{\sqrt{n\cdot0,04+20^{2}}}<-2,326\implies n\cong153$
 Carros.
 \end{itemize}
@@ -406,8 +406,8 @@ Carros.
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{12) As notas dos alunos do curso de estatística tem média
-7,4 e desvio padrão 1,4 (suponha que as notas são v.a. independentes).
+\subsection*{\textmd{12) As notas dos alunos do curso de estatÃ­stica tem mÃ©dia
+7,4 e desvio padrÃ£o 1,4 (suponha que as notas sÃ£o v.a. independentes).
 O professor vai dar duas provas, uma para turma de 25 alunos e outra
 para uma turma de 64 alunos. Calcule (aproximadamente): }}
 \begin{itemize}
@@ -415,7 +415,7 @@ para uma turma de 64 alunos. Calcule (aproximadamente): }}
 $X_{i}$ iid; $C_{1}=25$ Alunos; $C_{2}=64$ Alunos; $S_{n}=\sum_{i=1}^{i=n}X_{i}$
 \end{itemize}
 
-\subsubsection*{\textmd{a) A probabilidade de que a nota média da turma seja pelo
+\subsubsection*{\textmd{a) A probabilidade de que a nota mÃ©dia da turma seja pelo
 menos 8.0 (para as duas turmas);}}
 
 Resp. a)
@@ -426,36 +426,36 @@ Queremos:
 \item $P(\frac{S_{64}}{64}\ge8)=P(\frac{S_{64}-64\mu}{\sigma\sqrt{64}}\ge\frac{64\cdot8-64\mu}{\sigma\sqrt{64}})=1-\phi(\frac{64\cdot8-64\mu}{\sigma\sqrt{64}})=1-\phi(\frac{64\cdot8-64\cdot7,5}{1,4\cdot\sqrt{64}})=1-\phi(3,428)\cong0,0003$
 \end{enumerate}
 
-\subsubsection*{\textmd{b) A probabilidade de que a nota média da turma maior exceda
-a nota média da turma menor em pelo menos 0.22.}}
+\subsubsection*{\textmd{b) A probabilidade de que a nota mÃ©dia da turma maior exceda
+a nota mÃ©dia da turma menor em pelo menos 0.22.}}
 
 Resp. b) 
 
 Queremos $P(\frac{S_{64}}{64}\ge\frac{S_{25}}{25}+0,22)$
 \begin{itemize}
 \item Como pelo TLC: $\frac{\sqrt{64}}{\sigma}\cdot(\frac{S_{64}}{64}-\mu)\overset{d}{\to}N(0;1)$
-então $\frac{S_{64}}{64}\overset{d}{\to}N(\mu;\frac{\sigma^{2}}{64})$;
+entÃ£o $\frac{S_{64}}{64}\overset{d}{\to}N(\mu;\frac{\sigma^{2}}{64})$;
 da mesma forma $\frac{\sqrt{25}}{\sigma}\cdot(\frac{S_{25}}{25}-\mu)\overset{d}{\to}N(0;1)$
-então $\frac{S_{25}}{25}\overset{d}{\to}N(\mu;\frac{\sigma^{2}}{25})$
+entÃ£o $\frac{S_{25}}{25}\overset{d}{\to}N(\mu;\frac{\sigma^{2}}{25})$
 \item Denote $Y=\frac{S_{64}}{64}-\frac{S_{25}}{25}$ pelo TLC $Y\sim N(0;\frac{\sigma^{2}}{64}+\frac{\sigma^{2}}{25})$
-e queremos $P(Y\ge0,22)$, como $Y$ é aproximadamente uma Normal,
-vamos fazer a transformação $Z=\frac{Y-0}{\sqrt{\frac{\sigma^{2}}{64}+\frac{\sigma^{2}}{25}}}\sim N(0;1)$
+e queremos $P(Y\ge0,22)$, como $Y$ Ã© aproximadamente uma Normal,
+vamos fazer a transformaÃ§Ã£o $Z=\frac{Y-0}{\sqrt{\frac{\sigma^{2}}{64}+\frac{\sigma^{2}}{25}}}\sim N(0;1)$
 assim nosso trabalho se resume a calcular $P(Z\ge\frac{0,22}{\sqrt{\frac{\sigma^{2}}{64}+\frac{\sigma^{2}}{25}}})=1-\phi(\frac{0,22}{\sqrt{\frac{\sigma^{2}}{64}+\frac{\sigma^{2}}{25}}})=1-\phi(\frac{0,22}{\sigma\cdot0,2358})=1-\phi(\frac{0,22}{1,4\cdot0,2358})=1-\phi(0,6664)=1-0.430=0,57$
 \end{itemize}
 
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{13) Um dado honesto é lançado até que a soma dos resultados
-exceda 300. Qual é a probabilidade de que serão necessários pelo menos
-80 lançamentos?}}
+\subsection*{\textmd{13) Um dado honesto Ã© lanÃ§ado atÃ© que a soma dos resultados
+exceda 300. Qual Ã© a probabilidade de que serÃ£o necessÃ¡rios pelo menos
+80 lanÃ§amentos?}}
 
 Resp. ) Aqui temos que perceber que a probabilidade de em 80 ou mais
-lançamentos para alcançarmos soma maior que 300 equivale a probabilidade
-de em exatamente 79 lançamentos não termos alcançado soma 300, assim
+lanÃ§amentos para alcanÃ§armos soma maior que 300 equivale a probabilidade
+de em exatamente 79 lanÃ§amentos nÃ£o termos alcanÃ§ado soma 300, assim
 \begin{itemize}
 \item $P(\sum_{i=1}^{i=79}N_{i}\le300)=P(\frac{\sum_{i=1}^{i=79}N_{i}-79\cdot\mu}{\sqrt{79\cdot\sigma^{2}}}\le\frac{300-79\cdot\mu}{\sqrt{79\cdot\sigma^{2}}})=\phi(\frac{300-79\cdot\mu}{\sqrt{79\cdot\sigma^{2}}})$
-\item Sabemos que nossas variáveis aleatórias $N_{i}\sim U(1,6)$ discreta
+\item Sabemos que nossas variÃ¡veis aleatÃ³rias $N_{i}\sim U(1,6)$ discreta
 logo $\mu=3,5$ e $\sigma^{2}=\frac{35}{12}$ ($Var(U)=\frac{(b-a+1)^{2}-1}{12}$)
 \item Com isso:$P(\sum_{i=1}^{i=79}N_{i}\le300)=\phi(\frac{300-79\cdot3,5}{\sqrt{79\cdot(35/12)}})=\phi(1,548)=0.93919$
 \end{itemize}
@@ -463,24 +463,24 @@ logo $\mu=3,5$ e $\sigma^{2}=\frac{35}{12}$ ($Var(U)=\frac{(b-a+1)^{2}-1}{12}$)
 \subsection*{\textcompwordmark{}}
 
 
-\subsection*{\textmd{14) Um dado honesto é lançado 43 vezes. Calcule a probabilidade
-aproximada que a média geométrica dos resultados é pelo menos 2,33.
-Obs.: a média geométrica de $a_{1},...,a_{n}$ é $(a_{1}\cdot\cdot\cdot a_{n})^{1/n}$
+\subsection*{\textmd{14) Um dado honesto Ã© lanÃ§ado 43 vezes. Calcule a probabilidade
+aproximada que a mÃ©dia geomÃ©trica dos resultados Ã© pelo menos 2,33.
+Obs.: a mÃ©dia geomÃ©trica de $a_{1},...,a_{n}$ Ã© $(a_{1}\cdot\cdot\cdot a_{n})^{1/n}$
 .}}
 
 Resp. )
 
-O truque aqui é usar logaritmo para transformar os valores a ser calculados.
+O truque aqui Ã© usar logaritmo para transformar os valores a ser calculados.
 \begin{itemize}
-\item Observe que ln é crescente e como o valor mínimo do dado é 1, então
-$ln(1)=0$ nesse caso (não precisamos nos preocupar com valores negativos
-de logaritmo \textbackslash{}0/), agora ficou fácil
-\item $P((a_{1}\text{···}a_{n})^{1/n}\ge2,33)=P(ln((a_{1}\text{···}a_{n})^{1/n})\ge ln(2,33))=P(\frac{1}{n}\cdot ln(a_{1}\text{···}a_{n})\ge ln(2,33))=P(\frac{1}{n}\cdot\sum_{i=1}^{i=n}a_{i}\ge ln(2,33))$
+\item Observe que ln Ã© crescente e como o valor mÃ­nimo do dado Ã© 1, entÃ£o
+$ln(1)=0$ nesse caso (nÃ£o precisamos nos preocupar com valores negativos
+de logaritmo \textbackslash{}0/), agora ficou fÃ¡cil
+\item $P((a_{1}\text{Â·Â·Â·}a_{n})^{1/n}\ge2,33)=P(ln((a_{1}\text{Â·Â·Â·}a_{n})^{1/n})\ge ln(2,33))=P(\frac{1}{n}\cdot ln(a_{1}\text{Â·Â·Â·}a_{n})\ge ln(2,33))=P(\frac{1}{n}\cdot\sum_{i=1}^{i=n}a_{i}\ge ln(2,33))$
 \item Sabemos que $a_{i}\sim U(1,6)$ discreta, sabemos que $\mathbf{E}(ln(a_{i}))=\sum_{i=1}^{i=6}\frac{ln(i)}{6}=1,0965$
 e $\mathbf{E}(ln(a_{i})^{2})=\sum_{i=1}^{i=6}\frac{ln(i)^{2}}{6}=1,5683$
 com isso temos que $\sigma^{2}=\mathbf{E}(ln(a_{i})^{2})-\mathbf{E}(ln(a_{i}))^{2}=1,5683-1,0965^{2}=0,366$;
-podemos calcular também $ln(2,33)=0,845868268$
-\item $P((a_{1}\text{···}a_{n})^{1/n}\ge2,33)=P(\frac{1}{n}\cdot\sum_{i=1}^{i=n}a_{i}\ge ln(2,33))=1-P(\frac{1}{n}\cdot\sum_{i=1}^{i=n}a_{i}<ln(2,33))=1-\phi(\frac{n\cdot ln(2,33)-n\cdot1,0965}{\sqrt{0,366\cdot n}})=1-\phi(\frac{43\cdot ln(2,33)-43\cdot1,0965}{\sqrt{0,366\cdot43}})=$
+podemos calcular tambÃ©m $ln(2,33)=0,845868268$
+\item $P((a_{1}\text{Â·Â·Â·}a_{n})^{1/n}\ge2,33)=P(\frac{1}{n}\cdot\sum_{i=1}^{i=n}a_{i}\ge ln(2,33))=1-P(\frac{1}{n}\cdot\sum_{i=1}^{i=n}a_{i}<ln(2,33))=1-\phi(\frac{n\cdot ln(2,33)-n\cdot1,0965}{\sqrt{0,366\cdot n}})=1-\phi(\frac{43\cdot ln(2,33)-43\cdot1,0965}{\sqrt{0,366\cdot43}})=$
 \item r$1-\phi(-2.7166)=\phi(2.7166)=0.99670$
 \end{itemize}
 
@@ -488,7 +488,7 @@ podemos calcular também $ln(2,33)=0,845868268$
 
 
 \subsection*{\textmd{15) Sejam $X_{1},X_{2},...$ v.a. i.i.d. com $\mathbf{E}(X_{1})=0$
-e $\mathbf{E}(X_{1}^{2})=2$. Ache o limite em distribuição da sequência
+e $\mathbf{E}(X_{1}^{2})=2$. Ache o limite em distribuiÃ§Ã£o da sequÃªncia
 $Y_{1},Y_{2},...$, onde 
 \[
 Y_{n}=\frac{1}{n}(X_{1}+...+X_{n})\sqrt{X_{1}^{2}+...+X_{n}^{2}}
@@ -497,14 +497,14 @@ Y_{n}=\frac{1}{n}(X_{1}+...+X_{n})\sqrt{X_{1}^{2}+...+X_{n}^{2}}
 
 Resp. ) 
 
-Sabemos que $X_{i}$ tem esperança e segundo momento finitos, sabemos
-também a variância ($\sigma^{2}=\mathbf{E}(X_{i}^{2})-\mathbf{E}(X_{i})=\mathbf{E}(X_{i}^{2})=2$).
-Que cai como uma luva para o Teorema de Kolmogorov (8), já que $\sum_{n=1}^{n\to\infty}\frac{Var(X_{n})}{n^{2}}<\infty$.
+Sabemos que $X_{i}$ tem esperanÃ§a e segundo momento finitos, sabemos
+tambÃ©m a variÃ¢ncia ($\sigma^{2}=\mathbf{E}(X_{i}^{2})-\mathbf{E}(X_{i})=\mathbf{E}(X_{i}^{2})=2$).
+Que cai como uma luva para o Teorema de Kolmogorov (8), jÃ¡ que $\sum_{n=1}^{n\to\infty}\frac{Var(X_{n})}{n^{2}}<\infty$.
 
-Primeiro, vamos reescrever a sequência de uma forma mais adequada
+Primeiro, vamos reescrever a sequÃªncia de uma forma mais adequada
 $Y_{n}=\frac{1}{n}(X_{1}+...+X_{n})\sqrt{X_{1}^{2}+...+X_{n}^{2}}=\frac{1}{\sqrt{n}}(X_{1}+...+X_{n})\frac{1}{\sqrt{n}}\sqrt{X_{1}^{2}+...+X_{n}^{2}}$
 
-aqui temos duas subsequências convergentes:
+aqui temos duas subsequÃªncias convergentes:
 
 $\frac{1}{\sqrt{n}}\sqrt{X_{1}^{2}+...+X_{n}^{2}}=\sqrt{\frac{X_{1}^{2}+...+X_{n}^{2}}{n}}\overset{q.c.}{\to}\sqrt{2}$
 (Teo. Kolmogorov) e $\frac{1}{\sigma\sqrt{n}}(X_{1}+...+X_{n})\overset{distr.}{\to}N(0;1)$
@@ -517,13 +517,13 @@ Dessa forma $Y_{n}=\frac{1}{n}(X_{1}+...+X_{n})\sqrt{X_{1}^{2}+...+X_{n}^{2}}\ov
 
 \subsubsection*{\pagebreak{}}
 \begin{quotation}
-Este solucionário foi feito para a disciplina ME310 - 2Sem 2012. Caso
-encontre algum erro, por favor peça alteração informando o erro em
-nosso grupo de discussão: 
+Este solucionÃ¡rio foi feito para a disciplina ME310 - 2Sem 2012. Caso
+encontre algum erro, por favor peÃ§a alteraÃ§Ã£o informando o erro em
+nosso grupo de discussÃ£o: 
 
 $$https://groups.google.com/forum/?fromgroups\#!forum/me310-2s-2012$$
 
-ou diretamente no repositório do github:
+ou diretamente no repositÃ³rio do github:
 
 $$https://github.com/eric-lopes/Probabilidade2$$
 

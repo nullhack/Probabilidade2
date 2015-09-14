@@ -3,11 +3,11 @@
 
 %% Este arquivo pode ser modificado e reproduzido por qualquer meio,
 %% para qualquer fim, desde que mantidos os autores e editores da
-%% lista abaixo. E o cÛdigo gerado seja disponÌvel de forma p˙blica.
-%% conforme os critÈrios da licenÁa Creative Commons, vers„o
+%% lista abaixo. E o c√≥digo gerado seja dispon√≠vel de forma p√∫blica.
+%% conforme os crit√©rios da licen√ßa Creative Commons, vers√£o
 %% Attribution-ShareAlike (https://creativecommons.org/licenses/by-sa/4.0/legalcode).
-%% PeÁo somente (n„o h· obrigatoriedade) que caso faÁa alguma alteraÁ„o,
-%% me envie as taleraÁıes para que possamos melhorar este documento.
+%% Pe√ßo somente (n√£o h√° obrigatoriedade) que caso fa√ßa alguma altera√ß√£o,
+%% me envie as altera√ß√µes para que possamos melhorar este documento.
 %% Obrigado.
 
 %% Author: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 02/09/2012
@@ -30,19 +30,19 @@
 \subsubsection*{Lembrando:}
 \begin{enumerate}
 \item Probabilidade conjunta $P(a_{1}<X\leq a_{2},b_{1}<Y\leq b_{2})=F(a_{1},b_{1})+F(a_{2},b_{2})-F(a_{1},b_{2})-F(a_{2},b_{1})$
-\item Soma de v.a. independentes (por convoluÁ„o) $f_{X+Y}(a)=\int_{-\infty}^{\infty}f_{x}(a-y)\cdot f_{y}(y)dy=\int_{-\infty}^{\infty}f_{x}(x)\cdot f_{y}(a-x)dx$
+\item Soma de v.a. independentes (por convolu√ß√£o) $f_{X+Y}(a)=\int_{-\infty}^{\infty}f_{x}(a-y)\cdot f_{y}(y)dy=\int_{-\infty}^{\infty}f_{x}(x)\cdot f_{y}(a-x)dx$
 \item Probabilidade conjunta:$1=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)dxdy$
 \item Densidade condicional: $f_{X/Y}(x,y)=\frac{f(x,y)}{f(y)}$
 \item Densidade marginal: $f(x)=\int_{-\infty}^{\infty}f(x,y)dy$
 \item V.a. independentes: $f(x,y)=f(x)\cdot f(y)$
-\item I.i.d: independentes e identicamente distribuÌdas (mesma distribuiÁ„o
-e cada uma È independente das demais)
-\item EsperanÁa: $\mathbf{E}(g(x,y,z))=\sum_{x\in X}\sum_{y\in Y}\sum_{z\in Z}g(x,y,z)\cdot p(x,y,z)$
+\item I.i.d: independentes e identicamente distribu√≠das (mesma distribui√ß√£o
+e cada uma √© independente das demais)
+\item Esperan√ßa: $\mathbf{E}(g(x,y,z))=\sum_{x\in X}\sum_{y\in Y}\sum_{z\in Z}g(x,y,z)\cdot p(x,y,z)$
 \end{enumerate}
 \pagebreak{}
 
 
-\subsection*{\textmd{1) Seja $F(a,b)$ a funÁ„o da distribuiÁ„o acumulada conjunta
+\subsection*{\textmd{1) Seja $F(a,b)$ a fun√ß√£o da distribui√ß√£o acumulada conjunta
 da v.a. X e Y. Sabendo F(x,y), calcule }}
 
 
@@ -54,7 +54,7 @@ da v.a. X e Y. Sabendo F(x,y), calcule }}
 \item $P(\Omega)=1=P(\{X>a,Y>b\}\overset{.}{\cup}\{X>a,Y>b\}^{c})=P(\{X>a,Y>b\})+P(\{X>a,Y>b\}^{c})=P(X>a,Y>b)+P(X\leq a\cup Y\leq b)$
 \item $P(X\leq a\cup Y\leq b)=P(X\leq a)+P(Y\leq b)-P(X\leq a,Y\leq b)=F(a,\infty)+F(\infty,b)-F(a,b)$
 \end{itemize}
-unindo as duas equaÁıes temos que:
+unindo as duas equa√ß√µes temos que:
 
 $P(X>a,Y>b)=1-(F(a,\infty)+F(\infty,b)-F(a,b))=1+F(a,b)-F(a,\infty)-F(\infty,b)$
 
@@ -70,26 +70,26 @@ vamos enumerar o que sabemos:
 \item $P(a_{1}<X<a_{2})=P(a_{1}<X<a_{2},\{Y\geq b\overset{.}{\cup}Y<b\})=P(a_{1}<X<a_{2},Y\geq b)+P(a_{1}<X<a_{2},Y<b)$
 \item $P(a_{1}<X<a_{2},Y<b)=\underset{\epsilon\rightarrow0}{\lim}P(X<a_{2},Y\leq b-\epsilon)-\underset{\epsilon\rightarrow0}{\lim}P(X\leq a_{1},Y\leq b-\epsilon)=\underset{\epsilon\rightarrow0}{\lim}\underset{\delta\rightarrow0}{\lim}P(X\leq a_{2}-\delta,Y\leq b-\epsilon)-\underset{\epsilon\rightarrow0}{\lim}P(X\leq a_{1},Y\leq b-\epsilon)=\underset{\epsilon\rightarrow0}{\lim}\underset{\delta\rightarrow0}{\lim}F(a_{2}-\delta,b-\epsilon)-\underset{\epsilon\rightarrow0}{\lim}F(a_{1},b-\epsilon)=F(a_{2},b)-F(a_{1},b)$
 \end{itemize}
-Unindo essas informaÁıes temos que
+Unindo essas informa√ß√µes temos que
 
 $F(a_{2},\infty)-F(a_{1},\infty)=P(a_{1}<X<a_{2},Y\geq b)+F(a_{2},b)-F(a_{1},b)\implies P(a_{1}<X<a_{2},Y\geq b)=F(a_{2},\infty)-F(a_{1},\infty)-F(a_{2},b)+F(a_{1},b)$
 
 \textbf{\textcompwordmark{}}
 
-Obs.: foi usado a notaÁ„o de limite sÛ para chamar a atenÁ„o nas desigualdades
-e lembrar que apesar de no caso contÌnuo n„o fazer diferenÁa se estamos
-usando $\leq$ ou $<$, nas vari·veis discretas (ou quando procuramos
-pela melhor aproximaÁ„o de uma vari·vel normal em uma tabela de distribuiÁ„o
-normal ) isso pode fazer uma diferenÁa significante!
+Obs.: foi usado a nota√ß√£o de limite s√≥ para chamar a aten√ß√£o nas desigualdades
+e lembrar que apesar de no caso cont√≠nuo n√£o fazer diferen√ßa se estamos
+usando $\leq$ ou $<$, nas vari√°veis discretas (ou quando procuramos
+pela melhor aproxima√ß√£o de uma vari√°vel normal em uma tabela de distribui√ß√£o
+normal ) isso pode fazer uma diferen√ßa significante!
 
 Se a pergunta foi 'tenho mesmo que usar esses limites?', a resposta
-È 'n„o', quando estiver trabalhando com vari·veis contÌnuas pode passar
+√© 'n√£o', quando estiver trabalhando com vari√°veis cont√≠nuas pode passar
 direto para o passo final e nem se preocupar com limites.
 
 \textbf{\textcompwordmark{}}
 
 
-\subsection*{\textmd{2) A distribuic„o conjunta de $X$ e $Y$ È dada por $p(x,y)$,
+\subsection*{\textmd{2) A distribuic√£o conjunta de $X$ e $Y$ √© dada por $p(x,y)$,
 onde:}}
 
 
@@ -100,7 +100,7 @@ p(1,3)=0; & p(2,3)=1/6; & p(3,3)=1/9
 \protect\end{array}$ }}
 
 
-\subsubsection*{\textmd{a) Calcule as distribuicıes marginais de X e Y . }}
+\subsubsection*{\textmd{a) Calcule as distribuic√µes marginais de X e Y . }}
 
 Resp. a)
 
@@ -114,27 +114,27 @@ Lembre-se que $P(Y=y)=\sum_{x=1}^{x=3}P(X=x,Y=y)$.
 \item $P(X=3)=p(3,1)+p(3,2)+p(3,3)=\frac{1}{9}+\frac{1}{18}+\frac{1}{9}=\frac{5}{18}$
 \end{itemize}
 
-\subsubsection*{\textmd{b) As v.a. X e Y s„o independentes? }}
+\subsubsection*{\textmd{b) As v.a. X e Y s√£o independentes? }}
 
 Resp. b) 
 
-Para que sejam independentes È necess·rio que $P(X=x,Y=y)=P(X=x)\cdot P(Y=y)$
-para todos $x$ e $y$, portanto basta mostrar um par que n„o obedece
-esta restriÁ„o para provar que as v.a. n„o s„o independentes:
+Para que sejam independentes √© necess√°rio que $P(X=x,Y=y)=P(X=x)\cdot P(Y=y)$
+para todos $x$ e $y$, portanto basta mostrar um par que n√£o obedece
+esta restri√ß√£o para provar que as v.a. n√£o s√£o independentes:
 
 Pegue, por exemplo $X=2\, e\, Y=2$ temos que $P(X=2,Y=2)=p(2,2)=0$,
 mas $P(X=2)=\sum_{y=1}^{y=3}P(X=2,Y=y)=\frac{1}{3}+\frac{1}{6}=\frac{1}{2}$
 e $P(Y=2)=\sum_{x=1}^{x=3}P(X=x,Y=2)=\frac{1}{9}+\frac{1}{18}=\frac{1}{6}$
 
 Como $P(X=2,Y=2)=0\neq\frac{1}{12}=P(X=2)\cdot P(Y=2)$, temos que
-as v.a. $X$ e $Y$ n„o s„o independentes
+as v.a. $X$ e $Y$ n√£o s√£o independentes
 
 
-\subsubsection*{\textmd{c) Calcule a distribuic„o condicional de X dado que Y = 1.}}
+\subsubsection*{\textmd{c) Calcule a distribuic√£o condicional de X dado que Y = 1.}}
 
 Resp. c)
 
-Pela definiÁ„o temos: $P(X=x/Y=y)=\frac{P(X=x,Y=y)}{P(Y=y)}=\frac{p(x,y)}{P(Y=y)}$
+Pela defini√ß√£o temos: $P(X=x/Y=y)=\frac{P(X=x,Y=y)}{P(Y=y)}=\frac{p(x,y)}{P(Y=y)}$
 
 Primeiro vamos calcular $P(Y=1)=\sum_{x=1}^{x=3}P(X=x,Y=1)=\frac{1}{9}+\frac{1}{3}+\frac{1}{9}=\frac{5}{9}$
 
@@ -155,7 +155,7 @@ c\cdot(x+2\cdot y) & se\,0<x<1\, e\,0<y<1\protect\\
 \protect\end{cases}$ : }}
 
 
-\subsubsection*{\textmd{{*}) Verique se X e Y s„o independentes. }}
+\subsubsection*{\textmd{{*}) Verique se X e Y s√£o independentes. }}
 
 Resp. {*})
 
@@ -179,7 +179,7 @@ c^{2}\cdot(x+1)\cdot(\frac{1}{2}+2\cdot y) & se\,0<x<1\, e\,0<y<1\\
 0 & caso\, contr\acute{a}rio
 \end{cases}=f(x)\cdot f(y)$
 
-Ent„o concluÌmos que n„o s„o independentes
+Ent√£o conclu√≠mos que n√£o s√£o independentes
 
 
 \subsubsection*{\textmd{a) o valor de c}}
@@ -214,7 +214,7 @@ Resp. d)
 
 \subsubsection*{\textmd{$P(X+Y<1)=P(X<1-Y)=\int_{-\infty}^{+\infty}\int_{-\infty}^{1-y}f(x,y)dxdy=\int_{0}^{1}\int_{0}^{1-y}\frac{2}{3}\cdot(x+2\cdot y)dxdy=\frac{2}{3}\cdot\int_{0}^{1}(\frac{x^{2}}{2}+2\cdot x\cdot y)_{x=0}^{x=1-y}dy=\frac{2}{3}\cdot\int_{0}^{1}(\frac{(1-y)^{2}}{2}+2\cdot(1-y)\cdot y)dy=\frac{2}{3}\cdot(-\frac{(1-y)^{3}}{6}+y^{2}-2\cdot\frac{y^{3}}{3})_{y=0}^{y=1}=\frac{2}{3}\cdot(1-\frac{2}{3}+\frac{1}{6})=\frac{1}{3}$}}
 
-Observe que n„o podemos aplicar a equaÁ„o 2 pois as v.a. n„o s„o independentes.
+Observe que n√£o podemos aplicar a equa√ß√£o 2 pois as v.a. n√£o s√£o independentes.
 
 
 \subsection*{\textmd{4) A densidade conjunta das v.a. X e Y e dada por $f(x,y)=\protect\begin{cases}
@@ -226,14 +226,14 @@ c\cdot x\cdot e^{-(x+y)} & se\, x>0\, e\, y>0\protect\\
 \subsubsection*{\textmd{(a) Calcule o valor de c. }}
 
 
-\subsubsection*{\textmd{usando a definiÁ„o temos que $1=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)dxdy=\int_{0}^{\infty}\int_{0}^{\infty}c\cdot x\cdot e^{-(x+y)}dxdy=\int_{0}^{\infty}\int_{0}^{\infty}c\cdot x\cdot e^{-y}\cdot e^{-x}dxdy=c\cdot\int_{0}^{\infty}e^{-y}dy\int_{0}^{\infty}x\cdot e^{-x}dx=c\cdot1\cdot\int_{0}^{\infty}x\cdot e^{-x}dx=c\cdot1\cdot(-\frac{1+x}{e^{x}})_{0}^{\infty}=c$
+\subsubsection*{\textmd{usando a defini√ß√£o temos que $1=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)dxdy=\int_{0}^{\infty}\int_{0}^{\infty}c\cdot x\cdot e^{-(x+y)}dxdy=\int_{0}^{\infty}\int_{0}^{\infty}c\cdot x\cdot e^{-y}\cdot e^{-x}dxdy=c\cdot\int_{0}^{\infty}e^{-y}dy\int_{0}^{\infty}x\cdot e^{-x}dx=c\cdot1\cdot\int_{0}^{\infty}x\cdot e^{-x}dx=c\cdot1\cdot(-\frac{1+x}{e^{x}})_{0}^{\infty}=c$
 logo $c=1$}}
 
 
 \subsubsection*{\textmd{(b) Calcule a densidade condicional de $Y$ dado que $X=x$. }}
 
 
-\subsubsection*{\textmd{Usando a definiÁ„o $f_{X/Y}(x,y)=\frac{f(x,y)}{f(y)}$ e
+\subsubsection*{\textmd{Usando a defini√ß√£o $f_{X/Y}(x,y)=\frac{f(x,y)}{f(y)}$ e
 $f(y)=\int_{-\infty}^{\infty}f(x,y)dx$ temos:}}
 
 
@@ -249,7 +249,7 @@ x\cdot e^{-x} & se\, x>0\protect\\
 \protect\end{cases}$}
 
 
-\subsubsection*{\textmd{(c) Verique se $X$ e $Y$ s„o independentes.}}
+\subsubsection*{\textmd{(c) Verique se $X$ e $Y$ s√£o independentes.}}
 
 
 \subsubsection*{\textmd{Basta calcular $f(x)=\int_{-\infty}^{\infty}f(x,y)dy=\int_{0}^{\infty}x\cdot e^{-(x+y)}dy=\protect\begin{cases}
@@ -261,7 +261,7 @@ x\cdot e^{-x} & se\, x>0\protect\\
 \subsubsection*{\textmd{Como $f(x,y)=\protect\begin{cases}
 x\cdot e^{-x}e^{-y} & se\, x>0\, e\, y>0\protect\\
 0 & caso\, contr\acute{a}rio
-\protect\end{cases}=f(x)\cdot f(y)$ temos que $X$ e $Y$ s„o conjuntos independentes}}
+\protect\end{cases}=f(x)\cdot f(y)$ temos que $X$ e $Y$ s√£o conjuntos independentes}}
 
 
 \subsection*{\textmd{5) Sejam $X$ e $Y$ v.a. independentes,$X\sim U(0,2)$ e
@@ -277,43 +277,43 @@ Lembrando $V\sim U(a,b)\implies f_{V}(v)=\frac{1}{b-a}\cdot\mathbf{I}_{\{a\leq v
 \end{cases}$
 
 
-\subsubsection*{\textmd{O Objetivo desta quest„o È atentar para problemas decorrentes
+\subsubsection*{\textmd{O Objetivo desta quest√£o √© atentar para problemas decorrentes
 de trabalhar com intervalos, ou seja, devemos considerar apenas intervalos
-v·lidos. Para isso considere $Z=X+Y$ queremos encontrar $f_{Z}(z)$. }}
+v√°lidos. Para isso considere $Z=X+Y$ queremos encontrar $f_{Z}(z)$. }}
 
 temos que:
 \begin{itemize}
 \item $f_{X}(x)=\frac{1}{2}\cdot\mathbf{I}_{\{0\leq x\leq2\}}$
 \item $f_{Y}(y)=\frac{1}{4}\cdot\mathbf{I}_{\{-1\leq y\leq3\}}$
 \end{itemize}
-(pessoalmentee acho essa representaÁ„o mais simp·tica, n„o ocupa duas
-linhas do caderno, esse \textbf{I} sÛ nos diz que fora do intervalo
-a funÁ„o vale 0)
+(pessoalmentee acho essa representa√ß√£o mais simp√°tica, n√£o ocupa duas
+linhas do caderno, esse \textbf{I} s√≥ nos diz que fora do intervalo
+a fun√ß√£o vale 0)
 
 
-\subsubsection*{\textmd{Podemos usar diretamente a equaÁ„o 2:}}
+\subsubsection*{\textmd{Podemos usar diretamente a equa√ß√£o 2:}}
 \begin{itemize}
 \item $f_{Z}=f_{X+Y}(a)=\int_{-\infty}^{\infty}f_{x}(x)\cdot f_{y}(a-x)dx=\int_{-\infty}^{\infty}\frac{1}{2}\cdot\mathbf{I}_{\{0\leq x\leq2\}}\cdot\frac{1}{4}\cdot\mathbf{I}_{\{-1\leq a-x\leq3\}}dx=\frac{1}{2}\cdot\int_{0}^{2}\frac{1}{4}\cdot\mathbf{I}_{\{-1\leq a-x\leq3\}}dx$
 \end{itemize}
-vamos tentar tirar alguma informaÁ„o dos intervalos possÌveis:
+vamos tentar tirar alguma informa√ß√£o dos intervalos poss√≠veis:
 \begin{itemize}
 \item $-1\leq a-x\leq3$
 \item $0\leq x\leq2$
-\item $-1\leq a\leq5$ (soma das vari·veis X e Y)\end{itemize}
+\item $-1\leq a\leq5$ (soma das vari√°veis X e Y)\end{itemize}
 \begin{enumerate}
-\item se $-1\leq a\leq1$ ent„o x estar· limitado da seguinte forma: $-1\leq a-x\leq3\implies a+1\geq x\geq a-3$
-com m·ximo $2\geq x\geq-2$ e mÌnimo $0\geq x\geq-4$, mas alÈm disso,
-x est· limitado pelo intervalo constante $0\leq x\leq2$, unindo essas
-duas informaÁıes para $-1\leq a\leq1$ ent„o $0\leq x\leq a+1\implies f_{Z}(a)=\frac{1}{2}\cdot\int_{0}^{1+a}f_{Y}(a-x)dx=\frac{1}{8}\cdot(1+a)$
-\item se $1\leq a\leq3$ ent„o x estar· limitado em:$-1\leq a-x\leq3\implies a+1\geq x\geq a-3$
-com m·ximo $4\geq x\geq0$ e mÌnimo $2\geq x\geq-2$, porÈm estes
-dois intervalos contÈm integralmente a outra restriÁ„o $0\leq x\leq2$,
-como, quem restringe o valor È o menor intervalo de cada lado, para
+\item se $-1\leq a\leq1$ ent√£o x estar√° limitado da seguinte forma: $-1\leq a-x\leq3\implies a+1\geq x\geq a-3$
+com m√°ximo $2\geq x\geq-2$ e m√≠nimo $0\geq x\geq-4$, mas al√©m disso,
+x est√° limitado pelo intervalo constante $0\leq x\leq2$, unindo essas
+duas informa√ß√µes para $-1\leq a\leq1$ ent√£o $0\leq x\leq a+1\implies f_{Z}(a)=\frac{1}{2}\cdot\int_{0}^{1+a}f_{Y}(a-x)dx=\frac{1}{8}\cdot(1+a)$
+\item se $1\leq a\leq3$ ent√£o x estar√° limitado em:$-1\leq a-x\leq3\implies a+1\geq x\geq a-3$
+com m√°ximo $4\geq x\geq0$ e m√≠nimo $2\geq x\geq-2$, por√©m estes
+dois intervalos cont√©m integralmente a outra restri√ß√£o $0\leq x\leq2$,
+como, quem restringe o valor √© o menor intervalo de cada lado, para
 o caso $1\leq a\leq3$ temos $0\leq x\leq2\implies\implies f_{Z}(a)=\frac{1}{2}\cdot\int_{0}^{2}f_{Y}(a-x)dx=\frac{1}{8}\cdot(2)=\frac{1}{4}$
-\item se $3\leq a\leq5$ x estar· limitado em: $-1\leq a-x\leq3\implies a+1\geq x\geq a-3$
-com m·ximo $5\geq x\geq2$ e mÌnimo $4\geq x\geq0$, e como sempre
-tambÈm estar· limitado a $0\leq x\leq2$, o intervalo que limita superiormente
-È $2\geq x$ e o inferior $x\geq a-3$ logo $a-3\leq x\leq2\implies f_{Z}(a)=\frac{1}{2}\cdot\int_{a-3}^{2}f_{Y}(a-x)dx=\frac{1}{8}\cdot(2-(a-3))=\frac{5-a}{8}$
+\item se $3\leq a\leq5$ x estar√° limitado em: $-1\leq a-x\leq3\implies a+1\geq x\geq a-3$
+com m√°ximo $5\geq x\geq2$ e m√≠nimo $4\geq x\geq0$, e como sempre
+tamb√©m estar√° limitado a $0\leq x\leq2$, o intervalo que limita superiormente
+√© $2\geq x$ e o inferior $x\geq a-3$ logo $a-3\leq x\leq2\implies f_{Z}(a)=\frac{1}{2}\cdot\int_{a-3}^{2}f_{Y}(a-x)dx=\frac{1}{8}\cdot(2-(a-3))=\frac{5-a}{8}$
 \end{enumerate}
 Com isso temos nossa $f_{Z}(a)=\begin{cases}
 \frac{5-a}{8} & se\,3\leq a<5\\
@@ -322,7 +322,7 @@ Com isso temos nossa $f_{Z}(a)=\begin{cases}
 0 & caso\, contr\acute{a}rio
 \end{cases}$
 
-{*}) Um jeito mais pr·tico: (mÈtodo da Talita)
+{*}) Um jeito mais pr√°tico: (m√©todo da Talita)
 
 temos que:
 \begin{itemize}
@@ -334,23 +334,23 @@ disso:
 \begin{itemize}
 \item $-1\leq a-x\leq3\implies a+1\geq x\geq a-3\implies a-3\leq x\leq a+1$
 \item $0\leq x\leq2$
-\item $-1\leq a\leq5$ (soma das vari·veis X e Y)
+\item $-1\leq a\leq5$ (soma das vari√°veis X e Y)
 \end{itemize}
-atÈ aqui È igual, mas a 'diferenÁa' est· em achar os intervalos (procurar
-'a' que n„o viole $0\leq x\leq2$):
+at√© aqui √© igual, mas a 'diferen√ßa' est√° em achar os intervalos (procurar
+'a' que n√£o viole $0\leq x\leq2$):
 \begin{enumerate}
-\item se x È limitado por \textbf{baixo por $a-3$}: vamos achar o intervalo
+\item se x √© limitado por \textbf{baixo por $a-3$}: vamos achar o intervalo
 onde isso vale: $0\leq a-3\leq2\implies a\in(3,5)$ e nesse intervalo
-a integral È $\frac{1}{2}\cdot\int_{a-3}^{2}\frac{1}{4}dx=\frac{5-a}{8}$
+a integral √© $\frac{1}{2}\cdot\int_{a-3}^{2}\frac{1}{4}dx=\frac{5-a}{8}$
 (x limitado por baixo por $a-3$)
-\item se x È limitado por \textbf{cima por $a+1$}: $0\leq a+1\leq2\implies a\in(-1,1)$
+\item se x √© limitado por \textbf{cima por $a+1$}: $0\leq a+1\leq2\implies a\in(-1,1)$
 e nesse intervalo ($0\leq x\leq a+1$) a integral a ser calculada
-È $\frac{1}{2}\cdot\int_{0}^{1+a}\frac{1}{4}dx=\frac{1+a}{8}$
-\item se x n„o estiver limitado nem por baixo, nem por cima por a ($0\leq x\leq2$)
+√© $\frac{1}{2}\cdot\int_{0}^{1+a}\frac{1}{4}dx=\frac{1+a}{8}$
+\item se x n√£o estiver limitado nem por baixo, nem por cima por a ($0\leq x\leq2$)
 que ocorre quando $0\leq a-3$ e $a+1\leq2$ que implicam em $a\in(3,5)$,
-a integral È $\frac{1}{2}\cdot\int_{0}^{2}\frac{1}{4}dx=\frac{1}{4}$
+a integral √© $\frac{1}{2}\cdot\int_{0}^{2}\frac{1}{4}dx=\frac{1}{4}$
 \end{enumerate}
-desse jeito fica mais f·cil, vemo
+desse jeito fica mais f√°cil, vemo
 
 
 \subsection*{\textmd{6. Sejam $X$ e $Y$ v.a. independentes, $X\sim U(0,1)$
@@ -368,21 +368,21 @@ sabemos que:
 \item $F_{Z}(z)=P(Z\leq z)=P(X/Y\leq z)=P(Y\ge X/z)=\int_{0}^{1}\int_{x/z}^{\infty}\lambda e^{-\lambda y}dydx=1+\frac{z}{\lambda}(e^{-\lambda/z}-1)$
 \item $f_{Z}(z)=\frac{dF_{Z}(z)}{dz}=\frac{1}{\lambda}\cdot(e^{-\lambda/z}-1)+\frac{z}{\lambda}e^{-\lambda/z}\cdot(\lambda/z^{2})=\frac{1}{\lambda}\cdot(e^{-\lambda/z}-1)+\frac{1}{z}e^{-\lambda/z}$
 \end{itemize}
-{*}) O exercÌcio saiu de maneira mais f·cil ao colocarmos em termos
-de Y, n„o de X
+{*}) O exerc√≠cio saiu de maneira mais f√°cil ao colocarmos em termos
+de Y, n√£o de X
 
 
 \subsection*{\textmd{7. Sejam$X_{1},X_{2},X_{3}$ v.a. i.i.d. exponenciais com
-par‚metro $\lambda=1$. Calcule: }}
+par√¢metro $\lambda=1$. Calcule: }}
 
-{*}) A ideia aqui È que a funÁ„o min (ou max), nos d· uma informaÁ„o
-importante sobre todas as suas vari·veis, por exemplo:
+{*}) A ideia aqui √© que a fun√ß√£o min (ou max), nos d√° uma informa√ß√£o
+importante sobre todas as suas vari√°veis, por exemplo:
 
-$min(a,b,c,d,e)=1$, isso nos informa que todos s„o pelo menos maiores
+$min(a,b,c,d,e)=1$, isso nos informa que todos s√£o pelo menos maiores
 que 1, ou seja, $a\geq1$ e $b\geq1$ e $c\geq1$ e $d\geq1$ e $e\geq1$.
 Do mesmo jeito
 
-$max(a,b,c,d,e)=1$, isso nos informa que todos s„o pelo menos menores
+$max(a,b,c,d,e)=1$, isso nos informa que todos s√£o pelo menos menores
 que 1, ou seja, $a\leq1$ e $b\leq1$ e $c\leq1$ e $d\leq1$ e $e\leq1$.
 
 
@@ -409,13 +409,13 @@ $f_{Z}(a)=\frac{dF_{Z}(a)}{da}=\frac{dP(min\{X_{1}X_{2}X_{3}\}\leq a)}{da}=\frac
 \end{cases}$
 
 
-\subsection*{\textmd{8. O n˙mero dos clientes que entram numa loja durante uma
-hora tem distribuiÁ„o de Poisson com par‚metro $\lambda=12$. Cada
-cliente compra alguma coisa com probabilidade $1/4$ e n„o compra
+\subsection*{\textmd{8. O n√∫mero dos clientes que entram numa loja durante uma
+hora tem distribui√ß√£o de Poisson com par√¢metro $\lambda=12$. Cada
+cliente compra alguma coisa com probabilidade $1/4$ e n√£o compra
 nada com probabilidade $3/4$ independentemente dos outros. Se entre
-12:00 e 13:00 entraram exatamente 10 clientes, qual È a probabilidade
+12:00 e 13:00 entraram exatamente 10 clientes, qual √© a probabilidade
 que pelo menos 2 compraram alguma coisa? Se entre 13:00 e 14:00 exatamente
-8 clientes n„o compraram nada, qual e a probabilidade que pelo menos
+8 clientes n√£o compraram nada, qual e a probabilidade que pelo menos
 2 compraram alguma coisa?}}
 
 Resp. 8)
@@ -425,10 +425,10 @@ Resp. 8)
 cada cliente compra com prob $1/4\implies C\sim Bernoulli(1/4)$ independentes
 \begin{itemize}
 \item Entre 12 e 13 horas entram exatamente 10 clientes. Sabemos que todos
-compram independente dos outros seguindo uma Bernoulli(1/4), o n˙mero
-total de clientes que compraram È uma somatÛria de Bernoulli, ou seja
-uma Binomial, com par‚metros 10 (quantos clientes entraram) e 1/4
-(a probabilidade de cada um comprar algo), daÌ temos: $B\sim Bernoulli(10,\frac{1}{4})$,
+compram independente dos outros seguindo uma Bernoulli(1/4), o n√∫mero
+total de clientes que compraram √© uma somat√≥ria de Bernoulli, ou seja
+uma Binomial, com par√¢metros 10 (quantos clientes entraram) e 1/4
+(a probabilidade de cada um comprar algo), da√≠ temos: $B\sim Bernoulli(10,\frac{1}{4})$,
 $P(B\geq2)=1-P(B\leq1)=1-(\begin{array}{c}
 10\\
 1
@@ -436,29 +436,29 @@ $P(B\geq2)=1-P(B\leq1)=1-(\begin{array}{c}
 10\\
 0
 \end{array})\cdot(\frac{3}{9})^{10}$
-\item Sabemos exatamente quantos n„o compraram (8 entre 13:00-14:00), ent„o
+\item Sabemos exatamente quantos n√£o compraram (8 entre 13:00-14:00), ent√£o
 se entrarem X nesse intervalo, sabemos que exatamente $X-8$ compraram
 alguma coisa, para isso, basta calcular $P(E\geq10)=\sum_{x=10}^{x=\infty}P(E=x)=1-P(E\leq9)=1-\sum_{x=0}^{x=9}\frac{e^{-\lambda}\lambda^{x}}{x!}$
 \end{itemize}
 
 \subsection*{\textmd{9. Um casal combina de se encontrar por volta de 12:30. O
-homem chega num momento distribuÌdo uniformemente entre 12:15 e 12:45,
+homem chega num momento distribu√≠do uniformemente entre 12:15 e 12:45,
 a mulher chega num momento distribudo uniformemente entre 12:00 e
 13:00. }}
 
 
-\subsection*{\textmd{Uma observaÁ„o aqui È o cuidado com a representaÁ„o das horas,
-podemos por exemplo representar como minutos, ou fraÁıes de hora.
-Eu acho que È mais f·cil trabalhar com minutos e depois converter,
+\subsection*{\textmd{Uma observa√ß√£o aqui √© o cuidado com a representa√ß√£o das horas,
+podemos por exemplo representar como minutos, ou fra√ß√µes de hora.
+Eu acho que √© mais f√°cil trabalhar com minutos e depois converter,
 da seguinte maneira:}}
 
 
-\subsection*{\textmd{seja $H$ a vari·vel aleatÛria que representa a hora que
+\subsection*{\textmd{seja $H$ a vari√°vel aleat√≥ria que representa a hora que
 o Homem vai chegar ao local e $D{}_{H}\sim U(15,45)$. Dessa forma
 : $H=D_{h}+12\cdot60$ min}}
 
 
-\subsection*{\textmd{seja $M$ a vari·vel aleatÛria que representa a hora que
+\subsection*{\textmd{seja $M$ a vari√°vel aleat√≥ria que representa a hora que
 a Mulher vai chegar ao local e $D{}_{M}\sim U(0,60)$. Dessa forma
 : $M=D_{M}+12\cdot60$ min}}
 
@@ -468,7 +468,7 @@ Por causa das propriedades da uniforme:
 \item $f_{D{}_{M}}(m)=\frac{1}{60}\cdot\mathbf{I}_{m\in(0,60)}$
 \end{itemize}
 
-\subsubsection*{\textmd{a) Qual e a probabilidade de que primeiro a chegar ter· de
+\subsubsection*{\textmd{a) Qual e a probabilidade de que primeiro a chegar ter√° de
 esperar mais de 15 minutos? }}
 
 
@@ -485,11 +485,11 @@ $\frac{1}{60}\cdot\frac{1}{30}\cdot\int_{-\infty}^{\infty}\int_{15+h}^{\infty}\m
 \end{itemize}
 $\frac{1}{60}\cdot\frac{1}{30}\cdot\int_{-\infty}^{\infty}\int_{15+m}^{\infty}\mathbf{I}_{h\in(15,45)}\cdot\mathbf{I}_{m\in(0,60)}dhdhm\overset{**}{=}\frac{1}{60}\cdot\frac{1}{30}\cdot\int_{0}^{30}\int_{15+m}^{45}dhdm=\frac{1}{60}\cdot\frac{1}{30}\cdot\int_{0}^{30}(45-15-m)dm=\frac{45\cdot30-15\cdot30-\frac{m^{2}}{2}_{m=0}^{m=30}}{60\cdot30}=0,25$
 
-{*}{*}) observe que n„o integramos atÈ 60 pois para valores maiores
+{*}{*}) observe que n√£o integramos at√© 60 pois para valores maiores
 que 30, a segunda integral se torna 0 por causa do problema de intervalos
-discutido na quest„o 5
+discutido na quest√£o 5
 
-assim a resposta È:$P(H-M>15\overset{.}{\cup}M-H>15)=P(H-M>15)+P(M-H>15)=\frac{1}{2}$
+assim a resposta √©:$P(H-M>15\overset{.}{\cup}M-H>15)=P(H-M>15)+P(M-H>15)=\frac{1}{2}$
 
 
 \subsubsection*{\textmd{b) Qual e a probabilidade de que o homem vai chegar primeiro? }}
@@ -508,8 +508,8 @@ Resp. 10)$f_{X/Y}(x/y)=\frac{f(x,y)}{f(y)}=\frac{x+y}{\int_{0}^{1}(x+y)dx}=\frac
 
 
 \subsection*{\textmd{11. Sejam $X_{1}$ e $X_{2}$ v.a. independentes, $X_{i}$
-tem distribuiÁ„o de Poisson com par‚metro $\lambda_{i}$, $i=1,2$.
-Seja $Z=X_{1}+X_{2}$. Calcule a distribuiÁ„o condicional de $X_{1}$
+tem distribui√ß√£o de Poisson com par√¢metro $\lambda_{i}$, $i=1,2$.
+Seja $Z=X_{1}+X_{2}$. Calcule a distribui√ß√£o condicional de $X_{1}$
 dado que $Z=n$. }}
 
 Resp. 11)
@@ -521,23 +521,23 @@ n\\
 k
 \end{array}\right)}$
 \end{itemize}
-{*}) Na p·gina 319 do Ross temos que se $X,Y\sim Poisson(\lambda_{1,2})$
-e $Z=X+Y$ ent„o $Z\sim Poisson(\lambda_{1}+\lambda_{2})$
+{*}) Na p√°gina 319 do Ross temos que se $X,Y\sim Poisson(\lambda_{1,2})$
+e $Z=X+Y$ ent√£o $Z\sim Poisson(\lambda_{1}+\lambda_{2})$
 
 
-\subsection*{\textmd{12. A distribuic„o conjunta de X, Y e Z È dada por $p(1,2,3)=p(2,1,1)=p(2,2,1)=p(2,3,2)=\frac{1}{4}$:
+\subsection*{\textmd{12. A distribuic√£o conjunta de X, Y e Z √© dada por $p(1,2,3)=p(2,1,1)=p(2,2,1)=p(2,3,2)=\frac{1}{4}$:
 Calcule $\mathbf{E}(XYZ)$ e $\mathbf{E}(XY+XZ+YZ)$. }}
 
 Resp. 12)
 
 
-\subsubsection*{\textmd{a) temos que $g(x,y,z)=x\cdot y\cdot z$ com isso e a equaÁ„o
+\subsubsection*{\textmd{a) temos que $g(x,y,z)=x\cdot y\cdot z$ com isso e a equa√ß√£o
 8 temos:}}
 
 $\sum_{x\in X}\sum_{y\in Y}\sum_{z\in Z}g(x,y,z)\cdot p(x,y,z)=\frac{1\cdot2\cdot3}{4}+\frac{2\cdot1\cdot1}{4}+\frac{2\cdot2\cdot1}{4}+\frac{2\cdot3\cdot2}{4}=\frac{24}{4}$
 
 
-\subsubsection*{\textmd{b) pela propriedade linear da esperanÁa temos: }$\mathbf{E}(XY+XZ+YZ)=\mathbf{E}(XY)+\mathbf{E}(XZ)+\mathbf{E}(YZ)$,
+\subsubsection*{\textmd{b) pela propriedade linear da esperan√ßa temos: }$\mathbf{E}(XY+XZ+YZ)=\mathbf{E}(XY)+\mathbf{E}(XZ)+\mathbf{E}(YZ)$,
 \textmd{disso}}
 
 
@@ -545,13 +545,13 @@ $\sum_{x\in X}\sum_{y\in Y}\sum_{z\in Z}g(x,y,z)\cdot p(x,y,z)=\frac{1\cdot2\cdo
 
 
 \subsection*{\textmd{13. Sejam X, Y e Z v.a. i.i.d. que assumem valores 1 e 2
-com prob. $\frac{1}{2}$. Ache a distribuic„o de $XYZ$ e $X^{2}+YZ$. }}
+com prob. $\frac{1}{2}$. Ache a distribuic√£o de $XYZ$ e $X^{2}+YZ$. }}
 
-Resp. 13) todas as 3-uplas possÌveis s„o:
+Resp. 13) todas as 3-uplas poss√≠veis s√£o:
 
 $(1,1,1),(1,2,1),(2,1,1),(2,2,1),(1,1,2),(1,2,2),(2,1,2),(2,2,2)$
 
-observe que a probabilidade de X,Y,Z È $\frac{1}{2}$ tanto para 1
+observe que a probabilidade de X,Y,Z √© $\frac{1}{2}$ tanto para 1
 quanto para 2
 
 dado que $g(X,Y,Z)=X\cdot Y\cdot Z$
@@ -578,7 +578,7 @@ nesse caso, temos $h(X,Y,Z)=X^{2}+Y\cdot Z$
 \end{itemize}
 
 \subsection*{\textmd{14. Sejam $X\sim Poisson(\lambda)$ e $Y\sim U(0,1)$, independentes.
-Ache a distribuic„o de $Z=X+Y$ . }}
+Ache a distribuic√£o de $Z=X+Y$ . }}
 
 Resp. 14)
 
@@ -586,7 +586,7 @@ Vamos definir $V=P(X=z-Y)\cdot\mathbf{I}_{\{Y=k\}}$, com isso $\mathbf{E}(V)=P(X
 
 $f_{Z}(z)=P(X+Y=z)=P(X=z-Y)=\mathbf{E}(\mathbf{E}(V/Y))=\int_{0}^{1}P(Y=k)P(X=z-k)dk=\int_{0}^{1}\mathbf{I}_{\{k\in(0,1)\}}\cdot P(X=z-k)dk=\int_{0}^{1}\frac{\lambda^{(z-k)}\cdot e^{-\lambda}}{(z-k)!}dk$
 
-Mas pela definiÁ„o de Poisson, se $X\sim Poisson(\lambda)$ ent„o
+Mas pela defini√ß√£o de Poisson, se $X\sim Poisson(\lambda)$ ent√£o
 $f_{X}(x)=\begin{cases}
 \frac{\lambda^{x}\cdot e^{-\lambda}}{x!} & se\, x\in\mathbb{N}\\
 0 & caso\, contrario
@@ -602,7 +602,7 @@ c(y-x) & se\,0<x<y<1\protect\\
 \protect\end{cases}$}}
 
 
-\subsubsection*{\textmd{a) Ache o valor de c e as distribuicıes marginais de X e
+\subsubsection*{\textmd{a) Ache o valor de c e as distribuic√µes marginais de X e
 Y . }}
 
 Resp. a)
@@ -610,16 +610,16 @@ Resp. a)
 $1=\int\int f(x,y)dxdy=c\cdot\int_{0}^{1}\int_{0}^{y}(y-x)dxdy=c\cdot\int_{0}^{1}(y^{2}-\frac{y^{2}}{2})dy=c\cdot(\frac{1}{3}-\frac{1}{6})=\frac{1}{6}\cdot c\implies c=6$
 
 
-\subsubsection*{\textmd{b) As v.a. X e Y s„o independentes? }}
+\subsubsection*{\textmd{b) As v.a. X e Y s√£o independentes? }}
 
 Resp. b)
 
-N„o, pois 
+N√£o, pois 
 
-{*}) lembrando que para o c·lculo das marginais, calculamos : $f_{X}(x)=\int f(x,y)dy$
+{*}) lembrando que para o c√°lculo das marginais, calculamos : $f_{X}(x)=\int f(x,y)dy$
 e $f_{Y}(y)=\int f(x,y)dx$
 
-{*}) como 0<x<y<1, os intervalos possÌveis de cada um deles È 0<x<y
+{*}) como 0<x<y<1, os intervalos poss√≠veis de cada um deles √© 0<x<y
 e x<y<1
 \begin{itemize}
 \item $f_{Y}(y)=\int_{0}^{y}6(y-x)dx=6y^{2}-6\frac{y^{2}}{2}=3y^{2}$
@@ -627,12 +627,12 @@ e x<y<1
 \item $f(x,y)\neq f_{X}(x)\cdot f_{Y}(y)$
 \end{itemize}
 
-\subsection*{\textmd{16. Um dado honesto e lanÁado 10 vezes. Qual e a probabilidade
-de obter duas vezes ``6'', cinco vezes ``5'' e trÍs vezes ``1''?}}
+\subsection*{\textmd{16. Um dado honesto e lan√ßado 10 vezes. Qual e a probabilidade
+de obter duas vezes ``6'', cinco vezes ``5'' e tr√™s vezes ``1''?}}
 
 Resp. 16)
 
-Usaremos a distribuiÁ„o multinomial (Ross. 291-292), cada uma com
+Usaremos a distribui√ß√£o multinomial (Ross. 291-292), cada uma com
 probabilidade de sucesso de um sexto
 
 $P(X_{1}=2,X_{2}=5,X_{3}=3)=\frac{10!}{2!5!3!}\cdot\frac{1}{6^{2}}\cdot\frac{1}{6^{5}}\cdot\frac{1}{6^{3}}=9\cdot8\cdot7\cdot5\cdot\frac{1}{6^{10}}$
@@ -643,13 +643,13 @@ $P(X_{1}=2,X_{2}=5,X_{3}=3)=\frac{10!}{2!5!3!}\cdot\frac{1}{6^{2}}\cdot\frac{1}{
 
 \subsection*{\pagebreak{}}
 \begin{quotation}
-Este solucion·rio foi feito para a disciplina ME310 - 2Sem 2012. Caso
-encontre algum erro, por favor peÁa alteraÁ„o informando o erro em
-nosso grupo de discuss„o: 
+Este solucion√°rio foi feito para a disciplina ME310 - 2Sem 2012. Caso
+encontre algum erro, por favor pe√ßa altera√ß√£o informando o erro em
+nosso grupo de discuss√£o: 
 
 $$https://groups.google.com/forum/?fromgroups\#!forum/me310-2s-2012$$
 
-ou diretamente no repositÛrio do github:
+ou diretamente no reposit√≥rio do github:
 
 $$https://github.com/eric-lopes/Probabilidade2$$
 

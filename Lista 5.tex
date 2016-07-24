@@ -10,15 +10,18 @@
 %% me envie as alterações para que possamos melhorar este documento.
 %% Obrigado.
 
-%% Author: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 02/09/2012
-%% Edited by: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 14/09/2015
+%% Author: Eric Lopes - https://github.com/nullhack/Probabilidade2 - 02/09/2012
+%% Edited by: Eric Lopes - https://github.com/nullhack/Probabilidade2 - 14/09/2015
+%% Edited by: Christophe Gallesco - 12/12/2015
+%% Edited by: Eric Lopes - https://github.com/nullhack/Probabilidade2 - 24/07/2016
 %% Edited by:
 
-\documentclass[english]{article}
+\documentclass[portuguese]{article}
 \usepackage[LGR,T1]{fontenc}
-\usepackage[latin9]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{textcomp}
 \usepackage{amsmath}
+\usepackage{babel}
 \usepackage{esint}
 
 \makeatletter
@@ -42,11 +45,11 @@
 \subsubsection*{Lembrando:}
 \begin{enumerate}
 \item Convergência de sequências em $L^{p}$ (também chamada de convergência
-em média): se $\underset{n\rightarrow\infty}{lim}\mathbf{E}(\left|X_{n}-X_{0}\right|^{p})\rightarrow0$
+em média $p$): se $\underset{n\rightarrow\infty}{lim}\mathbf{E}(\left|X_{n}-X_{0}\right|^{p})\rightarrow0$
 quando $n\rightarrow\infty$, então a sequência definida por $X_{n}$
 é dita convergente para $X_{0}$ em $L^{p}$ ($X_{n}\overset{L^{p}}{\rightarrow}X_{0}$)
 \item Convergência em probabilidade: se $\underset{n\rightarrow\infty}{lim}P(\left|X_{n}-X_{0}\right|\ge\epsilon)\rightarrow0$
-com $0<\epsilon$ dado, quando $n\rightarrow\infty$, então a sequência
+com $\epsilon>0$ dado, quando $n\rightarrow\infty$, então a sequência
 definida por $X_{n}$ é dita convergente para $X_{0}$ em probabilidade
 ($X_{n}\overset{prob.}{\rightarrow}X_{0}$). Outra maneira equivalente
 de escrever é: $\underset{n\rightarrow\infty}{lim}P(\left|X_{n}-X_{0}\right|<\epsilon)\rightarrow1$
@@ -64,13 +67,13 @@ calculamos $P(A_{n})$, Se $\sum_{n=1}^{\infty}P(A_{n})<\infty$ então
 com probabilidade 1, um número finito dos eventos $A_{n}$ vai ocorrer,
 ou seja, para todo $\epsilon>0$ podemos encontrar $N$ tal que, para
 todo $n\ge N$ temos que $A_{n}$ não ocorre (ou seja, $X_{n}\overset{q.c.}{\to}X$).
-Se caso contrario, $\sum_{n=1}^{\infty}P(A_{n})\to\infty$ e os eventos
+Se caso contrario, $\sum_{n=1}^{\infty}P(A_{n})=\infty$ e os eventos
 são independentes, então com prob. 1 existe subsequência infinita
 $n_{1},n_{2},...$ tal que $A_{n_{i}}$ ocorre, ou seja, $|X_{n_{i}}-X|>\epsilon\implies X_{n}$
 não converge para $X$ quase certamente.
 \item Convergência em distribuição: se $\underset{n\rightarrow\infty}{lim}F_{X_{n}}(a)=F_{X}(a)\ \forall a$,
 então $X_{n}$ é dito convergente em distribuição para $X$ para todo
-$a$ onde $F_{x}(a)$ é continua
+$a$ onde $F_{X}(a)$ é continua.
 \item Lema de Borel-Cantelli: Seja um evento $\{A_{n}\}$ com probabilidade
 de ocorre $P(A_{n})=h(n)$, se $\sum h(n)\rightarrow+\infty$ e os
 eventos são independetes o evento ocorre um número infinito de vezes;
@@ -85,9 +88,9 @@ $A_{n}=\mathbf{E}(S_{n})=\sum_{i=1}^{i=n}\mu_{k}$
 
 \begin{itemize}
 \item Lei fraca dos grandes números: dizemos que $\left\{ X_{n},n\ge1\right\} $
-satisfaz a lei fraca dos grandes números se $\underset{n\rightarrow\infty}{lim}\frac{S_{n}}{n}-\frac{A_{n}}{n}\overset{Prob.}{\to}0$
+satisfaz a lei fraca dos grandes números se $\underset{n\rightarrow\infty}{\lim}\frac{S_{n}}{n}-\frac{A_{n}}{n}\overset{Prob.}{\to}0$
 \item Lei forte dos grandes números: dizemos que $\left\{ X_{n},n\ge1\right\} $
-satisfaz a lei forte dos grandes números se $\underset{n\rightarrow\infty}{lim}\frac{S_{n}}{n}-\frac{A_{n}}{n}\overset{q.c.}{\to}0$
+satisfaz a lei forte dos grandes números se $\underset{n\rightarrow\infty}{\lim}\frac{S_{n}}{n}-\frac{A_{n}}{n}\overset{q.c.}{\to}0$
 \end{itemize}
 \item Teorema de Kolmogorov: 
 
@@ -99,29 +102,23 @@ satisfaça a lei forte dos grandes números e $\frac{S_{n}}{n}\overset{q.c.}{\to
 onde $\mu=\mu_{1}$
 \item (Outro teorema de Kolmogorov): Seja $\left\{ X_{n},n\ge1\right\} $
 uma sequência de variáveis aleatórias independentes com segundo momento
-finito e $Var(X_{n})<\infty$ se $\sum_{n=1}^{n\to\infty}\frac{Var(X_{n})}{n^{2}}<\infty$
-então $\frac{S_{n}}{n}\overset{q.c.}{\to}\frac{\mathbf{E}(S_{n})}{n}$
+finito e $Var(X_{n})<\infty$ se $\sum_{n=1}^{\infty}\frac{Var(X_{n})}{n^{2}}<\infty$
+então $\frac{S_{n}}{n}-\frac{\mathbf{E}(S_{n})}{n}\overset{q.c.}{\to}0$
 \end{itemize}
-\item Sequências que são transformações de sequências convergentes: Sejam
-as sequências $\left\{ X_{n},n\ge1\right\} $ e $\left\{ Y_{n},n\ge1\right\} $
-que satisfazem o teorema de Kolmogorov, defina uma sequência que seja
-função delas $\left\{ f(X_{n},Y_{n})\right\} $ então $f(X_{n},Y_{n})\overset{q.c.}{\to}f(\mu_{X},\mu_{Y})$
-se $f(\mu_{X},\mu_{Y})<\infty$
 \item TEOREMA DO LIMITE CENTRAL: Seja $X_{1},X_{2},...X_{n}$ um conjunto
-de n variáveis independentes cada uma com média $\mu_{i}$ e variância
-finita $\sigma_{i}^{2}$. Então:
+de n variáveis independentes cada uma com média $\mu$ e variância
+finita $\sigma^{2}$. Então:
 \[
-Y=\underset{n\to\infty}{lim}\frac{\sum_{i=1}^{i=n}X_{i}-\sum_{i=1}^{i=n}\mu_{i}}{\sqrt{\sum_{i=1}^{i=n}\sigma_{i}^{2}}}\sim N(0,1)
+Y=\underset{n\to\infty}{\lim}\frac{\sum_{i=1}^{n}X_{i}-n\mu}{\sqrt{n\sigma^{2}}}\sim N(0,1)
 \]
 
 
 
 Outra forma (bastante útil) de enunciar o TLC é dizer que $\frac{\sqrt{n}}{\sigma}(X-\mu)\overset{d}{\to}N(0,1)$;
-em que $X=\frac{1}{n}\sum_{i=1}^{i=n}X_{i}$
+em que $X=\frac{1}{n}\sum_{i=1}^{i=n}X_{i}$.
 
 \item Implicações: $L^{p}\implies prob.\implies distrib.$ e $q.c.\implies prob.\implies distrib.$
-\item Manipulações em Variáveis com distribuição normal: Sejam $X\sim N(\mu_{X};\sigma_{X}^{2})$
-; $Y\sim N(\mu_{Y};\sigma_{Y}^{2})$ e k constante então:
+\item Manipulações em Variáveis com distribuição normal: Sejam $X\sim N(\mu_{X};\sigma_{X}^{2})$, $Y\sim N(\mu_{Y};\sigma_{Y}^{2})$ independentes e k constante então:
 
 \begin{itemize}
 \item $V=kX\sim N(k\cdot\mu_{X};k^{2}\cdot\sigma_{X}^{2})$
@@ -296,10 +293,10 @@ Mostre que
 \]
 }}
 
-Resp. ) vamos usar (9).
+Resp. 
 
 Considere $U_{n}=\frac{\sum X_{i}}{n}$, como $\mathbf{E}(X_{i})<\infty$
-então $U_{n}\overset{q.c.}{\to}1$
+então $U_{n}\overset{q.c.}{\to}1$.
 
 Considere $W_{n}=\frac{\sum X_{i}^{2}}{n}$, como $\mathbf{E}(X_{i}^{2})=Var(X_{i})+1^{2}=2<\infty$
 então $W_{n}\overset{q.c.}{\to}2$
@@ -422,8 +419,8 @@ Resp. a)
 
 Queremos: 
 \begin{enumerate}
-\item $P(\frac{S_{25}}{25}\ge8)=P(\frac{S_{25}-25\mu}{\sigma\sqrt{25}}\ge\frac{25\cdot8-25\mu}{\sigma\sqrt{25}})=1-\phi(\frac{25\cdot8-25\mu}{\sigma\sqrt{25}})=1-\phi(\frac{25\cdot8-25\cdot7,5}{1,4\cdot\sqrt{25}})=1-\phi(2,14)=1-0,9838\cong0,016$
-\item $P(\frac{S_{64}}{64}\ge8)=P(\frac{S_{64}-64\mu}{\sigma\sqrt{64}}\ge\frac{64\cdot8-64\mu}{\sigma\sqrt{64}})=1-\phi(\frac{64\cdot8-64\mu}{\sigma\sqrt{64}})=1-\phi(\frac{64\cdot8-64\cdot7,5}{1,4\cdot\sqrt{64}})=1-\phi(3,428)\cong0,0003$
+\item $P(\frac{S_{25}}{25}\ge8)=P(\frac{S_{25}-25\mu}{\sigma\sqrt{25}}\ge\frac{25\cdot8-25\mu}{\sigma\sqrt{25}})=1-\phi(\frac{25\cdot8-25\mu}{\sigma\sqrt{25}})=1-\phi(\frac{25\cdot8-25\cdot7,4}{1,4\cdot\sqrt{25}})=1-\phi(2,14)=1-0,9838\cong0,016$
+\item $P(\frac{S_{64}}{64}\ge8)=P(\frac{S_{64}-64\mu}{\sigma\sqrt{64}}\ge\frac{64\cdot8-64\mu}{\sigma\sqrt{64}})=1-\phi(\frac{64\cdot8-64\mu}{\sigma\sqrt{64}})=1-\phi(\frac{64\cdot8-64\cdot7,4}{1,4\cdot\sqrt{64}})=1-\phi(3,428)\cong0,0003$
 \end{enumerate}
 
 \subsubsection*{\textmd{b) A probabilidade de que a nota média da turma maior exceda
@@ -525,7 +522,7 @@ $$https://groups.google.com/forum/?fromgroups\#!forum/me310-2s-2012$$
 
 ou diretamente no repositório do github:
 
-$$https://github.com/eric-lopes/Probabilidade2$$
+$$https://github.com/nullhack/Probabilidade2$$
 
 Bons estudos,
 

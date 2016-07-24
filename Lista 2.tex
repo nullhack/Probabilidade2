@@ -10,15 +10,17 @@
 %% me envie as alterações para que possamos melhorar este documento.
 %% Obrigado.
 
-%% Author: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 02/09/2012
-%% Edited by: Eric Lopes - https://github.com/eric-lopes/Probabilidade2 - 14/09/2015
+%% Author: Eric Lopes - https://github.com/nullhack/Probabilidade2 - 02/09/2012
+%% Edited by: Eric Lopes - https://github.com/nullhack/Probabilidade2 - 14/09/2015
+%% Edited by: Christophe Gallesco - 12/12/2015
+%% Edited by: Eric Lopes - https://github.com/nullhack/Probabilidade2 - 24/07/2016
 %% Edited by:
-
-\documentclass[english]{article}
+\documentclass[portuguese]{article}
 \usepackage[T1]{fontenc}
-\usepackage[latin9]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{textcomp}
 \usepackage{amsmath}
+\usepackage{babel}
 \usepackage{esint}
 
 \makeatletter
@@ -64,12 +66,12 @@ Dica: estatísticas de ordem. }}
 
 da equação 1, sabemos que $f_{x_{j}}(x)=\frac{n!}{(n-j)!(j-1)!}\cdot F(x)^{j-1}\cdot(1-F(x))^{n-j}\cdot f(x)$,
 se três turbinas funcionam então o avião funciona, como $x_{1}<x_{2}<x_{3}<x_{4}<x_{5}$,
-basta calcularmos a probabilidade da turbina $x_{3}$ estar funcionando
+basta calcularmos a probabilidade da turbina $X_{3}$ estar funcionando
 (se ela não estiver, o avião não estará).
 
 para isso, temos $n=5,j=3$
 
-$f_{X_{3}}(T)=\frac{5!}{2!2!}\cdot F_{X}(T)^{2}\cdot(1-F_{X}(T))^{2}\cdot f(T)=30\cdot(1-(1+T)e^{-T})^{2}\cdot((1+T)e^{-T})^{2}\cdot T\cdot e^{-T}$
+$f_{X_{3}}(t)=\frac{5!}{2!2!}\cdot F(t)^{2}\cdot(1-F(t))^{2}\cdot f(t)=30\cdot(1-(1+t)e^{-t})^{2}\cdot((1+t)e^{-t})^{2}\cdot t\cdot e^{-t}$
 
 
 \subsection*{\textcompwordmark{}}
@@ -94,7 +96,7 @@ $f_{x_{3}}(x)=\frac{5!}{(5-3)!(3-1)!}\cdot F(x)^{3-1}\cdot(1-F(x))^{5-3}\cdot f(
 Para calcular a probabilidade de estar no intervalo $(\frac{1}{4},\frac{3}{4})$
 fazemos:
 
-$P(\frac{1}{4}\leq X_{3}\leq\frac{3}{4})=\int_{1/4}^{3/4}30\cdot x^{2}\cdot(1-x)^{2}dx=\int_{1/4}^{3/4}30\cdot(x^{2}-2\cdot x^{3}+x^{4})dx=30\cdot(\frac{x^{3}}{3}-\frac{x^{4}}{2}+\frac{x^{5}}{5})|_{x=1/4}^{x=3/4}=0,0265$
+$P(\frac{1}{4}\leq X_{3}\leq\frac{3}{4})=\int_{1/4}^{3/4}30\cdot x^{2}\cdot(1-x)^{2}dx=\int_{1/4}^{3/4}30\cdot(x^{2}-2\cdot x^{3}+x^{4})dx=30\cdot(\frac{x^{3}}{3}-\frac{x^{4}}{2}+\frac{x^{5}}{5})|_{x=1/4}^{x=3/4}\approx 0,79.$
 
 
 \subsection*{\textcompwordmark{}}
@@ -106,15 +108,15 @@ Calcule a densidade conjunta das variáveis $U=XY$ e $V=X/Y.$}}
 
 \subsubsection*{\textmd{Resp}. \textmd{3)}}
 
-$f_{U,V}(U,V)=f_{X,Y}(x,y)\cdot\left|\mathbf{J}(x,y)\right|^{-1}$
+$f_{U,V}(u,v)=f_{X,Y}(x,y)\cdot\left|\mathbf{J}(x,y)\right|^{-1}$
 \begin{itemize}
 \item $\mathbf{J}(x,y)=\left|\begin{array}{cc}
 y & x\\
 1/y & -x/y^{2}
 \end{array}\right|=-\frac{x}{y}-\frac{x}{y}=-2\cdot\frac{x}{y}$
-\item $f_{U,V}(U,V)=\frac{\frac{1}{x^{2}\cdot y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\left|-2\cdot\frac{x}{y}\right|}=\frac{\frac{1}{x^{2}\cdot y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{2\cdot\frac{x}{y}}=\frac{y}{2x}\cdot\frac{1}{x^{2}y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}=\frac{1}{2VU^{2}}\cdot\mathbf{I}_{\{U\ge1,V>0\}}$
+\item $f_{U,V}(U,V)=\frac{\frac{1}{x^{2}\cdot y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\left|-2\cdot\frac{x}{y}\right|}=\frac{\frac{1}{x^{2}\cdot y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{2\cdot\frac{x}{y}}=\frac{y}{2x}\cdot\frac{1}{x^{2}y^{2}}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}=\frac{1}{2vu^{2}}\cdot\mathbf{I}_{\Delta}(u,v)$
 \end{itemize}
-
+onde $\Delta=\{ (u,v)\in R^2: u\geq 1; 1/u <v<u\}$.
 \subsection*{\textcompwordmark{}}
 
 
@@ -131,18 +133,18 @@ conjunta de}}
 1 & 1\\
 1/y & -x/y^{2}
 \end{array}\right|=-\frac{x}{y^{2}}-\frac{1}{y}$
-\item $f_{U,V}(u,v)=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\left|-\frac{x}{y^{2}}-\frac{1}{y}\right|}=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\frac{x}{y^{2}}+\frac{1}{y}}=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\frac{x+y}{y^{2}}}=\frac{(\frac{u}{1+v})^{2}\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{u}=\frac{u\cdot\mathbf{I}_{\{2\ge u\ge0,v>0\}}}{(1+v)^{2}}$
+\item Seja $D=(0,1)^2$. $f_{U,V}(u,v)=\frac{1\cdot\mathbf{I}_{D}(x,y)}{\left|-\frac{x}{y^{2}}-\frac{1}{y}\right|}=\frac{1\cdot\mathbf{I}_{D}(x,y)}{\frac{x}{y^{2}}+\frac{1}{y}}=\frac{1\cdot\mathbf{I}_{D}(x,y)}{\frac{x+y}{y^{2}}}=\frac{(\frac{u}{1+v})^{2}\cdot\mathbf{I}_{\Delta}(u,v)}{u}=\frac{u\cdot\mathbf{I}_{\Delta}(u,v)}{(1+v)^{2}}$ 
 \end{itemize}
-
+onde $\Delta=\{ (u,v)\in R^2: 0<v\leq1; 0<u<1+v \}\cup\{(u,v)\in R^2: v>1; 0< u<1+1/v \}$.
 \subsection*{\textmd{b) $U=X$, $V=X/Y$ .}}
 \begin{itemize}
 \item $\mathbf{J}(x,y)=\left|\begin{array}{cc}
 1 & 0\\
 1/y & -x/y^{2}
 \end{array}\right|=-\frac{x}{y^{2}}$
-\item $f_{U,V}(u,v)=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\left|-\frac{x}{y^{2}}\right|}=\frac{1\cdot\mathbf{I}_{\{x\ge1,y\ge1\}}}{\frac{x}{y^{2}}}=\frac{u}{v^{2}}\cdot\mathbf{I}_{\{u\ge0,v>0\}}$
+\item $f_{U,V}(u,v)=\frac{1\cdot\mathbf{I}_{D}(x,y)}{\left|-\frac{x}{y^{2}}\right|}=\frac{1\cdot\mathbf{I}_{D}(x,y)}{\frac{x}{y^{2}}}=\frac{u}{v^{2}}\cdot\mathbf{I}_{\Delta}(u,v)$
 \end{itemize}
-
+onde $\Delta=\{ (u,v)\in R^2: 0<u<1; v>u \}$.
 \subsection*{\textcompwordmark{}}
 
 
@@ -172,34 +174,34 @@ das outras bolas). Calcule}}
 \subsubsection*{\textmd{Resp}. \textmd{a) }}
 
 
-\subsubsection*{\textmd{Seja $P(X_{j}=i)=\frac{1}{i}$ a probabilidade da j-ésima
-bola cair em uma urna específica i, então a probabilidade da j-ésima
-bola não cair na urna i é $P(X_{j}\neq i)=1-\frac{1}{i}$.}}
+\subsubsection*{\textmd{Seja $P(X_{j}=i)=\frac{1}{j}$ a probabilidade da $j$-ésima
+bola cair em uma urna específica $i$, com $1\leq i\leq j$, então a probabilidade da $j$-ésima
+bola não cair na urna $i$ é $P(X_{j}\neq i)=1-\frac{1}{j}$ para $1\leq i\leq j$.}}
 
 Considere o evento $Y_{i}=\begin{cases}
 1 & se\, urna\, i\, est\acute{a}\, vazia\\
 0 & caso\, contr\acute{a}rio
-\end{cases}$, e considere o evento $U=\sum_{i=1}^{i=N}Y_{i}$, ``quantidade de
-urnas vazias''
+\end{cases}$, e considere o evento $U=\sum_{i=1}^{N}Y_{i}$, ``quantidade de
+urnas vazias''.\\
+Temos que 
+$$\mathbf{E}(Y_{i})=P(\text{Urna $i$ vazia})=P(X_{1}\neq i,X_{2}\neq i,X_{3}\neq i,X_{3}\neq i,X_{4}\neq i,...)=\prod_{j=i}^{N}(1-\frac{1}{j})$$
 
-$\mathbf{E}(Y_{i})=P(Urna_{i}=0)=P(X_{1}\neq i,X_{2}\neq i,X_{3}\neq i,X_{3}\neq i,X_{4}\neq i,...)=\prod_{j=i}^{j=N}(1-\frac{1}{j})$
-
-$\mathbf{E}(U)=\mathbf{E}(\sum_{i=1}^{i=N}Y_{i})=\sum_{i=1}^{i=N}\mathbf{E}(Y_{i})=\sum_{i=1}^{i=N}\prod_{j=i}^{j=N}(1-\frac{1}{j})$
+$$\mathbf{E}(U)=\mathbf{E}(\sum_{i=1}^{N}Y_{i})=\sum_{i=1}^{N}\mathbf{E}(Y_{i})=\sum_{i=1}^{N}\prod_{j=i}^{N}(1-\frac{1}{j})=\frac{N-1}{2}.$$
 
 
-\subsubsection*{\textmd{b) a probabilidade de que nenhuma urna está vázia.}}
+\subsubsection*{\textmd{b) A probabilidade de que nenhuma urna está vázia.}}
 
 Resp. b)
 
 Observe que para que isso ocorra, cada bola deve estar em exatamente
 uma urna.
 
-Mas para que isso ocorra, a i-ésima bola deve estar na urna i, pois
+Mas para que isso ocorra, a $i$-ésima bola deve estar na urna $i$, pois
 a bola 1 só pode estar na urna 1, com isso, a bola 2 que poderia estar
 na urna 1 ou na urna 2 fica restrita apenas à urna 2, assim por diante.
-Logo:
+Logo,
 
-$P(X_{N}=N,X_{N-1}=N-1,...,X_{1}=1)=\prod_{j=1}^{j=N}(\frac{1}{j})$
+$$P(X_{N}=N,X_{N-1}=N-1,...,X_{1}=1)=\prod_{j=1}^{N}(\frac{1}{j})=\frac{1}{N!}.$$
 
 
 \subsection*{\textcompwordmark{}}
@@ -231,6 +233,7 @@ no primeiro e no segundo dados. Calcule Cov(X, Y ).}}
 
 
 \subsubsection*{\textmd{Resp. 8) }}
+Seja $A$ a v.a.~que representa o resultado do primeiro dado e $B$ a v.a.~que representa o resultado do segundo dado. Temos
 \begin{itemize}
 \item $Cov(X,Y)=\mathbf{E}((X-\mathbf{E}(X))\cdot(Y-\mathbf{E}(Y)))$
 \item $A\sim U(1,6)$, discreta
@@ -251,11 +254,14 @@ Com isso: $Cov(X,Y)=\mathbf{E}((A+B-\mathbf{E}(A+B))\cdot(A-B-\mathbf{E}(A-B)))=
 \subsubsection*{\textmd{Resp. 9) }}
 \begin{itemize}
 \item $Cov(X,Y)=\mathbf{E}(X\cdot Y)-\mathbf{E}(X)\cdot\mathbf{E}(Y)$
-\item $\mathbf{E}(X\cdot Y)=\int_{0}^{\infty}\int_{0}^{\infty}\frac{xy}{y}\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}\int_{0}^{\infty}x\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}(-(\frac{x+y}{y})\cdot e^{-\frac{x+y^{2}}{y}}|_{x=0}^{x=\infty})dy=\int_{0}^{\infty}e^{-y}dy=1$
-\item $\mathbf{E}(X)=\int_{0}^{\infty}\int_{0}^{\infty}\frac{x}{y}\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}(-(x+y)\cdot e^{-\frac{x+y^{2}}{y}}|_{x=0}^{x=\infty})dy=\int_{0}^{\infty}(-y)\cdot e^{-y}dy=0$
-\item Como $\mathbf{E}(Y)<\infty$, então nem precisamos calculá-lo, pois
-$\mathbf{E}(X)\cdot\mathbf{E}(Y)=0\cdot\mathbf{E}(Y)=0$, com isso
-a solução é $Cov(X,Y)=1-0=1$
+\item $\mathbf{E}(X\cdot Y)=\int_{0}^{\infty}\int_{0}^{\infty}\frac{xy}{y}\cdot e^{-(y+\frac{x}{y})}dxdy=\int_{0}^{\infty}e^{-y}(\int_{0}^{\infty}x\cdot e^{-\frac{x}{y}}dx)dy=\int_{0}^{\infty}y^2e^{-y}dy=\Gamma(3)=2$.
+
+\item $\mathbf{E}(X)=\int_{0}^{\infty} \int_{0}^{\infty} \frac{x}{y}e^{-(y+\frac{x}{y})}dx dy=\int_{0}^{\infty}\frac{e^{-y}}{y}(\int_{0}^{\infty}x\cdot e^{-\frac{x}{y}}dx)dy=\int_{0}^{\infty}y\cdot e^{-y}dy=\Gamma(2)=1$.
+
+\item  $\mathbf{E}(Y)=\int_{0}^{\infty} \int_{0}^{\infty} e^{-(y+\frac{x}{y})}dx dy= \int_{0}^{\infty}e^{-y}(\int_{0}^{\infty}e^{-\frac{x}{y}}dx)dy=\int_{0}^{\infty}y\cdot e^{-y}dy=\Gamma(2)=1$.
+
+\item  Com isso
+a solução é $Cov(X,Y)=2-1=1.$
 \end{itemize}
 
 \subsection*{\textcompwordmark{}}
@@ -269,9 +275,9 @@ e considere v.a. $Y=sen(X)$, $Z=cos(X)$. }}
 
 Resp. a)
 \begin{itemize}
-\item Não, observe que dado Y, podemos calcular X ($X=arcsen(Y)$) e dado
-X podemos determinar Z, logo dado Y podemos determinar Z (Z depende
-de Y).O mesmo raciocínio vale para Y em função de Z
+\item As v.a.~$X$ e $Y$ n\~ao s\~ao independentes! De fato, em primeiro lugar, devido ao fato que $X^2+Y^2=1$, o ponto de coordenadas $(X,Y)$ est\'a no c\'irculo unit\'ario em $R^2$. Agora, sejam $A=[\frac{\sqrt{2}}{2},1]$ e $B=[-\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}]$, observe que $P[Y\in B\mid X\in A]=1$ (fazer um desenho do c\'irculo). No entanto, \'e f\'acil ver que $P[Y\in B]<1$ (fazer de novo um desenho). Assim, 
+$$P[Y\in B\mid X\in A] \neq P[Y\in B]$$
+ o que mostra que $X$  e $Y$ n\~ao s\~ao independentes.
 \end{itemize}
 
 \subsubsection*{\textmd{b) Calcule $\mathbf{E}(Y)$}}
@@ -330,10 +336,14 @@ $$https://groups.google.com/forum/?fromgroups\#!forum/me310-2s-2012$$
 
 ou diretamente no repositório do github:
 
-$$https://github.com/eric-lopes/Probabilidade2$$
+$$https://github.com/nullhack/Probabilidade2$$
 
 Bons estudos,
 
 Eric.\end{quotation}
+
+\end{document}
+
+
 
 \end{document}

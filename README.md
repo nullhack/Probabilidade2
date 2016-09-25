@@ -63,6 +63,12 @@ Repositório para os arquivos das listas resolvidas da disciplina ME310 (Probabi
 * Implicações de convergências
 * manipulações de variáveis em distribuição normal
 
+----
+
 ## Licença de uso
 
-Todas as soluções estão disponíveis 
+Copyright [Eric Lopes](https://github.com/nullhack)
+
+Este projeto está licenciado soba  licença Creative Commons [by-sa](https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt)
+
+O texto completo desta licença pode ser encontrado no arquivo [LICENSE.md](LICENSE.md) que deve ser encontrado no diretório do projeto.

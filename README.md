@@ -35,8 +35,8 @@ Repositório para os arquivos das listas resolvidas da disciplina ME310 (Probabi
 
 ### [Lista 3](Lista 3.pdf)
 
-* Distribuição Bionomial negativa
-* Variância em termos de variância
+* Distribuição Binomial negativa
+* Variância em termos de variância condicional
 
 ### [Lista 4](Lista 4.pdf)
 

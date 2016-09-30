@@ -80,7 +80,7 @@ O texto completo desta licença em inglês, pode ser encontrado no arquivo [LICE
 
 O licenciante não pode revogar estes direitos desde que você respeite os termos da licença.
 
-### De acordo com os termos seguintes:
+### De acordo com os seguintes termos:
 
 * **Atribuição** — Você deve dar o crédito apropriado, prover um link para a licença e indicar se mudanças foram feitas. Você deve fazê-lo em qualquer circunstância razoável, mas de maneira alguma que sugira ao licenciante a apoiar você ou o seu uso.
 

@@ -2,7 +2,7 @@
 
 Repositório para os arquivos das listas resolvidas da disciplina ME310 (Probabilidade 2) ministrada na Unicamp
 
-### [Lista 0](Lista 0.pdf)
+### [Lista 0](lista-0.pdf)
 
 * Conjuntos disjuntos
 * Conjuntos independentes
@@ -15,7 +15,7 @@ Repositório para os arquivos das listas resolvidas da disciplina ME310 (Probabi
 * Distribuição exponencial
 * Distribuição Uniforme
 
-### [Lista 1](Lista 1.pdf)
+### [Lista 1](lista-1.pdf)
 
 * Probabilidade conjunta
 * Soma de v.a. independentes por convolução
@@ -26,19 +26,19 @@ Repositório para os arquivos das listas resolvidas da disciplina ME310 (Probabi
 * V.a. i.i.d.
 * Esperança
 
-### [Lista 2](Lista 2.pdf)
+### [Lista 2](lista-2.pdf)
 
 * Estatística de ordem
 * Distribuiçao de probabilidade conjunta de funções de v.a.
 * Covariância
 * Variância
 
-### [Lista 3](Lista 3.pdf)
+### [Lista 3](lista-3.pdf)
 
 * Distribuição Binomial negativa
 * Variância em termos de variância condicional
 
-### [Lista 4](Lista 4.pdf)
+### [Lista 4](lista-4.pdf)
 
 * Função geratriz de momentos
 * Distribuição de Poisson
@@ -49,7 +49,7 @@ Repositório para os arquivos das listas resolvidas da disciplina ME310 (Probabi
 * Desigualdade de Chebyshev
 * Desigualdade de Jensen
 
-### [Lista 5](Lista 5.pdf)
+### [Lista 5](lista-5.pdf)
 
 * Convergência de sequências em L^p
 * Convergência de sequências em probabilidade

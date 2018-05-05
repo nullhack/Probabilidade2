@@ -51,11 +51,11 @@ Repositório para os arquivos das listas resolvidas da disciplina ME310 (Probabi
 
 ### [Lista 5](lista-5.pdf)
 
-* Convergência de sequências em L^p
+* Convergência de sequências em *L^p*
 * Convergência de sequências em probabilidade
 * Convergência quase certa
 * Convergência em distribuição
-* Lema de Boral-Cantelli
+* Lema de Borel-Cantelli
 * Limite fundamental *e*
 * Lei dos grandes números
 * Teorema de Kolmogorov
